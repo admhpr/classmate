@@ -1,114 +1,186 @@
-/* 
-*  DB Script Tool
-*  MySQL - 2017-10-24 10:56:27
-*  
-*/ 
-CREATE DATABASE IF NOT EXISTS `final-project`
-    DEFAULT CHARACTER SET utf8
-    DEFAULT COLLATE utf8_general_ci;
+-- phpMyAdmin SQL Dump
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 24, 2017 at 09:32 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
-USE `final-project`;
-
-
-
-/* 
-*  users
-*  defines a user
-*  2017-10-24 10:20:40
-*/ 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-    `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `first_name` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
-    `last_name` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
-    `email` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
-    `password` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
-    `salt` VARCHAR(25) COLLATE utf8_general_ci NOT NULL,
-    `bio` TEXT,
-    `image_path` VARCHAR(255) COLLATE utf8_general_ci,
-    `reputation` BIGINT DEFAULT '0' NOT NULL,
-    `reputation_votes` INT UNSIGNED NOT NULL AUTO_INCREMENT,
- PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-/* 
-*  user_roles
-*  defines user roles
-*  2017-10-24 10:20:50
-*/ 
-DROP TABLE IF EXISTS `user_roles`;
-CREATE TABLE IF NOT EXISTS `user_roles` (
-    `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `role_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
- PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
+--
+-- Database: `final-project`
+--
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `answers`
+--
 
-/* 
-*  catergories
-*  2017-10-24 10:21:02
-*/ 
-DROP TABLE IF EXISTS `catergories`;
-CREATE TABLE IF NOT EXISTS `catergories` (
-    `catergory_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `catergory` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
-    `description` VARCHAR(255) COLLATE utf8_general_ci,
- PRIMARY KEY (`catergory_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `answers` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `question_id` int(10) UNSIGNED NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `total_upvotes` varchar(255) DEFAULT NULL,
+  `has_voted` tinyint(1) DEFAULT '0',
+  `is_active` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `catergories`
+--
 
-/* 
-*  questions
-*  defines a question
-*  2017-10-24 10:21:09
-*/ 
-DROP TABLE IF EXISTS `questions`;
-CREATE TABLE IF NOT EXISTS `questions` (
-    `question_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `user_id` INT UNSIGNED NOT NULL,
-    `catergory_id` INT UNSIGNED NOT NULL,
-    `content` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
-    `title` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
- FOREIGN KEY fk_user(`user_id`)
- FOREIGN KEY fk_catergory(`catergory_id`)
- PRIMARY KEY (`question_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `catergories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `catergory` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `questions`
+--
 
-/* 
-*  answers
-*  defines an answer
-*  2017-10-24 10:21:43
-*/ 
-DROP TABLE IF EXISTS `answers`;
-CREATE TABLE IF NOT EXISTS `answers` (
-    `answer_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `user_id` INT UNSIGNED NOT NULL,
-    `question_id` INT UNSIGNED NOT NULL,
-    `content` VARCHAR(255) COLLATE utf8_general_ci,
-    `title` VARCHAR(255) COLLATE utf8_general_ci,
-    `total_upvotes` VARCHAR(255) COLLATE utf8_general_ci,
-    `has_voted` TINYINT(1) DEFAULT '0',
- FOREIGN KEY fk_user(`user_id`)
- FOREIGN KEY fk_question(`question_id`)
- PRIMARY KEY (`answer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `questions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `catergory_id` int(10) UNSIGNED NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `is_active` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `roles`
+--
 
-/* 
-*  roles
-*  defines roles a user can have
-*/ 
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-    `role_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `role` VARCHAR(255) COLLATE utf8_general_ci DEFAULT 'user
-user' NOT NULL,
- PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'user\r\nuser',
+  `is_active` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `salt` varchar(25) NOT NULL,
+  `bio` text,
+  `image_path` varchar(255) DEFAULT NULL,
+  `reputation` bigint(20) NOT NULL DEFAULT '0',
+  `reputation_votes` int(10) UNSIGNED NOT NULL,
+  `is_active` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE `user_roles` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `is_active` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `answers`
+--
+ALTER TABLE `answers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `catergories`
+--
+ALTER TABLE `catergories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`user_id`,`role_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `answers`
+--
+ALTER TABLE `answers`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `catergories`
+--
+ALTER TABLE `catergories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
