@@ -4,7 +4,7 @@
   </head>
   <body>
     <header>
-      <a href='/php_mvc_blog'>Home</a>
+      <a href='/'>Home</a>
       <a href='?presenter=users&action=index'>Users</a>
     </header>
 

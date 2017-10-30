@@ -3,7 +3,7 @@
     public function index() {
       // we store all the users in a variable
       $users = User::all();
-      require_once('views/user/users.php');
+      require_once('views/user/index.php');
     }
 
     public function show() {
