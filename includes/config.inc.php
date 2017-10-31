@@ -1,5 +1,5 @@
 <?php
-// configuration array cast as object to allow for nice['syntax'] not wierd->syntax
+// configuration array cast as object to allow for nice['syntax'] not weird->syntax
     return (object)array(
         'dev_build' => true,
         'host' => $_SERVER['SERVER_NAME'],
