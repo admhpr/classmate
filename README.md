@@ -50,7 +50,8 @@ We are using module rewriting to display the data based on the urls that come in
 
 See [Refererence](#ref) for details.
 
+<a name="ref"></a>
 
-## <a name="ref"> Reference </a>
+## Reference
 - htaccess : https://www.addedbytes.com/blog/url-rewriting-for-beginners
 - MVP: http://requiremind.com/a-most-simple-php-mvc-beginners-tutorial/
