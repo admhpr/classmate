@@ -46,7 +46,8 @@ is a file that doesn't change regardless of what page is requested by the browse
 The presenter gives us options on what data to display about that thing. I.e in the case of a user show, show by id etc.
 *************
 ### htaccess
-We are using module rewriting to display the data based on the urls that come in. Using a regular expression we can capture what is needed and then*************
+We are using module rewriting to display the data based on the urls that come in. Using a regular expression we can capture what is needed and then
+*************
 See [Refererence](#markdown-header-reference) for details.
 
 ## Reference
