@@ -1,12 +1,17 @@
 <DOCTYPE html>
 <html>
   <head>
+    <?php 
+      define('__ROOT__', dirname(dirname(__FILE__))); 
+     ?> 
   </head>
   <body>
     <header>
-      <a href='/'>Home</a>
-      <a href='?presenter=users&action=index'>Users</a>
+     <?php
+           require_once(__DIR__ . "\layout\header.php")
+     ?>
     </header>
+  
 
     <?php require_once('routes.php'); ?>
 

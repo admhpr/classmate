@@ -17,7 +17,7 @@
   }
 
   // we're adding an entry for the new presenter and its actions
-  $presenters = array('pages' => ['home', 'error'],
+  $presenters = array('pages' => ['home', 'login', 'error'],
                        'users' => ['index', 'show']);
 
   if (array_key_exists($presenter, $presenters)) {

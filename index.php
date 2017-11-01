@@ -12,7 +12,7 @@ require_once('includes/db_connection.php');
     $action     = $_GET['action'];
   } else {
     $presenter = 'pages';
-    $action     = 'home';
+    $action     = 'login';
   }
 
   require_once('views/layout.php');

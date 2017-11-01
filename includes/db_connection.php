@@ -8,9 +8,9 @@ class Db{
   private $_username = "root";
   private $_password = "";
   private $_host = "localhost";
-    private $_dbname = "final_project";
+  private $_dbname = "final_project";
 
-       /*
+    /*
     Get an instance of the Database
     @return Instance
     */
@@ -38,6 +38,10 @@ class Db{
     // Get mysql pdo connection
     public function getConnection(){
         return $this->_connection;
+    }
+
+    public function login(){
+
     }
 }
 
