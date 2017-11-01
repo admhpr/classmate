@@ -49,7 +49,7 @@ The view is a passive interface that displays data (the model) and routes user c
 The presenter acts upon the model and the view. It retrieves data from repositories (the model), and formats it for display in the view.
 *************
 ### Root Level index.php
-url rewriting it hiding this process
+url rewriting is hiding this process:
 
 Basically it will look to see if a presenter is being requested and set it as a variable along with and action such as show all or find by id.
 
