@@ -48,8 +48,8 @@ The presenter gives us options on what data to display about that thing. I.e in 
 ### htaccess
 We are using module rewriting to display the data based on the urls that come in. Using a regular expression we can capture what is needed and then direct as necessary using the get parameters.
 
-See [Refererence](#ref) for details.
+See [Refererence](#markdown-header-reference) for details.
 
-<h2 id="ref">Reference</h2>
+## Reference
 - htaccess : https://www.addedbytes.com/blog/url-rewriting-for-beginners
 - MVP: http://requiremind.com/a-most-simple-php-mvc-beginners-tutorial/
