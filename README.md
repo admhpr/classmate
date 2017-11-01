@@ -35,7 +35,8 @@
 ?>
 ```
 4. add a case block to the `routes.php` file. The model is also included here. Finally add the thing as a key in the presenters array then add a secondary list of potential actions defined in it's presenter.
----------------------------------------------------------
+
+***********************
 Basic Prototype Using Model View Presenter Architecture
 
 ## Basic Application Structure ( so far )
