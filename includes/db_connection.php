@@ -1,40 +1,44 @@
 <?php
 class Db{
   // using the singleton pattern we initially set the instance to null 
-  private static $link = null;
-  private static $dsn;
-  private static $username;
-  private static $password;
+    private $_connection;
+    private static $_instance;
+  // $dsn = data source name
+  // https://en.wikipedia.org/wiki/Data_source_name
+  private $_username = "root";
+  private $_password = "";
+  private $_host = "localhost";
+    private $_dbname = "final_project";
 
-  //build the singleton
-  private function __construct($file = 'config.ini'){
-      $file = __DIR__ . '/' . $file;
-      
-      if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
-      
-
-      $dsn = $settings['db']['driver'] .
-        '/host=' . $settings['db']['host'] .
-        ((!empty($settings['db']['port'])) ? (';port=' . $settings['db']['port']) : '') .
-        ';dbname=' . $settings['db']['schema'];
-   }
-    
-    // private function __clone(){};
-
-    public static function getInstance(){
-        // notes on ::
-        // The Scope Resolution Operator (also called Paamayim Nekudotayim) or in simpler terms, the double colon, 
-        //is a token that allows access to static, constant, and overridden properties or methods of a class.
-
-
-        if(!isset(self::$link)){
-            // note that this is a dev configuration and will throw exceptions at us ( which is good during development)
-            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-            self::$link = new PDO(self::$dsn, "root", '', $pdo_options);
-      }
-        return self::$link;
+       /*
+    Get an instance of the Database
+    @return Instance
+    */
+    public static function getInstance()
+    {
+        if (!self::$_instance) { // If no instance then make one
+            self::$_instance = new self();
+        }
+        return self::$_instance;
     }
 
+    // Constructor
+    private function __construct(){
+        {
+            try {
+                $this->_connection  = new PDO('mysql:host='.$this->_host.';dbname='.$this->_dbname, $this->_username, $this->_password);
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+    }
+    // Magic method clone is empty to prevent duplication of connection
+    private function __clone(){
+    }
+    // Get mysql pdo connection
+    public function getConnection(){
+        return $this->_connection;
+    }
 }
 
 ?>

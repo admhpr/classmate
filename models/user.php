@@ -16,20 +16,20 @@
     //methods used by UserPresenter
     public static function all() {
       $list = [];
-      $db = Db::getInstance();
+      $db = Db::getInstance()->getConnection();
       $req = $db->query('SELECT * FROM users');
 
       // we create a list of User objects from the database results
       foreach($req->fetchAll() as $user) {
         $list[] = new User($user['id'], $user['first_name'], $user['last_name'],$user['bio']);
       }
-
-      var_dump($list);
+      // close connection
+      $db = null;
       return $list;
     }
 
     public static function find($id) {
-      $db = Db::getInstance();
+      $db = Db::getInstance()->getConnection();
       // we make sure $id is an integer
       $id = intval($id);
       $req = $db->prepare('SELECT * FROM users WHERE id = :id');
