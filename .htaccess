@@ -2,4 +2,5 @@ RewriteEngine On    # Turn on the rewriting engine
 
 # pattern -> substitution
 RewriteRule ^/?([a-zA-Z_]+)/$  ?presenter=$1&action=index [L]
+RewriteRule ^/?([a-zA-Z_]+)/([a-zA-Z_]+)$  ?presenter=$1&action=$2 [L]
 RewriteRule ^/?([a-zA-Z_]+)/([0-9])$  ?presenter=$1&action=show&id=$2 [L]

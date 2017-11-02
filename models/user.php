@@ -6,6 +6,8 @@
     public $first_name;
     public $last_name;
     public $bio;
+    public $password;
+    public $salt;
 
     public function __construct($id, $first_name, $last_name, $bio) {
       $this->id      = $id;
@@ -39,5 +41,12 @@
 
       return new User($user['id'], $user['first_name'], $user['last_name'],$user['bio']);
     }
+    public static function create_user(){
+
+    }
+    public static function check_user(){
+      
+    }
   }
+
 ?>

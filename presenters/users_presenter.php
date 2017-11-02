@@ -16,5 +16,10 @@
       $user = User::find($_GET['id']);
       require_once('views/user/show.php');
     }
+
+    public function register(){
+      echo("register");
+    }
   }
+
 ?>
