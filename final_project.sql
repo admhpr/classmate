@@ -6,7 +6,8 @@
 -- Generation Time: Oct 24, 2017 at 09:32 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
-
+CREATE DATABASE IF NOT EXISTS final_project;
+USE final_project;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
