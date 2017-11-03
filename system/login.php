@@ -1,6 +1,6 @@
 <?php
 /* User login process, checks if user exists and password is correct */
-
+$db = DB::getInstance()->getConnection();
 // using pdo prepare method to protect against SQL injections
 $email = $_POST['email'];
 $query = "SELECT * FROM users WHERE email=:email";
@@ -25,7 +25,7 @@ else { // User exists grab the data
         // This is how we'll know the user is logged in
         $_SESSION['logged_in'] = true;
 
-        header("location: app/home.php");
+        header("location: ./pages/home");
     }
     else {
         var_dump($user);

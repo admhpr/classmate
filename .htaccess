@@ -1,4 +1,4 @@
-#RewriteEngine On    # Turn on the rewriting engine
+RewriteEngine On    # Turn on the rewriting engine
 
 # pattern -> substitution
 RewriteRule ^/?([a-zA-Z_]+)/$  ?presenter=$1&action=index [L]

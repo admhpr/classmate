@@ -1,13 +1,9 @@
 <?php
-require_once '../includes/config.inc.php';
-require_once '../includes/db_connection.inc.php';
+require_once 'includes/config.inc.php';
+require_once 'includes/db_connection.inc.php';
 /* Displays user information and some useful messages */
 session_start();
 
-  if (isset($_GET['presenter']) && isset($_GET['action'])) {
-    $presenter = $_GET['presenter'];
-    $action     = $_GET['action'];
-  }
 // Check if user is logged in using the session variable
 if ( $_SESSION['logged_in'] != 1 ) {
   $_SESSION['message'] = "You must log in before viewing your profile page!";
@@ -21,6 +17,7 @@ else {
     $active = $_SESSION['active'];
 }
 
+require_once('views/layout.php');
 
 ?>
 <!DOCTYPE html>
@@ -69,7 +66,7 @@ else {
           <h2><?php echo $first_name.' '.$last_name; ?></h2>
           <p><?= $email ?></p>
           
-          <a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
+          <a href="../system/logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
 
     </div>
     
