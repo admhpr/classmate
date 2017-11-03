@@ -1,6 +1,4 @@
 <?php
-require_once("layout_config.php");
-$root = HTTP;
 $pages = array(
     "" => 'Home',
     "users/" => 'Users',
@@ -18,7 +16,7 @@ $currentPage = basename($_SERVER['REQUEST_URI']) ;
             if ($filename == $currentPage) { ?>
         <li class="current"><?php echo $pageTitle ; ?></li>
             <?php } else { ?>
-        <li><a href=<?php echo $root.$filename ; ?>><?php echo $pageTitle ; ?></a></li>
+        <li><a href=<?php echo $filename ; ?>><?php echo $pageTitle ; ?></a></li>
             <?php
             } //if 
          } //foreach 

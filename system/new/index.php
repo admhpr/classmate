@@ -1,9 +1,5 @@
 <?php 
 /* Main page with two forms: sign up and log in */
-require 'includes/config.inc.php';
-require 'includes/db_connection.inc.php';
-$db = DB::getInstance()->getConnection();
-session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,20 +9,7 @@ session_start();
 </head>
 
 <?php 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{
-    if (isset($_POST['login'])) { //user logging in
 
-        require 'system/login.php';
-        
-    }
-    
-    elseif (isset($_POST['register'])) { //user registering
-        
-        require 'system/register.php';
-        
-    }
-}
 ?>
 <body>
   <div class="form">
@@ -111,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 </div> <!-- /form -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="system/js/index.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 </html>
