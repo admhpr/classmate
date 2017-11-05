@@ -1,19 +1,35 @@
 <?php
-require_once('includes/db_connection.inc.php');
+// Start session so there is access to the session variables used during login
+session_start();
 
-// Note that this index.php file is going to receive all the requests
-// The if statement is gonna check whether we have the parameters presenter and action set and store them in variables. 
-// If we do not have such parameters we just make pages the default presenter and home the default action
+// Includes
+require('config.php');
 
+/*
+  Register all the classes using an anonymous function
+  ref: spl_autoload_register 
+  returns: boolean
+  params: ([ callable $autoload_function [, bool $throw = true [, bool $prepend = false ]]] )
+*/
+spl_autoload_register(function ($class) {
+	include 'classes/' . $class . '.class.php';
+});
 
-//we could maybe authenticate here?
-  if (isset($_GET['presenter']) && isset($_GET['action'])) {
-    $presenter = $_GET['presenter'];
-    $action     = $_GET['action'];
-  } else {
-    $presenter = 'pages';
-    $action     = 'login';
-  }
+require('controllers/home.php');
+require('controllers/questions.php');
+require('controllers/users.php');
 
-  require_once('routes.php');
-?>
+require('models/home.php');
+require('models/question.php');
+require('models/user.php');
+
+// Instantiate the Bootstrapper class and pass in the $_GET request
+$front_controller = new Bootstrapper($_GET);
+// create the controller, which will default to home
+$controller = $front_controller->createController();
+// create action which defaults to index
+if($controller){
+	$controller->executeAction();
+}else{
+  echo 404;
+}

@@ -1,52 +1,72 @@
 <?php
-  class User {
-    // we define 3 attributes
-    // they are public so that we can access them using $post->$first_name directly
-    public $id;
-    public $first_name;
-    public $last_name;
-    public $bio;
-    public $password;
-    public $salt;
+class UserModel extends Model{
+	public function register(){
+		// Sanitize POST
+		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-    public function __construct($id, $first_name, $last_name, $bio) {
-      $this->id      = $id;
-      $this->first_name  = $first_name;
-      $this->last_name = $last_name;
-      $this->bio = $bio;
-    }
-    //methods used by UserPresenter
-    public static function all() {
-      $list = [];
-      $db = Db::getInstance()->getConnection();
-      $req = $db->query('SELECT * FROM users');
+		$password = password_hash($post['password'], PASSWORD_BCRYPT);
+		$salt = md5( rand(0,1000) );
 
-      // we create a list of User objects from the database results
-      foreach($req->fetchAll() as $user) {
-        $list[] = new User($user['id'], $user['first_name'], $user['last_name'],$user['bio']);
-      }
-      // close connection
-      $db = null;
-      return $list;
-    }
+		if($post['submit']){
+			if($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '' || $post['password'] == ''){
+				Messages::setMsg('Please Fill In All Fields', 'error');
+				return;
+			}
+			// Insert into MySQL
+			$this->query('INSERT INTO users (first_name,last_name, email,salt,password) VALUES(:first_name, :last_name,:email,:salt, :password)');
+			$this->bind(':first_name', $post['first_name']);
+			$this->bind(':last_name', $post['last_name']);
+			$this->bind(':email', $post['email']);
+			$this->bind(':salt', $salt);
+			$this->bind(':password', $password);
+			$this->execute();
+			// Verify
+			if($this->lastInsertId()){
+				// Redirect
+				header('Location: '.ROOT_URL.'users/login');
+			}else{
+				echo "There was an error inserting the data";
+			}
 
-    public static function find($id) {
-      $db = Db::getInstance()->getConnection();
-      // we make sure $id is an integer
-      $id = intval($id);
-      $req = $db->prepare('SELECT * FROM users WHERE id = :id');
-      // the query was prepared, now we replace :id with our actual $id value
-      $req->execute(array('id' => $id));
-      $user = $req->fetch();
 
-      return new User($user['id'], $user['first_name'], $user['last_name'],$user['bio']);
-    }
-    public static function create_user(){
+		}
+		return;
+	}
 
-    }
-    public static function check_user(){
-      
-    }
-  }
 
-?>
+	public function login(){
+		// Sanitize POST
+		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+		$password = password_hash($post['password'], PASSWORD_BCRYPT);
+		$salt = md5( rand(0,1000) );
+
+		if($post['submit']){
+			// Compare Login
+			$this->query('SELECT * FROM users WHERE email = :email');
+			$this->bind(':email', $post['email']);
+			$row = $this->single();
+			//VAR DUMP
+			var_dump($row);
+			if(password_verify($post['password'], $row['password']) ){
+				$_SESSION['is_logged_in'] = true;
+				$_SESSION['user_data'] = array(
+					"id"	=> $row['id'],
+					"first_name"	=> $row['first_name'],
+					"last_name"	=> $row['last_name'],
+					"email"	=> $row['email']
+				);
+				header('Location: '.ROOT_URL.'home');
+			} else {
+				Messages::setMsg('Incorrect Login', 'error');
+			}
+		}
+		return;
+	}
+	//TODO
+	public function profile(){
+		if($_SESSION['is_logged_in']){
+			
+		}
+	}
+}
