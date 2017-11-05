@@ -67,8 +67,6 @@ class Bootstrapper{
 						 echo '<h1>Method does not exist: create one in '. $this->controller . ' controller </h1>';
 						 return;
 					}
-					
-
 				}
 			} else {
 
@@ -78,9 +76,9 @@ class Bootstrapper{
 					echo '<h1>Base controller not found create a controller with name ' . $this->controller . '</h1>';
 					return;
 				}
+				
 			}
 		} else {
-			
 			if(DEV_BUILD){
 				trigger_error("ERROR:", E_ALL);
 				// Controller Class Does Not Exist

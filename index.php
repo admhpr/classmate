@@ -4,7 +4,9 @@ session_start();
 
 // Includes
 require('config.php');
-
+if(!DEV_BUILD){
+   error_reporting( 0 );
+}
 /*
   Register all the classes using an anonymous function
   ref: spl_autoload_register 
@@ -12,7 +14,7 @@ require('config.php');
   params: ([ callable $autoload_function [, bool $throw = true [, bool $prepend = false ]]] )
 */
 spl_autoload_register(function ($class) {
-	include 'classes/' . $class . '.class.php';
+    include 'classes/' . $class . '.class.php';
 });
 
 require('controllers/home.php');
@@ -31,5 +33,9 @@ $controller = $front_controller->createController();
 if($controller){
 	$controller->executeAction();
 }else{
-  echo 404;
+  $_GET['controller'] ='home';
+  $_GET['action'] = 'error';
+  $error = new Bootstrapper($_GET);
+  $controller = $error->createController();
+  $controller->executeAction();
 }

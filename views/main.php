@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Shareboard</title>
+	<title>ClassMate</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/style.css">
 </head>
@@ -14,7 +14,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">ClassMate</a>
+          <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">ClassMate</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
