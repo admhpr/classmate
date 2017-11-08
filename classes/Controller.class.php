@@ -14,7 +14,7 @@ abstract class Controller{
 	}
 
 	protected function returnView($viewmodel, $fullview){
-		$view = 'views/'. get_class($this). '/' . $this->_action. '.php';
+		$view = 'views/'. strtolower(get_class($this)) . '/' . $this->_action. '.php';
 		// this is the main layout that wraps around the views
 		if($fullview){
 			require('views/main.php');
