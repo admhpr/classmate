@@ -1,8 +1,8 @@
 <?php
 class Questions extends Controller{
-	protected function Index(){
+	protected function index(){
 		$viewmodel = new QuestionModel();
-		$this->returnView($viewmodel->Index(), true);
+		$this->returnView($viewmodel->index(), true);
 	}
 
 	protected function add(){
@@ -13,8 +13,8 @@ class Questions extends Controller{
 		$this->returnView($viewmodel->add(), true);
 	}
 
-	protected function view(){
+	protected function find(){
 		$viewmodel = new QuestionModel();
-		$this->returnView($viewmodel->view(), true);
+		$this->returnView($viewmodel->find($_GET["id"]), true);
 	}
 }

@@ -9,8 +9,8 @@ abstract class Controller{
 	}
 
 	// returns the action method of that model
-	public function executeAction(){
-		return $this->{$this->_action}();
+	public function executeAction($params = null){
+		return $this->{$this->_action}($params);
 	}
 
 	protected function returnView($viewmodel, $fullview){

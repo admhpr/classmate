@@ -1,5 +1,5 @@
 <?php
-define("DEV_BUILD", false);
+define("DEV_BUILD", true);
 // Define DB Params
 define("DB_HOST", "localhost");
 define("DB_USER", "root");

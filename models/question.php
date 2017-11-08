@@ -1,6 +1,7 @@
 <?php
 class QuestionModel extends Model{
-	public function Index(){
+
+	public function index(){
 		$sql = 'SELECT q.id, q.title, q.content, q.date_created, a.id as answer_id FROM `questions` q
 				LEFT JOIN `answers` a ON q.id = a.question_id
 				GROUP BY q.title
@@ -35,16 +36,15 @@ class QuestionModel extends Model{
 		return;
 	}
 
-	public function view(){
+	public function find($id){
 		$sql = 'SELECT q.id, q.title, q.content, q.date_created FROM `questions` q
-				WHERE id = :id
-				JOIN `answers` a ON 
-				q.id = a.question_id';
+				WHERE id = :id';
 				
+		$id = intval($id);		
 		$this->query($sql);
-		$this->bind(':id', $_GET['id']);
+		$this->bind(':id', $id);
 		$row = $this->all();
 		var_dump($row);
-		return;
+		return $row;
 	}
 }
