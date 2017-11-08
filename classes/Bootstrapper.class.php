@@ -82,7 +82,7 @@ class Bootstrapper{
 			if(DEV_BUILD){
 				trigger_error("ERROR:", E_ALL);
 				// Controller Class Does Not Exist
-				echo '<h1>Base class not found create a class with name of ' . $this->request['controller'] . '</h1>';
+				echo '<h1>Base class not found create a class with name of ' . $this->request['controller'] . '. make sure the files are required on the index page</h1>';
 				return;
 			}
 		}
