@@ -37,14 +37,24 @@ class QuestionModel extends Model{
 	}
 
 	public function find($id){
-		$sql = 'SELECT q.id, q.title, q.content, q.date_created FROM `questions` q
-				WHERE id = :id';
-				
+		
+		$sql = 'SELECT q.id, q.title, q.content, q.date_created, 
+				a.id as answer_id, a.title as answer_title, a.content as answer_content
+				FROM `questions` q 
+				LEFT JOIN `answers` a 
+				ON q.id = a.question_id
+				WHERE q.id = :id';
+
 		$id = intval($id);		
 		$this->query($sql);
 		$this->bind(':id', $id);
 		$row = $this->all();
-		var_dump($row);
+
+		if(DEV_BUILD){
+			var_dump($row);
+		}
 		return $row;
 	}
+
+
 }
