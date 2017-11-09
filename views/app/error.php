@@ -4,7 +4,7 @@
 
       <div class="error-desc">
           Sorry, but the page you are looking for was either not found or does not exist. <br/>
-          Try refreshing the page or click the button below to go back to the Homepage.
+          Try refreshing the page or click the button below to go back to the Apppage.
           <div class="input-group">
             <!-- <input type="text" placeholder="Try with a search" class="form-control">
             <span class="input-group-btn">

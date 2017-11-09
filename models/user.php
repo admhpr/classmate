@@ -56,7 +56,7 @@ class UserModel extends Model{
 					"last_name"	=> $row['last_name'],
 					"email"	=> $row['email']
 				);
-				header('Location: '.ROOT_URL.'home');
+				header('Location: '.ROOT_URL.'app');
 			} else {
 				Messages::setMsg('Incorrect Login', 'error');
 			}

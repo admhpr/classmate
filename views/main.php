@@ -18,7 +18,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
+            <li><a href="<?php echo ROOT_URL; ?>">App</a></li>
             <li><a href="<?php echo ROOT_URL; ?>questions">Questions</a></li>
           </ul>
 
