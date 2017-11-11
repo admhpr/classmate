@@ -5,4 +5,6 @@
 			<hr />
 			<p><?php echo $question['content']; ?></p>
 		</div>
+
+       <?php var_dump($question) ?>
 <?php } ?>

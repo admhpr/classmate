@@ -17,4 +17,5 @@ class Questions extends Controller{
 		$viewmodel = new QuestionModel();
 		$this->returnView($viewmodel->find($_GET["id"]), true);
 	}
+
 }

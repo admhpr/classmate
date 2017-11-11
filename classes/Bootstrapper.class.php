@@ -21,11 +21,11 @@ class Bootstrapper{
 	public function __construct($request){
 		// sets the request
 		$this->request = $request;
-		// sets the controller as home if none is supplied
+		// sets the controller as app if none is supplied
 		// see .htaccess
 		// $1 capture group one 
 		if($this->request['controller'] == ""){
-			$this->controller = 'home';
+			$this->controller = 'app';
 		} else {
 			$this->controller = $this->request['controller'];
 		}
