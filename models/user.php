@@ -110,17 +110,19 @@ class UserModel extends Model{
 		return;
 	}
 
-	public function profile($id){
-		//WIP 
-		if($_SESSION['is_logged_in']){
-			$sql = 'SELECT * FROM users
-					WHERE id = :id';
+	// public function profile($id){
+	// 	// Example only 
+	// 	// Add DB logic here
 
-			$id = intval($id);		
-			$this->query($sql);
-			$this->bind(':id', $id);
-			$row = $this->single();
-			return $row;
-		}
-	}	
+	// 	if($_SESSION['is_logged_in']){
+	// 		$sql = 'SELECT * FROM users
+	// 				WHERE id = :id';
+
+	// 		$id = intval($id);		
+	// 		$this->query($sql);
+	// 		$this->bind(':id', $id);
+	// 		$row = $this->single();
+	// 		return $row;
+	// 	}
+	// }	
 }

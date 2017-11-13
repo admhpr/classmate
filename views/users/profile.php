@@ -1,4 +1,3 @@
-<?php var_dump($viewmodel); ?>
 <header class="header">
   <?php var_dump($viewmodel); ?>
   <div class="container">

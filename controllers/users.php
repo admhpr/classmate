@@ -21,7 +21,5 @@ class Users extends Controller{
 	protected function profile(){
 		$viewmodel = new UserModel();
 		$this->returnView($viewmodel->profile($_GET["id"]), true);
-	}
-
-	
+	}	
 }
