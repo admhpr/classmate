@@ -8,8 +8,10 @@
 - Php 7.0
 - JavaScript, CSS, HTML
 ***********************
+[![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
+
 ### Dev Quickstart
-:wrench:
+
 `/config.php`
 ```
 define("DEV_BUILD", true);
