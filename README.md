@@ -12,13 +12,13 @@
 Table of Contents
 =================
 
-  * [Dev Quickstart](#dev-quickstart)
-  * [Update DataBase](#update-db)
+  * [Dev Quickstart](#markdown-header-dev-quickstart)
+  * [Update DataBase](#markdown-header-update-db)
   
   
 [![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
 
-### Dev Quickstart 
+## Dev Quickstart 
 
 `/config.php`
 ```
