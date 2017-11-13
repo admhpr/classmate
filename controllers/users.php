@@ -17,4 +17,11 @@ class Users extends Controller{
 		// Redirect
 		header('Location: '.ROOT_URL);
 	}
+
+	protected function profile(){
+		$viewmodel = new UserModel();
+		$this->returnView($viewmodel->profile($_GET["id"]), true);
+	}
+
+	
 }

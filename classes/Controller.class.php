@@ -22,4 +22,9 @@ abstract class Controller{
 			require($view);
 		}
 	}
+
+	// this is only every really used in the api with ajax
+	protected function returnJson($model){
+		echo $model;
+	}
 }

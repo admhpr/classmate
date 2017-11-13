@@ -1,0 +1,24 @@
+<?php 
+    class Api extends Controller{
+        protected function all(){
+		$model = new ApiModel();
+		$this->returnJson($model->get_all($_GET['model']));
+	}
+        // protected function get_many(){
+        //     $req = new ApiModel();
+        //     var_dump($req);
+        // }
+        // protected function get_one(){
+        //     $req = new API();
+        // }
+        // protected function post_many(){
+        //     $req = new API();
+        // }
+        // protected function post_one(){
+        //    $req = new API(); 
+        // }
+        // protected function put(){
+        //     $req = new API();
+        // }
+       
+    }

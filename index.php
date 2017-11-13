@@ -18,10 +18,12 @@ spl_autoload_register(function ($class) {
 });
 
 require('controllers/app.php');
+require('controllers/api.php');
 require('controllers/questions.php');
 require('controllers/users.php');
 
 require('models/app.php');
+require('models/api.php');
 require('models/question.php');
 require('models/user.php');
 

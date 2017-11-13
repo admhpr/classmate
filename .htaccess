@@ -1,4 +1,10 @@
 Options +FollowSymLinks
 RewriteEngine on
+
+# redirect all api calls
+RewriteRule ^api/one/?([a-zA-Z0-9]*)?/([0-9])$ index.php?controller=api&action=one&model=$1&id=$2 [L,NC]
+RewriteRule ^api/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controller=api&action=$1&model=$2 [L,NC]
+
+# rest of the app
 RewriteRule ^/?([a-zA-Z_]+)/([0-9])$  index.php?controller=$1&action=find&id=$2 [L]
 RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controller=$1&action=$2&id=$3 [NC,L]

@@ -55,6 +55,4 @@ class QuestionModel extends Model{
 		}
 		return $row;
 	}
-
-
 }
