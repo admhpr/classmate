@@ -13,7 +13,7 @@ Table of Contents
 =================
 
   * [Dev Quickstart](#markdown-header-dev-quickstart)
-  * [Update DataBase](#markdown-header-update-db)
+  * [Update DataBase](#markdown-header-update-database)
   
   
 [![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
