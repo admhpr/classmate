@@ -8,6 +8,17 @@
 - Php 7.0
 - JavaScript, CSS, HTML
 ***********************
+<p align="center">
+	<img src="https://s7.postimg.org/uy87qw9ez/logo.png"/>
+<p>
+
+Table of Contents
+=================
+
+  * [Dev Quickstart](#Dev Quickstart)
+  * [Update DataBase](#Update DB)
+  
+  
 [![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
 
 ### Dev Quickstart
@@ -76,4 +87,10 @@ define("DEV_BUILD", true);
 
 ***********************
 
-###
+### Update DataBase
+
+delete your local `final_project` DataBase then run in the SQL console of `localhost/phpmyadmin` in order:
+
+1. contents of `/db-scripts/final_project-latest.php`
+2. contents of `/db-scripts/db-patch-latest.php`
+3. contents of `/db-scripts/db-seed-latest.php`
