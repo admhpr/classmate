@@ -3,6 +3,7 @@
 	<title>ClassMate</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/style.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -43,5 +44,8 @@
      </div>
 
     </div><!-- /.container -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/bootstrap.native/1.0.4/bootstrap-native.js"></script>
 </body>
 </html>

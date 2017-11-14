@@ -10,6 +10,7 @@ class Bootstrapper{
 	private $controller;
 	private $action;
 	private $request;
+	private $model;
 
 	/* builds the request and sets defaults
 	   uses the variables from the $_GET requests

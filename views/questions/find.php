@@ -1,5 +1,5 @@
  <?php foreach($viewmodel as $question) { ?>
- 	<div class="well">
+ 	<div id="app" class="well">
 			<h3><?php echo $question['title']; ?></h3>
 			<small><?php echo $question['date_created']; ?></small>
 			<hr />
