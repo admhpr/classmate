@@ -1,4 +1,7 @@
 <?php 
+
+    // We will only need this to add data to the db? We could probably use forms.
+    
     class Api extends Controller{
         protected function all(){
 		$model = new ApiModel();

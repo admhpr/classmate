@@ -1,8 +1,8 @@
 <html>
 <head>
 	<title>ClassMate</title>
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>public/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>public/css/style.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 </head>
 <body>

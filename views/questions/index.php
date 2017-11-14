@@ -11,27 +11,50 @@
 			<hr />
 			<p><?php echo $question['content']; ?></p>
 			<br />
-			<a class="btn btn-default" href="<?php echo ROOT_PATH; ?>questions/<?php echo $question['id']?>" target="_blank">View Answers</a>
+			<a class="btn btn-primary" href="<?php echo ROOT_PATH; ?>questions/<?php echo $question['id']?>" target="_blank">View Answers</a>
 		</div>
 	<?php endforeach; ?>
 
 	<!-- Vue potential -->
 	<div id="app">
-		<ul>
-			<li v-for="question in questions">{{ question }}</li>
-		</ul>
+		<select v-model="selected">
+			<ul>
+				<option v-for="question in questions" :bind:value="question.title">{{ question.title }}
+				</option>
+			</ul>
+			<span>Selected: {{ selected }}</span>
+		</select>
+		<br>
+	   <input v-model="question">
+		<div v-model="questions">
+			<ul>
+				<li v-for="question in questions">
+				  <div class="well">
+					<h3>{{ question.title | capitalize }}</h3>
+					<small>{{ question.date_created }}</small>
+					<hr>
+					<p>{{ question.content }}</p>
+				  </div>
+					
+				</li>
+			
+			</ul>
+				
+		</div>
+	
 	</div>
 </div>
 <script>
 window.onload = () => {
-	new Vue({
+	var app = new Vue({
 		el: '#app',
 		data: {
-			questions: [1,1,2]	
+			selected: "A",
+			questions:<?php echo json_encode($viewmodel) ?>
 		},
 		mounted(){
-			axios.get('http://localhost/adv-web-final-project/api/all/questions')
-				.then(response => this.questions = response.data)
+			// axios.get('http://localhost/adv-web-final-project/api/all/questions')
+			// 	.then(response => this.questions = response.data)
 		}
 	})
 }

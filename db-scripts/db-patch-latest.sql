@@ -1,3 +1,3 @@
 ALTER TABLE `questions` ADD `date_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `title`;
-ALTER TABLE mytbl ADD UNIQUE (id);
-ALTER TABLE mytbl ADD UNIQUE (email);
+ALTER TABLE `users` ADD UNIQUE ('id');
+ALTER TABLE `users` ADD UNIQUE ('email');
