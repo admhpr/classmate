@@ -1,8 +1,8 @@
 <html>
 <head>
 	<title>ClassMate</title>
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>public/css/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>public/css/style.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/style.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 </head>
 <body>
@@ -19,13 +19,13 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?php echo ROOT_URL; ?>">App</a></li>
+            <li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
             <li><a href="<?php echo ROOT_URL; ?>questions">Questions</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <?php if(isset($_SESSION['is_logged_in'])) : ?>
-            <li><a href="<?php echo ROOT_URL; ?>">Welcome <?php echo $_SESSION['user_data']['first_name']; ?></a></li>
+            <li><a href="<?php echo ROOT_URL; ?>users/profile/<?= $_SESSION['user_data']['id']; ?>">Welcome <?= $_SESSION['user_data']['first_name']; ?></a></li>
             <li><a href="<?php echo ROOT_URL; ?>users/logout">Logout</a></li>
           <?php else : ?>
             <li><a href="<?php echo ROOT_URL; ?>users/login">Login</a></li>

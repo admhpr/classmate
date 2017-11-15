@@ -2,10 +2,13 @@
 class QuestionModel extends Model{
 
 	public function index(){
-		$sql = 'SELECT q.id, q.title, q.content, q.date_created, a.id as answer_id FROM `questions` q
-				LEFT JOIN `answers` a ON q.id = a.question_id
-				GROUP BY q.title
-				';
+		$sql = 'SELECT q.id, q.content, q.title, q.date_created, 
+				category, first_name, last_name  
+				FROM `questions` q
+				LEFT JOIN `categories` c ON q.category_id = c.id 
+				LEFT JOIN `users` u ON q.user_id = u.id
+				ORDER BY q.date_created DESC';
+
 		$this->query($sql);
 		$rows = $this->all();
 		return $rows;
