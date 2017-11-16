@@ -6,15 +6,17 @@
 	<!-- Vue potential -->
 	<div id="app">
 		<select v-model="selected">
-			<ul>
+			<!-- <ul>
 				<option v-for="question in questions">{{ question.title }}
 				</option>
 			</ul>
-			<span>Selected: {{ selected }}</span>
+			<span>Selected: {{ selected }}</span> -->
 		</select>
 		<br>
 		<div>
-			<ul>
+			<question-list></question>
+
+			<!-- <ul>
 				<li v-for="question in questions">
 				  <div class="well">
 					<h3>{{ question.title }}</h3>
@@ -25,22 +27,22 @@
 				  <a class="btn btn-primary"  :href="<?= ROOT_PATH ?> + 'questions/'  + question.id" target="_blank">View Answers</a>
 				  </div>
 				</li>
-			</ul>			
+			</ul>			 -->
 		</div>
 	</div>
 </div>
 <script>
-window.onload = () => {
-	var app = new Vue({
-		el: '#app',
-		data: {
-			selected: "A",
-			questions:<?php echo json_encode($viewmodel) ?>
-		},
-		mounted(){
-			// axios.get('http://localhost/adv-web-final-project/api/all/questions')
-			// 	.then(response => this.questions = response.data)
-		}
-	})
-}
+// window.onload = () => {
+// 	var app = new Vue({
+// 		el: '#app',
+// 		data: {
+// 			selected: "A",
+// 			questions:<?php echo json_encode($viewmodel) ?>
+// 		},
+// 		mounted(){
+// 			// axios.get('http://localhost/adv-web-final-project/api/all/questions')
+// 			// 	.then(response => this.questions = response.data)
+// 		}
+// 	})
+// }
 </script>
