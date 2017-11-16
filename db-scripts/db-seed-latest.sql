@@ -1,6 +1,6 @@
 
 
-INSERT INTO `questions` (`id`, `user_id`, `catergory_id`, `content`, `title`, `is_active`) 
+INSERT INTO `questions` (`id`, `user_id`, `category_id`, `content`, `title`, `is_active`) 
 VALUES ('', '2', '2', 'This the first question', 'Where am i?', '1'), 
 ('', '3', '4', 'The second question', 'Is the question', '0'),
 ('', '3', '4', 'The third question', 'hello question', '0'),
@@ -17,7 +17,7 @@ VALUES (NULL, '2', '1', 'Answer1', 'the answer', '1', '1', '0'),
 
 
 
-INSERT INTO `catergories` (`id`, `catergory`, `description`, `is_active`) 
+INSERT INTO `catergories` (`id`, `category`, `description`, `is_active`) 
 VALUES (NULL, 'Advanced Web Development', 'Advanced Web Development', 1), 
 (NULL, 'Advanced Topics in Programming', 'Advanced Topics in Programming', 1),
 (NULL, 'Android Development', 'Android Development', 1),
