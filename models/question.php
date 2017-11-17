@@ -17,16 +17,17 @@ class QuestionModel extends Model{
 	public function add(){
 		// Sanitize POST
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
 		if($post['submit']){
+
 			if($post['title'] == '' || $post['content'] == ''){
 				Messages::setMsg('Please Fill In All Fields', 'error');
 				return;
 			}
 			// Insert into MySQL
-			$this->query('INSERT INTO questions (title, content, user_id) VALUES(:title, :content,:user_id)');
+			$this->query('INSERT INTO questions (title, content, category_id, user_id) VALUES(:title,:content,:category_id,:user_id)');
 			$this->bind(':title', $post['title']);
 			$this->bind(':content', $post['content']);
+			$this->bind(':category_id', $post['category_id']);
 			// $this->bind(':link', $post['link']);
 			$this->bind(':user_id', $_SESSION['user_data']['id']);
 			$this->execute();
