@@ -27,7 +27,7 @@ class UserModel extends Model{
 				}
 
 				// Insert into MySQL
-				$this->query('INSERT INTO users (first_name,last_name, email,salt,password) VALUES(:first_name, :last_name,:email,:salt, :password)');
+				$this->query('INSERT INTO users (first_name,last_name, email,salt,password,is_active) VALUES(:first_name, :last_name,:email,:salt, :password,1)');
 				$this->bind(':first_name', $post['first_name']);
 				$this->bind(':last_name', $post['last_name']);
 				$this->bind(':email', $post['email']);

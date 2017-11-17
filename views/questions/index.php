@@ -4,32 +4,24 @@
 	<?php endif; ?>
 	<?php var_dump($viewmodel); ?>
 	<!-- Vue potential -->
-	<div id="app">
-		<select v-model="selected">
-			<!-- <ul>
+	<!-- <div id="app"> -->
+		<!-- <select v-model="selected">
+			<ul>
 				<option v-for="question in questions">{{ question.title }}
 				</option>
 			</ul>
 			<span>Selected: {{ selected }}</span> -->
-		</select>
-		<br>
-		<div>
-			<question-list></question>
+		<!-- </select> -->
+		<!-- <br>
+		<div> -->
+			<!-- <message title="Hello World" body="lorem dhdjsh dummy the quick brown fox jumped over the lazy dog"></message> -->
 
-			<!-- <ul>
-				<li v-for="question in questions">
-				  <div class="well">
-					<h3>{{ question.title }}</h3>
-					<small>Asked: {{ question.date_created }}</small>
-					<span class="pull-right">Category: <h4><mark>{{ question.category }}</mark></h4></span>
-					<hr>
-					<p>{{ question.content }}</p>
-				  <a class="btn btn-primary"  :href="<?= ROOT_PATH ?> + 'questions/'  + question.id" target="_blank">View Answers</a>
-				  </div>
-				</li>
-			</ul>			 -->
-		</div>
-	</div>
+			<!-- <cm-modal v-if="showModal" @close="showModal = false">Here is the modal</cm-modal>
+			<button @click="showModal = true">Show</button>
+			</div> -->
+	
+	
+	<!-- </div> -->
 </div>
 <script>
 // window.onload = () => {
