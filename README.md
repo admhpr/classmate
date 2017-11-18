@@ -24,7 +24,7 @@ Table of Contents
 ```
 define("DEV_BUILD", true);
 ```
-:headphones: :clapper: [Quickstart Video](https://www.youtube.com/watch?v=D2o14PY7Ums&feature=youtu.be)
+:headphones: :clapper: [Quickstart Video](https://youtu.be/D2o14PY7Ums)
 
 ## Recipe to add functionality
 :book:
