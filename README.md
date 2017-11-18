@@ -20,6 +20,8 @@ Table of Contents
 
 ## Dev Quickstart 
 
+## Server Side ( PHP )
+
 `/config.php`
 ```
 define("DEV_BUILD", true);
@@ -80,9 +82,8 @@ define("DEV_BUILD", true);
     // Example only
     <?php var_dump($viewmodel); ?>
 ```
-### End Quickstart
 
-***********************
+## Front End ( Vue and Axios )
 
 ### Update DataBase
 
@@ -91,3 +92,10 @@ delete your local `final_project` DataBase then run in the SQL console of `local
 1. contents of `/db-scripts/final_project-latest.php`
 2. contents of `/db-scripts/db-patch-latest.php`
 3. contents of `/db-scripts/db-seed-latest.php`
+
+### End Quickstart
+
+***********************
+
+### About This Project
+

@@ -6,4 +6,12 @@
             $rows = $this->all();
             return json_encode($rows);
         }
+
+        public function upvote(){
+
+        }
+
+        public function delete(){
+            
+        }
     }
