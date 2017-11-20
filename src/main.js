@@ -5,6 +5,7 @@
 
 // Vue is the main class of the framework
 import Vue from 'vue/dist/vue.esm.js';
+import Bulma from 'bulma';
 
 // Root component of the framework
 import Home from "./App.vue";
@@ -26,10 +27,12 @@ Vue.component("user-profile", UserProfile);
 new Vue({
   el: "#vue",
   components: { Home, QuestionList, UserProfile },
-  data: { 'json': false },
+  data: {
+    'cmData': false
+  },
   created: function () {
-    if (typeof json != "undefined") {
-      this.json = json;
+    if (typeof cmData != "undefined") {
+      this.cmData = cmData;
     }
   }
 });
