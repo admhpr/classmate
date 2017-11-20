@@ -22,6 +22,7 @@
             <ul class="nav navbar-nav">
               <li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
               <li><a href="<?php echo ROOT_URL; ?>questions">Questions</a></li>
+              <li><a href="<?php echo ROOT_URL; ?>questions/category">Categories</a></li>
             </ul>
   
             <ul class="nav navbar-nav navbar-right">
