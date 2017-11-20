@@ -111,8 +111,7 @@ class UserModel extends Model{
 	}
 	
 	public function profile($id){
-		// Example only 
-		// Add DB logic here
+
 
 		if($_SESSION['is_logged_in']){
 			$sql = 'SELECT * FROM users

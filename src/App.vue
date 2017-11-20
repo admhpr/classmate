@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="home">
     <h1>{{ msg }}</h1>
     <p>{{ sass }}</p>
   </div>
@@ -7,19 +7,19 @@
 
 <script>
 export default {
-  name: "app",
+  name: "home",
   data() {
     return {
-      msg: "Welcome Webpack is working",
-      sass: "Sass is working"
+      msg: " If these letters are green Webpack is working",
+      sass: "and Sass is working"
     };
   }
 };
 </script>
 
 <style lang="scss">
-@import "~styles/_vars.scss";
-#app {
+@import "./style/_vars.scss";
+#home {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

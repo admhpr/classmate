@@ -55,10 +55,10 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ["*", ".js", ".vue", ".json"],
     alias: {
-      vue$: "vue/dist/vue.esm.js"
-    },
-    extensions: ["*", ".js", ".vue", ".json"]
+      'vue$': 'vue/dist/vue.common.js'
+    }
   },
   resolve: {
     alias: {

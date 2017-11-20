@@ -1,14 +1,8 @@
- <?php var_dump($viewmodel); ?>
-<div id="app">
-    <tabs>
-        <tab name="Latest Questions" class="is active">
-            <h1> lorem kjsfdhhdsa kjf kjds f kjd f</h1>
-        </tab>
-        <tab name="Your Questions">
-            <h1> lore hs gddhsa</h1>
-        </tab>
-        <tab name="Your Answers">
-            <h1> jds hgds</h1>
-        </tab>
-    </tabs>
+<?php var_dump($viewmodel); ?>
+
+
+<!-- see ./src/components/UserProfile.vue -->
+<div id="vue">
+    <user-profile data="<?php json_encode($viewmodel)?>"></user-profile>
 </div>
+

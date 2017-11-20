@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
-  <div id="app"></div>
     <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
@@ -37,15 +36,22 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav>
-  
+
       <div class="container">
-  
+
         <div class="row">
           <?php Messages::display(); ?>
           <?php require($view); ?>
         </div>
 
       </div><!-- /.container -->
+
+       	<!-- Vue instance -->
+      <div id="vue">
+
+        <home></home>
+      
+      </div>
      <script src="<?php echo ROOT_URL; ?>dist/build.js"></script>
 </body>
 </html>
