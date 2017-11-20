@@ -59,4 +59,21 @@ class QuestionModel extends Model{
 		}
 		return $row;
 	}
+
+	public function cat($id){
+
+		$sql = 'SELECT c.id, c.category, q.id, q.title, q.content 
+				FROM categories c, questions q 
+				WHERE c.id = q.id';
+
+
+		$this->query($sql);
+		$this->bind(':id', $id);
+		$row = $this->all();
+
+		if(DEV_BUILD){
+			var_dump($row);
+		}
+		return $row;
+	}
 }

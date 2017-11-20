@@ -10,13 +10,15 @@ import Vue from 'vue/dist/vue.esm.js';
 import Home from "./App.vue";
 import QuestionList from "./components/QuestionList.vue";
 import UserProfile from "./components/UserProfile.vue";
+import Categories from "./components/Categories.vue";
 
 // registering child components
 Vue.component("question-list", QuestionList);
 Vue.component("user-profile", UserProfile);
+Vue.component("categories", Categories);
 
 /**
- * @param {string} el: this is were the Vue application is rendered and mounted to div with the id of 'app'. See 
+ * @param {string} el: this is where the Vue application is rendered and mounted to div with the id of 'app'. See 
  * ../views/main.php.
  * 
  * @param {component} components: Add your single file component to be used throughout the app don't forget to create a div
@@ -25,7 +27,7 @@ Vue.component("user-profile", UserProfile);
 
 new Vue({
   el: "#vue",
-  components: { Home, QuestionList, UserProfile },
+  components: { Home, QuestionList, UserProfile, Categories },
   data: { 'json': false },
   created: function () {
     if (typeof json != "undefined") {
