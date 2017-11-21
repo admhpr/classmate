@@ -15,16 +15,18 @@
     font-weight: 400;
 }
 .pattern{
-  background: url("/adv-web-final-project/src/assets/pat-1.jpg");
+  background: url("/adv-web-final-project/src/assets/pattern-md.png");
   padding: 0.5em;
-  margin-top: -10px;
-  border-bottom: 1px solid #333;
+}
+
+.nav-con{
+  border-bottom: 1px solid #83d5c0;
 }
 </style>
 <body>
   <div class="pattern"></div>
   <nav class="navbar navbar-default">
-    <div class="container">
+    <div class="container nav-con">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -52,7 +54,7 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
-  <div class="pattern"></div>
+
   
   <div class="container">
     

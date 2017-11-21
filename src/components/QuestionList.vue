@@ -1,18 +1,69 @@
 <template>
       <div>
          <div>{{ message }}</div>
-         <div :key="question.title" v-for="question in cmData">{{ question }}</div>
+         <div :key="question.title" v-for="question in cmData">
+           <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                {{ question.title }}
+              </p>
+              <a href="#" class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                  <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </a>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                
+                <div class="box">{{ question.content }} </div>
+                <span>asked by:</span>
+                <a :href="user_href(question)">@{{ question.first_name }}{{ question.last_name }}</a>. In <a href="#">#{{question.category}}</a>.
+                <br>
+                <time datetime="">{{question.date_created | dateFormat }}</time>.
+              </div>
+                 <modal-answer v-if="showModal" @close="showModal = false"></modal-answer>
+            </div>
+            <footer class="card-footer">
+              <button @click="showModal=true" class="card-footer-item is-answer"> Answer </button>
+              <a :href="ques_href(question)" class="card-footer-item">View Answers</a>
+              <a href="#" class="card-footer-item">Delete</a>
+            </footer>
+          </div>
+         </div>
+        </div>
       </div>
 </template>
 
 <script>
+import Vue from "vue/dist/vue.esm.js";
+import ModalAnswer from "./ModalAnswer.vue";
+
+Vue.component("modal-answer", ModalAnswer);
+
 export default {
   props: ["cmData"],
   name: "QuestionList",
+  components: { ModalAnswer },
   data() {
     return {
-      message: "Question Component test"
+      message: "Question Component test",
+      showModal: false
     };
+  },
+  computed: {},
+  methods: {
+    user_href(ques) {
+      return "users/profile/" + ques.user_id;
+    },
+    ques_href(ques) {
+      return "questions/" + ques.id;
+    }
+  },
+  filters: {
+    dateFormat(date) {
+      return date.substring(0, date.length - 3);
+    }
   }
 };
 </script>

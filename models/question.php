@@ -3,7 +3,7 @@ class QuestionModel extends Model{
 
 	public function index(){
 		$sql = 'SELECT q.id, q.content, q.title, q.date_created, 
-				category, first_name, last_name  
+				category, first_name, last_name, q.user_id 
 				FROM `questions` q
 				LEFT JOIN `categories` c ON q.category_id = c.id 
 				LEFT JOIN `users` u ON q.user_id = u.id
@@ -42,7 +42,7 @@ class QuestionModel extends Model{
 
 	public function find($id){
 		
-		$sql = 'SELECT q.id, q.title, q.content, q.date_created, 
+		$sql = 'SELECT q.id, q.title, q.content, q.date_created,
 				a.id as answer_id, a.title as answer_title, a.content as answer_content
 				FROM `questions` q 
 				LEFT JOIN `answers` a 
