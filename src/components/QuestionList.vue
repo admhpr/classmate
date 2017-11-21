@@ -1,6 +1,5 @@
 <template>
       <div>
-         <div>{{ message }}</div>
          <div :key="question.title" v-for="question in cmData">
            <div class="card">
             <header class="card-header">
@@ -25,8 +24,8 @@
                  <modal-answer v-if="showModal" @close="showModal = false"></modal-answer>
             </div>
             <footer class="card-footer">
-              <button @click="showModal=true" class="card-footer-item is-answer"> Answer </button>
-              <a :href="ques_href(question)" class="card-footer-item">View Answers</a>
+              <a @click="showModal=true" class="card-footer-item cm-answer"> Answer </a>
+              <a :href="ques_href(question)" class="card-footer-item cm-view-answers">View Answers</a>
               <a href="#" class="card-footer-item">Delete</a>
             </footer>
           </div>
@@ -69,5 +68,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../style/vars.scss";
 
+.card {
+  margin: 2%;
+}
+.cm-answer {
+  background-color: transparent;
+  border-bottom: 4px solid $blue;
+  &:hover {
+    border-bottom: 4px solid $dark-blue;
+  }
+}
+
+.cm-view-answers {
+  background-color: transparent;
+  border-bottom: 4px solid $green;
+  &:hover {
+    border-bottom: 4px solid $light-purple;
+  }
+}
 </style>

@@ -6,6 +6,22 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">`
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
+    body {
+        background: url("/adv-web-final-project/src/assets/geometry.png");
+        font-family: "Raleway", serif !important;
+        font-weight: 400;
+    }
+    .pattern{
+      background: url("/adv-web-final-project/src/assets/pattern-md.png");
+      padding: 0.5em;
+    }
+
+    .nav-con{
+      border-bottom: 1px solid #83d5c0;
+    }
+</style>
 <body>
   <div class="pattern"></div>
   <nav class="navbar navbar-default">

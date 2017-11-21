@@ -1,5 +1,14 @@
 <?php
 class UserModel extends Model{
+	public function index(){
+		
+		$sql = 'SELECT u.first_name, u.last_name, u.bio  FROM `users` u';
+
+		$this->query($sql);
+		$rows = $this->all();
+		return $rows;
+	}
+
 	public function register(){
 		// Sanitize POST
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

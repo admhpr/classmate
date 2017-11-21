@@ -33,7 +33,8 @@ export default {
 <style lang="scss" scoped>
 @import "../style/vars.scss";
 .modal-background {
-  background-image: url("/adv-web-final-project/src/assets/hands.jpg");
+  background-image: url($path + "src/assets/hands.jpg");
+  background-color: rgba(10, 10, 10, 0.3);
   background-repeat: repeat-x;
   z-index: -1;
 }

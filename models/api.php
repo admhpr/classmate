@@ -14,7 +14,7 @@
         
         public function addAnswer($id){
             var_dump($json);
-
+            $_SESSION['user_data']['id'];
             // $this->query('INSERT INTO answers (user_id, question_id, content, title, total_upvotes, has_voted, is_active)
             //              VALUES(:user_id, :question_id, :content, :title, :total_upvotes, :has_voted, :is_active)')
         }

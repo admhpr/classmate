@@ -4,17 +4,19 @@
  */
 
 // Vue is the main class of the framework
-import Vue from 'vue/dist/vue.esm.js';
-import Bulma from 'bulma';
+import Vue from "vue/dist/vue.esm.js";
+import Bulma from "bulma";
 
 // Root component of the framework
 import Home from "./App.vue";
 import QuestionList from "./components/QuestionList.vue";
 import UserProfile from "./components/UserProfile.vue";
+import NewModule from "./components/NewModule.vue";
 
 // registering child components
 Vue.component("question-list", QuestionList);
 Vue.component("user-profile", UserProfile);
+Vue.component("new-module", NewModule);
 
 /**
  * @param {string} el: this is were the Vue application is rendered and mounted to div with the id of 'app'. See 
@@ -26,11 +28,11 @@ Vue.component("user-profile", UserProfile);
 
 new Vue({
   el: "#vue",
-  components: { Home, QuestionList, UserProfile },
+  components: { Home, QuestionList, UserProfile, NewModule },
   data: {
-    'cmData': false
+    cmData: false
   },
-  created: function () {
+  created: function() {
     if (typeof cmData != "undefined") {
       this.cmData = cmData;
     }
