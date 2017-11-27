@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss" >
-@import "../style/vars.scss";
+@import "../style/globals.scss";
 
 .is-primary {
   background-color: $green !important;

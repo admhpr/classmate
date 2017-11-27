@@ -34,7 +34,7 @@ new Vue({
     userData: false
   },
   created: function () {
-    if (cmData) {
+    if (cmData && typeof cmData != "undefined") {
       this.cmData = cmData;
     }
 

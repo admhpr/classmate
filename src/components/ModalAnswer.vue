@@ -62,9 +62,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
+@import "../style/globals.scss";
 .modal-background {
-  background: url($path + "src/assets/wild_oliva.png");
+  background: url($path + "src/assets/bg_ans.jpg");
   z-index: -1;
+}
+
+.modal-card {
+  box-shadow: bottom-shadow(4), top-shadow(4);
+  border: 1px solid $light-green;
+  border-radius: 2px;
+}
+
+.modal-card-head {
+  background-color: lighten($dark-blue, 5);
+  .modal-card-title {
+    color: $white;
+  }
 }
 </style>

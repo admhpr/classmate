@@ -5,10 +5,10 @@
 	<?php var_dump($viewmodel); ?>
 	<!-- prepping the PHP data to keep Vue happy --> 
 	<script>
-		var cmData = <?php echo(json_encode($viewmodel)) ?>;
 
-		<?php if( $_SESSION['is_logged_in']): ?>
-			var userData = <?php echo(json_encode($_SESSION['user_data'])) ?>;
+		var cmData = <?php echo(json_encode($viewmodel)); ?>;
+		<?php if( isset($_SESSION['is_logged_in'])): ?>
+			var userData = <?php echo(json_encode($_SESSION['user_data'])); ?>;
 		<?php endif; ?>
 		
 	</script>

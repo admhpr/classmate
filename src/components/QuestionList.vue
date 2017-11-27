@@ -78,10 +78,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/vars.scss";
+@import "../style/globals.scss";
 
 .card {
   margin: 2%;
+  box-shadow: bottom-shadow(2), top-shadow(3);
 }
 .cm-answer {
   background-color: transparent;

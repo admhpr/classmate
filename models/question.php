@@ -20,7 +20,7 @@ class QuestionModel extends Model{
 		if($post['submit']){
 
 			if($post['title'] == '' || $post['content'] == ''){
-				Messages::setMsg('Please Fill In All Fields', 'error');
+				Messages::setMsg('Please fill in all fields', 'error');
 				return;
 			}
 			// Insert into MySQL
