@@ -7,6 +7,4 @@
 	<div id="vue">
 		<new-module></new-module>
 	</div>
-
-	<?php echo($_SESSION["user_data"]["first_name"]) ?>
 </div>

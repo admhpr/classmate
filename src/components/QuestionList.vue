@@ -1,6 +1,6 @@
 <template>
       <div>
-         <div :key="question.title" v-for="question in cmData">
+         <div :key="question.title" v-for="(question, index) in cmData">
            <div class="card">
             <header class="card-header">
               <p class="card-header-title">
@@ -21,10 +21,12 @@
                 <br>
                 <time datetime="">{{question.date_created | dateFormat }}</time>.
               </div>
-                 <modal-answer v-if="showModal" @close="showModal = false"></modal-answer>
+                <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
+
+                </modal-answer>
             </div>
             <footer class="card-footer">
-              <a @click="showModal=true" class="card-footer-item cm-answer"> Answer </a>
+              <a @click="openModal(index)" class="card-footer-item cm-answer"> Answer </a>
               <a :href="ques_href(question)" class="card-footer-item cm-view-answers">View Answers</a>
               <a href="#" class="card-footer-item">Delete</a>
             </footer>
@@ -35,19 +37,23 @@
 </template>
 
 <script>
+import axios from "axios";
 import Vue from "vue/dist/vue.esm.js";
 import ModalAnswer from "./ModalAnswer.vue";
 
 Vue.component("modal-answer", ModalAnswer);
 
 export default {
-  props: ["cmData"],
+  props: ["cmData", "userData"],
   name: "QuestionList",
   components: { ModalAnswer },
   data() {
     return {
       message: "Question Component test",
-      showModal: false
+      modalConfig: {
+        show: false,
+        question: null
+      }
     };
   },
   computed: {},
@@ -57,6 +63,10 @@ export default {
     },
     ques_href(ques) {
       return "questions/" + ques.id;
+    },
+    openModal(index) {
+      (this.modalConfig.show = true),
+        (this.modalConfig.question = this.cmData[index]);
     }
   },
   filters: {
