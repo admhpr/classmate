@@ -24,6 +24,16 @@
             $this->bind(':is_active', 1);
             $this->execute();
 
+            // //Redirect
+            // header('Location: '.ROOT_URL.'questions/'.$post['question_id']);
+            
+            $status = array(
+                "msg" => "success",
+                "question_id" => $post["question_id"]
+            );
+
+            return json_encode($status);
+
         }
 
         public function delete(){

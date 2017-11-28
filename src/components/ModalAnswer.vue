@@ -8,6 +8,7 @@
             </header>
             <section class="modal-card-body">
             <!-- Content ... -->
+           
               <div class="field">
                 <label class="label">
                   {{ config.question.content }}
@@ -19,11 +20,12 @@
                   <p v-show="errMsg" class="help is-danger"> You got to give us a little something.. </p>
                 </div>
               </div>
-
+              <p v-show="quesPass" class="help">“No one is useless in this world who lightens the burdens of another.” Thanks for your answer</p>
             </section>
             <footer class="modal-card-foot">
             <button class="button is-success" @click.prevent="submit"> Answer </button>
-            <button class="button" @click="$emit('close')">Cancel</button>
+            <button class="button" @click="$emit('close')">Back</button>
+            <a v-show="quesPass" :href='btnHref'><button class="button is-right is-primary">See What Others Have Said</button></a>
             </footer>
             </div>  
          <div class="modal-background"></div>
@@ -38,14 +40,22 @@ export default {
   data() {
     return {
       answer: "",
-      errMsg: false
+      errMsg: false,
+      quesPass: false,
+      btnHref: ""
     };
   },
   methods: {
     submit() {
+      const vm = this;
       if (this.answer == "" || this.answer.trim().length == 0) {
-        this.error();
+        if (!this.errMsg) {
+          this.errorHandler();
+        }
       } else {
+        if (this.errMsg) {
+          this.errorHandler();
+        }
         var params = new URLSearchParams();
         // nice terse regex stack overflow special
         params.table_name = "answers";
@@ -53,18 +63,25 @@ export default {
         params.append("user_id", this.$root.userData.id);
         params.append("question_id", this.config.question.id);
         // ajax
-        axios.post("./api/add/", params);
+        this.answer = "";
+        axios.post("./api/add/", params).then(function(res) {
+          if (res.data.msg == "success") {
+            vm.answers = "";
+            vm.quesPass = true;
+            vm.btnHref = "/questions/" + res.data.question_id;
+          }
+        });
       }
     },
-    error() {
-      this.errMsg = true;
+    errorHandler() {
+      this.errMsg = !this.errMsg;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../style/globals.scss";
+@import "../styles/globals.scss";
 .modal-background {
   background: url($path + "src/assets/bg_ans.jpg");
   z-index: -1;
@@ -72,14 +89,14 @@ export default {
 
 .modal-card {
   box-shadow: bottom-shadow(4), top-shadow(4);
-  border: 1px solid $light-green;
+  border: 1px solid $dark-blue;
   border-radius: 2px;
 }
 
 .modal-card-head {
-  background-color: lighten($dark-blue, 5);
+  border-bottom: solid 5px lighten($dark-blue, 5);
   .modal-card-title {
-    color: $white;
+    color: $black;
   }
 }
 </style>

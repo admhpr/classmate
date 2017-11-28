@@ -3,6 +3,7 @@
  * 
  */
 
+import scss from "./styles/app.scss"
 // Vue is the main class of the framework
 import Vue from "vue/dist/vue.esm.js";
 import Bulma from "bulma";
@@ -28,17 +29,23 @@ Vue.component("new-module", NewModule);
 
 new Vue({
   el: "#vue",
-  components: { Home, QuestionList, UserProfile, NewModule },
+  components: {
+    Home,
+    QuestionList,
+    UserProfile,
+    NewModule
+  },
   data: {
-    cmData: false,
-    userData: false
+    cmData: "",
+    userData: ""
   },
   created: function () {
-    if (cmData && typeof cmData != "undefined") {
+
+    if (typeof cmData !== "undefined") {
       this.cmData = cmData;
     }
 
-    if (userData) {
+    if (typeof userData !== "undefined") {
       this.userData = userData;
     }
   }

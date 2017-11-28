@@ -9,8 +9,7 @@ module.exports = {
     filename: "build.js"
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.css$/,
         use: ["vue-style-loader", "css-loader"]
       },
@@ -62,7 +61,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      styles: path.resolve(__dirname, "./src/style/")
+      styles: path.resolve(__dirname, "./src/styles/")
     }
   },
   performance: {

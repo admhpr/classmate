@@ -1,0 +1,16 @@
+@import "globals.scss";
+@import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
+body {
+  background: url($path + "/src/assets/geometry.png");
+  font-family: "Raleway", serif !important;
+  font-weight: 400;
+}
+
+.pattern {
+  background: url($path + "/src/assets/pattern-md.png");
+  padding: 0.5em;
+}
+
+.nav-con {
+  border-bottom: 1px solid #83d5c0;
+}

@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  props: ["cmData"],
+  props: ["cmData", "userData"],
   name: "UserProfile",
   data() {
     return {
@@ -73,22 +73,9 @@ export default {
 </script>
 
 <style lang="scss" >
-@import "../style/globals.scss";
+@import "../styles/globals.scss";
 
-.is-primary {
-  background-color: $green !important;
-}
-
-.is-warning {
-  background-color: $light-purple !important;
-}
 .is-danger {
   background-color: $purple !important;
-}
-.is-success {
-  background-color: $blue !important;
-}
-.is-info {
-  background-color: $dark-blue !important;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-      <div>
-         <div :key="question.title" v-for="(question, index) in cmData">
+      <div class="main">
+         <div class="is-left" :key="question.title" v-for="(question, index) in cmData">
            <div class="card">
             <header class="card-header">
               <p class="card-header-title">
@@ -31,7 +31,7 @@
               <a href="#" class="card-footer-item">Delete</a>
             </footer>
           </div>
-         </div>
+         </div> <!-- end questions list -->
         </div>
       </div>
 </template>
@@ -78,8 +78,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../style/globals.scss";
+@import "../styles/globals.scss";
 
+.main {
+  max-width: 500px;
+}
 .card {
   margin: 2%;
   box-shadow: bottom-shadow(2), top-shadow(3);

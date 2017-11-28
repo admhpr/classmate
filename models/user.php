@@ -67,7 +67,7 @@ class UserModel extends Model{
 									'Reply-To: the-team@classmate.com' . "\\r\
 									" .'X -Mailer: PHP/' . phpversion();
 
-						$body =  "Please click the link to activate your account \n
+						$message =  "Please click the link to activate your account \n
 								  https://nocteherba.com/users/verify/" . $salt;
 						
 
