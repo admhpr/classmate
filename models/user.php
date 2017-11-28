@@ -1,5 +1,13 @@
 <?php
 class UserModel extends Model{
+	// Dev Notes: refer to ~/classes/Model.class.php to see the available MySQL methods
+	public function index(){
+		$sql = 'SELECT u.first_name, u.last_name, u.bio  FROM `users` u';
+		$this->query($sql);
+		$rows = $this->all();
+		return $rows;
+	}
+
 	public function register(){
 		// Sanitize POST
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -17,12 +25,20 @@ class UserModel extends Model{
 		if($post['submit']){
 			if(strlen($post['password']) > $pw_len){
 				if($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '' || $post['password'] == ''){
-					Messages::setMsg('Please Fill In All Fields', 'error');
+					Messages::setMsg('Please fill in all fields', 'error');
 					return;
 				}
 	
 				if(!filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
 					Messages::setMsg('Please Enter a valid email', 'error');
+					return;
+				}
+				
+				$this->query("SELECT * FROM `users`  WHERE `email` = :email");
+				$this->bind(':email', $post['email']);
+			
+				if(count($this->all()) > 0){
+					Messages::setMsg('Looks like that email is already been taken', 'error');
 					return;
 				}
 

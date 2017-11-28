@@ -1,6 +1,11 @@
 <?php
 class Users extends Controller{
 
+	protected function index(){
+		$viewmodel = new UserModel();
+		$this->returnView($viewmodel->index(), true);
+	}
+
 	protected function register(){
 		$viewmodel = new UserModel();
 		$this->returnView($viewmodel->register(), true);
