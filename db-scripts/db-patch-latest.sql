@@ -5,4 +5,4 @@ ALTER TABLE `users` ADD UNIQUE ('email');
 
 RENAME TABLE `final_project`.`catergories` TO `final_project`.`categories`;
 ALTER TABLE `questions` CHANGE `catergory_id` `category_id` INT(10) UNSIGNED NOT NULL;
-ALTER TABLE `categories` CHANGE `catergory` `category` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `catergories` CHANGE `catergory` `category` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;

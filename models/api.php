@@ -7,16 +7,23 @@
             return json_encode($rows);
         }
 
-        public function vote($id){
+        public function vote(){
        
 
         }
         
-        public function addAnswer($id){
-            var_dump($json);
-            $_SESSION['user_data']['id'];
-            // $this->query('INSERT INTO answers (user_id, question_id, content, title, total_upvotes, has_voted, is_active)
-            //              VALUES(:user_id, :question_id, :content, :title, :total_upvotes, :has_voted, :is_active)')
+        public function add(){
+            
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $this->query("INSERT INTO `answers` (user_id, question_id, content, is_active) VALUES(:user_id, :question_id, :content, :is_active)");
+            
+            $this->bind(':user_id', $post['user_id']);
+            $this->bind(':question_id', $post['question_id']);
+            $this->bind(':content', $post['answer']);
+            $this->bind(':is_active', 1);
+            $this->execute();
+
         }
 
         public function delete(){

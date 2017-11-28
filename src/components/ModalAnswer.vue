@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: ["config"],
   data() {
@@ -45,13 +46,14 @@ export default {
       if (this.answer == "" || this.answer.trim().length == 0) {
         this.error();
       } else {
-        let ans = {};
+        var params = new URLSearchParams();
         // nice terse regex stack overflow special
-        ans.answer = this.answer.replace(/(^\s+|\s+$)/g, "");
-        ans.user_id = this.$root.userData.id;
-        ans.question_id = this.config.question.id;
+        params.table_name = "answers";
+        params.append("answer", this.answer.replace(/(^\s+|\s+$)/g, ""));
+        params.append("user_id", this.$root.userData.id);
+        params.append("question_id", this.config.question.id);
         // ajax
-        console.log(ans);
+        axios.post("./api/add/", params);
       }
     },
     error() {

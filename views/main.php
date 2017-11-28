@@ -9,18 +9,19 @@
 <style>
     @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
     body {
-        background: url("/adv-web-final-project/src/assets/geometry.png");
+        background: url("<?php echo ROOT_PATH; ?>/src/assets/geometry.png");
         font-family: "Raleway", serif !important;
         font-weight: 400;
     }
     .pattern{
-      background: url("/adv-web-final-project/src/assets/pattern-md.png");
+      background: url("<?php echo ROOT_PATH; ?>/src/assets/pattern-md.png");
       padding: 0.5em;
     }
 
     .nav-con{
       border-bottom: 1px solid #83d5c0;
     }
+    
 </style>
 <body>
   <div class="pattern"></div>
@@ -65,7 +66,7 @@
       <?php require($view); ?>
     </div>
 
-      </div><!-- /.container -->
+  </div><!-- /.container -->
 
        	<!-- Vue instance -->
       <div id="vue">
