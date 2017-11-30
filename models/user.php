@@ -38,7 +38,7 @@ class UserModel extends Model{
 				$this->bind(':email', $post['email']);
 			
 				if(count($this->all()) > 0){
-					Messages::setMsg('Looks like that email is already been taken', 'error');
+					Messages::setMsg('Looks like that email has already been taken..', 'error');
 					return;
 				}
 

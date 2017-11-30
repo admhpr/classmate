@@ -48,7 +48,7 @@ new Vue({
   },
   data: {
     cmData: "",
-    userData: ""
+    userData: false
   },
   created: function () {
 

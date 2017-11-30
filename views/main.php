@@ -2,6 +2,7 @@
 <head>
 	<title>ClassMate</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/bootstrap.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/fonts/css/font-awesome.min.css">
 </head>
 <body>
   <div class="pattern"></div>
@@ -36,7 +37,7 @@
                     Profile
                   </a>
                   <a class="navbar-item" href="<?= ROOT_PATH ?>questions/add">
-                    Question Something
+                    Ask a Question
                   </a>
                   <a class="navbar-item" href="<?php echo ROOT_URL; ?>questions/category">
                     Categories
@@ -90,8 +91,10 @@
       <br>
       <br>
       <br>
-      <?php Messages::display(); ?>
-      <?php require($view); ?>
+      <div class="col-md-8 col-md-offset-2">
+        <?php Messages::display(); ?>
+        <?php require($view); ?>
+      </div>
     </div>
 
   </div><!-- /.container -->
