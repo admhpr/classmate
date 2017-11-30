@@ -73,7 +73,7 @@ export default {
           if (res.data.result == "success") {
             vm.answers = "";
             vm.quesPass = true;
-            vm.btnHref = "/questions/" + res.data.question_id;
+            vm.btnHref = "questions/" + res.data.question_id;
           }
         });
       }

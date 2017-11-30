@@ -31,7 +31,8 @@
               <a href="#" class="card-footer-item">Delete</a>
             </footer>
           </div>
-         </div> <!-- end questions list -->
+         </div>
+         <!-- end questions list -->
         </div>
       </div>
 </template>
@@ -80,9 +81,9 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/globals.scss";
 
-.main {
-  max-width: 66%;
-}
+// .main {
+//   max-width: 66%;
+// }
 .card {
   margin: 2%;
   box-shadow: bottom-shadow(2), top-shadow(3);

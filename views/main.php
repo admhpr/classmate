@@ -16,7 +16,7 @@
         <span></span>
       </div>
     </div>
-    <div id="main-menu" class="navbar-menu">
+    <div id="main-menu" class="navbar-menu nav-con">
       <div class="navbar-start">
         <a class="navbar-item" href="<?php echo ROOT_URL; ?>">
           Home
@@ -25,39 +25,42 @@
           Questions  
         </a>
         </div>
+        <div class="navbar-end">
+          <?php if(isset($_SESSION['is_logged_in'])) : ?>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="#">
+                  Welcome <?= $_SESSION['user_data']['first_name']; ?>
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/profile">
+                    Profile
+                  </a>
+                  <a class="navbar-item" href="<?= ROOT_PATH ?>questions/add">
+                    Question Something
+                  </a>
+                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>questions/category">
+                    Categories
+                  </a>
+                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/logout">
+                    Logout
+                  </a>
+                </div>
+            <?php else : ?>
+              <div class="navbar-item has-dropdown is-hoverable cm-navbar-margin">
+                <a class="navbar-link" href="#">
+                  Enter
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/login">
+                  Login
+                  </a>
+                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/register">
+                   Register
+                  </a>
+                </div>
+              </div>
+            <?php endif; ?>
       </div>
-      <div class="navbar-end">
-        <?php if(isset($_SESSION['is_logged_in'])) : ?>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="#">
-                Welcome <?= $_SESSION['user_data']['first_name']; ?>
-              </a>
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/profile">
-                  Profile
-                </a>
-                <a class="navbar-item" href="<?= ROOT_PATH ?>questions/add">
-                  Question Something
-                </a>
-                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/logout">
-                  Logout
-                </a>
-              </div>
-          <?php else : ?>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="#">
-                Enter
-              </a>
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/login">
-                Login
-                </a>
-                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/register">
-                 Register
-                </a>
-              </div>
-            </div>
-          <?php endif; ?>
           <!-- <div class="field is-grouped">
             <p class="control">
               <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
