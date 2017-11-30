@@ -14,6 +14,7 @@ import UserProfile from "./components/UserProfile.vue";
 import Categories from "./components/Categories.vue";
 import NewModule from "./components/NewModule.vue";
 import Avatar from "./components/Avatar.vue";
+import SkewLoader from "./components/SkewLoader.vue";
 
 
 // registering child components
@@ -22,6 +23,7 @@ Vue.component("user-profile", UserProfile);
 Vue.component("categories", Categories);
 Vue.component("new-module", NewModule);
 Vue.component("avatar", Avatar);
+Vue.component("skew-loader", SkewLoader);
 
 
 /**
@@ -34,7 +36,7 @@ Vue.component("avatar", Avatar);
 
 new Vue({
   el: "#vue",
-  components: { Home, QuestionList, UserProfile, Categories, NewModule, Avatar},
+  components: { Home, QuestionList, UserProfile, Categories, NewModule, Avatar, SkewLoader },
   data: {
     cmData: false,
     userData: false

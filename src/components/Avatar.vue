@@ -3,7 +3,7 @@
     <span v-if="!this.src">{{ userInitial }}</span>
   </div>
 </template>
-
+https://github.com/eliep/vue-avatar/blob/master/src/index.js
 <script>
 export default {
   name: 'avatar',
