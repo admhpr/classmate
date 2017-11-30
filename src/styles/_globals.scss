@@ -27,25 +27,31 @@ $black: #333;
 // useage: 'font-family: $main-font;'
 $main-font: "Raleway",
 sans-serif;
+
 $second-font: "Roboto Slab",
 serif;
+
 $third-font: "Josefin Slab",
 serif;
-// Override Bulmas defaults
-.is-primary {
+// setting classmate defaults
+.is-cm-primary {
   background-color: $blue !important;
+  color: $white;
 }
 
-.is-warning {
-  background-color: $light-purple !important;
+.is-cm-warning {
+  background-color: lighten($light-purple,10) !important;
+  color: $white;
 }
 
-.is-success {
+.is-cm-success {
   background-color: $green !important;
+  color: $white;
 }
 
-.is-info {
+.is-cm-info {
   background-color: $dark-blue !important;
+  color: $white;
 }
 
 // SCSS mixins && function :)

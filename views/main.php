@@ -2,45 +2,87 @@
 <head>
 	<title>ClassMate</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/bootstrap.css">
-	<!-- <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/style.css"> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">`
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
   <div class="pattern"></div>
-  <nav class="navbar navbar-default">
-    <div class="container nav-con">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">ClassMate</a>
+    <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <p>Classmate</p>
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div id="navbar" class="is-pulled-right collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
-          <li><a href="<?php echo ROOT_URL; ?>questions">Questions</a></li>
-        </ul>
-        
-        <ul class="nav navbar-nav navbar-right">
-          <?php if(isset($_SESSION['is_logged_in'])) : ?>
-          <li class="is-pulled-right"><a href="<?php echo ROOT_URL; ?>users/profile/<?= $_SESSION['user_data']['id']; ?>">Welcome <?= $_SESSION['user_data']['first_name']; ?></a></li>
-          <li><a href="<?php echo ROOT_URL; ?>users/logout">Logout</a></li>
-          <?php else : ?>
-          <li><a href="<?php echo ROOT_URL; ?>users/login">Login</a></li>
-          <li><a href="<?php echo ROOT_URL; ?>users/register">Register</a></li>
-          <?php endif; ?>
-        </ul>
-      </div><!--/.nav-collapse -->
     </div>
-  </nav>
-
-  
-  <div class="container">
-    
+    <div id="main-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="<?php echo ROOT_URL; ?>">
+          Home
+        </a>
+        <a class="navbar-item" href="<?php echo ROOT_URL; ?>questions">
+          Questions  
+        </a>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <?php if(isset($_SESSION['is_logged_in'])) : ?>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">
+                Welcome <?= $_SESSION['user_data']['first_name']; ?>
+              </a>
+              <div class="navbar-dropdown is-boxed">
+                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/profile">
+                  Profile
+                </a>
+                <a class="navbar-item" href="<?= ROOT_PATH ?>questions/add">
+                  Question Something
+                </a>
+                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/logout">
+                  Logout
+                </a>
+              </div>
+          <?php else : ?>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#">
+                Enter
+              </a>
+              <div class="navbar-dropdown is-boxed">
+                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/login">
+                Login
+                </a>
+                <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/register">
+                 Register
+                </a>
+              </div>
+            </div>
+          <?php endif; ?>
+          <!-- <div class="field is-grouped">
+            <p class="control">
+              <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
+                <span>
+                  Tweet
+                </span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.1.zip">
+                <span class="icon">
+                  <i class="fa fa-download"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </p>
+          </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </nav>  
+  <div class="container is-fluid"> <!--page start-->
     <div class="row">
       <br>
       <br>

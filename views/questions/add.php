@@ -27,11 +27,11 @@
 			</div>
 
     	<div class="form-group">
-    		<!-- <label>Link</label>
-    		<input type="text" name="link" class="form-control" /> -->
     	</div>
-    	<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
-        <a class="btn btn-danger" href="<?php echo ROOT_PATH; ?>questions">Cancel</a>
+			<div class="is-grouped">
+				<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
+				<a class="button is-text" href="<?php echo ROOT_URL; ?>/users/profile">Cancel</a>
+			</div>
     </form>
   </div>
 </div>

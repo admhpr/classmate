@@ -9,7 +9,7 @@
             <div class="tile is-vertical is-8">
                 <div class="tile">
                     <div class="tile is-parent">
-                        <article class="tile is-child notification is-info">
+                        <article class="tile is-child notification is-cm-info">
                         <p class="title">Hey there {{ cmData.first_name }}!</p>
                         <p class="subtitle">With an image</p>
                         <figure class="image is-4by3">
@@ -18,7 +18,7 @@
                         </article>
                     </div>
                     <div class="tile is-parent is-vertical">
-                        <article class="tile is-child notification is-primary">
+                        <article class="tile is-child notification is-cm-primary">
                         <p class="title">About This ClassMate...</p>
                         <p class="subtitle">Bio:</p>
                         <div class="media-content">
@@ -29,7 +29,7 @@
                              </div>
                         </div>
                         </article>
-                        <article class="tile is-child notification is-warning">
+                        <article class="tile is-child notification is-cm-warning">
                         <p class="title">...Answers</p>
                         <p class="subtitle">Lorem</p>
                         </article>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="tile is-parent">
-                <article class="tile is-child notification is-success">
+                <article class="tile is-child notification is-cm-success">
                 <div class="content">
                     <p class="title">Settings</p>
                     <p class="subtitle">With even more content</p>

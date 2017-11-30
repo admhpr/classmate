@@ -15,24 +15,37 @@
         public function add(){
             
             $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            switch($post['table_name']){
+                
+                case "answers":
+                    $this->query("INSERT INTO `answers` (user_id, question_id, content, is_active) VALUES(:user_id, :question_id, :content, :is_active)");
+                    
+                    $this->bind(':user_id', $post['user_id']);
+                    $this->bind(':question_id', $post['question_id']);
+                    $this->bind(':content', $post['answer']);
+                    $this->bind(':is_active', 1);
+                    $this->execute();
+        
+                    // //Redirect
+                    // header('Location: '.ROOT_URL.'questions/'.$post['question_id']);
+                    
+                    $status = array(
+                        "result" => "success",
+                        "question_id" => $post["question_id"]
+                    );
+        
+                    return json_encode($status);
+                    break;
 
-            $this->query("INSERT INTO `answers` (user_id, question_id, content, is_active) VALUES(:user_id, :question_id, :content, :is_active)");
-            
-            $this->bind(':user_id', $post['user_id']);
-            $this->bind(':question_id', $post['question_id']);
-            $this->bind(':content', $post['answer']);
-            $this->bind(':is_active', 1);
-            $this->execute();
+                case "questions":
+                    return true;
+                    break;
+                    
+                case "users":
+                    return true;
+                    break;
 
-            // //Redirect
-            // header('Location: '.ROOT_URL.'questions/'.$post['question_id']);
-            
-            $status = array(
-                "msg" => "success",
-                "question_id" => $post["question_id"]
-            );
-
-            return json_encode($status);
+            }
 
         }
 

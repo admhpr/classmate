@@ -81,7 +81,7 @@ export default {
 @import "../styles/globals.scss";
 
 .main {
-  max-width: 500px;
+  max-width: 66%;
 }
 .card {
   margin: 2%;

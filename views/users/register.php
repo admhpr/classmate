@@ -20,7 +20,10 @@
     		<label>Password</label>
     		<input type="password" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'] ?>" class="form-control" />
     	</div>
-    	<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
+			<div class="is-grouped">
+				<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
+				<a class="button is-text" href="<?php echo ROOT_URL; ?>">Cancel</a>
+			</div>
     </form>
   </div>
 </div>
