@@ -14,8 +14,8 @@ import QuestionList from "./components/QuestionList.vue";
 import UserProfile from "./components/UserProfile.vue";
 import Categories from "./components/Categories.vue";
 import NewModule from "./components/NewModule.vue";
-import Avatar from "./components/Avatar.vue";
-import SkewLoader from "./components/SkewLoader.vue";
+import Tab from "./components/Tab.vue";
+import Tabs from "./components/Tabs.vue";
 
 
 // registering child components
@@ -23,8 +23,8 @@ Vue.component("question-list", QuestionList);
 Vue.component("user-profile", UserProfile);
 Vue.component("categories", Categories);
 Vue.component("new-module", NewModule);
-Vue.component("avatar", Avatar);
-Vue.component("skew-loader", SkewLoader);
+Vue.component("tabs", Tabs);
+Vue.component("tab", Tab);
 
 
 /**
@@ -43,8 +43,6 @@ new Vue({
     UserProfile,
     Categories,
     NewModule,
-    Avatar,
-    SkewLoader
   },
   data: {
     cmData: "",

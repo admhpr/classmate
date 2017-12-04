@@ -33,7 +33,7 @@
                   Welcome <?= $_SESSION['user_data']['first_name']; ?>
                 </a>
                 <div class="navbar-dropdown is-boxed">
-                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/profile">
+                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/profile/<?= $_SESSION['user_data']['id']; ?>" >
                     Profile
                   </a>
                   <a class="navbar-item" href="<?= ROOT_PATH ?>questions/add">
@@ -91,7 +91,7 @@
       <br>
       <br>
       <br>
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-offset-1">
         <?php Messages::display(); ?>
         <?php require($view); ?>
       </div>

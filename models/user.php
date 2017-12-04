@@ -128,7 +128,6 @@ class UserModel extends Model{
 	
 	public function profile($id){
 
-
 		if($_SESSION['is_logged_in']){
 			$sql = 'SELECT * FROM users
 					WHERE id = :id';
@@ -140,4 +139,51 @@ class UserModel extends Model{
 			return $row;
 		}
 	}	
+
+	public function upload(){
+	
+		if(isset($_FILES['avatar'])){
+			$response = array(
+				"result" => "",
+				"message" => ""
+			);
+			$errors= array();
+			$file_name = $_FILES['avatar']['name'];
+			$file_size =$_FILES['avatar']['size'];
+			$file_tmp =$_FILES['avatar']['tmp_name'];
+			$file_type=$_FILES['avatar']['type'];
+			
+			$allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+			
+			if(in_array($file_type,$allowed)=== false){
+				$errors[]="extension not allowed, please choose a JPEG or PNG file.";
+			}
+			
+			$maxsize = 10 * 1024 * 1024; // calculate MB
+			if($file_size > $maxsize){
+				$errors[] = "File Size must be no bigger than 10 MB";
+			}
+			
+			if(empty($errors)==true){
+				$dest = $_SERVER['DOCUMENT_ROOT']."/user-images/".$_SESSION['user_data']['id'].$file_name;
+				move_uploaded_file($file_tmp,$dest);
+
+				$id = $_SESSION['user_data']['id'];
+				$sql = "UPDATE `users` SET image_path = :image_path  WHERE id = :id";
+				$id = intval($id);
+				$this->query($sql);
+				$this->bind(':id', $id);
+				$this->bind(':image_path', $dest);
+				$this->execute();
+
+				$response['result'] = "success";
+				$response['message'] = $file_name." has been successfully uploaded"; 
+			}else{
+				$response['result'] = "error";
+				$response['message'] = $errors[0]; 
+			}
+		}
+		
+		return json_encode($response);
+	}
 }
