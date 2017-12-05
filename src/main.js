@@ -17,6 +17,7 @@ import Categories from "./components/Categories.vue";
 import NewModule from "./components/NewModule.vue";
 import Tab from "./components/Tab.vue";
 import Tabs from "./components/Tabs.vue";
+import QuesAns from "./components/QuesAns.vue";
 
 
 // registering child components
@@ -26,6 +27,7 @@ Vue.component("categories", Categories);
 Vue.component("new-module", NewModule);
 Vue.component("tabs", Tabs);
 Vue.component("tab", Tab);
+Vue.component("ques-ans", QuesAns);
 
 
 /**

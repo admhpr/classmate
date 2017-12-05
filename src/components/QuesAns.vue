@@ -1,8 +1,8 @@
 <template>
-  
-         <div>
-    
+        <div>
+           
           <section class="container">
+              
           <div class="columns">
       
 
@@ -46,19 +46,6 @@
               <a v-if="!userData" class="button is-cm-info is-block is-alt is-medium" href="users/login">Login and Do More</a>
               <a v-if="userData" class="button is-cm-info is-block is-alt is-medium" href="questions/add">Ask a Question</a>
               <aside class="menu">
-                  <nav class="navbar is-white">
-                    <div class="container">
-                    <div class="navbar-menu">
-                        <div class="navbar-start">
-                        <a class="navbar-item is-active" href="#">Popular</a>
-                        <a class="navbar-item" href="#">Recent</a>
-                        <a class="navbar-item" href="#">Rising</a>
-                        </div>
-                        <div class="navbar-end">
-                        </div>
-                    </div>
-                  </div>
-                </nav>
                 <p class="menu-label">
                   <!-- Tags -->
                    <div class="panel-block">
@@ -84,7 +71,7 @@
         </section>
         </div>
       </div>
-         </div>
+        </div>
 
  
 </template>
