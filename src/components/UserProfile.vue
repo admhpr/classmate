@@ -33,9 +33,7 @@
                                     drag: 'Drag and drop your image here'
                                 }">
                                 </picture-input>
-                                <div v-else>
-                                    <img src="" alt="Profile Picture">
-                                </div>
+                              
                                 <button v-if="image" @click="attemptUpload" v-bind:class="{ disabled: !image }">
                                     Upload
                                 </button>
