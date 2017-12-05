@@ -27,10 +27,23 @@
                         <a :href="user_href(question)">@{{ question.first_name }}{{ question.last_name }}</a>. YO <a href="#">#{{question.category}}</a>.
                         <br>
                         <time datetime="">{{question.date_created | dateFormat }}</time>.
+                        
                       </div>
                         <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
-
-                        </modal-answer>
+                       </modal-answer>
+                       <star-rating v-if="cmData.admin == true" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
+                       <div>
+                          <v-flex xs12 sm3>
+                              <v-btn flat icon color="green">
+                                <v-icon>thumb_up</v-icon>
+                              </v-btn>
+                            </v-flex>
+                            <v-flex xs12 sm3>
+                              <v-btn flat icon color="red">
+                                <v-icon>thumb_down</v-icon>
+                              </v-btn>
+                          </v-flex>
+                       </div>
                     </div>
                     <footer v-if="userData" class="card-footer">
                       <a @click="openModal(index)" class="card-footer-item cm-answer"> Answer </a>
@@ -79,13 +92,14 @@
 import axios from "axios";
 import Vue from "vue/dist/vue.esm.js";
 import ModalAnswer from "./ModalAnswer.vue";
+import StarRating from "vue-star-rating";
 
 Vue.component("modal-answer", ModalAnswer);
 
 export default {
   props: ["cmData", "userData", "currentUserId"],
   name: "QuestionList",
-  components: { ModalAnswer },
+  components: { ModalAnswer, StarRating },
   data() {
     return {
       keyword: "",
@@ -93,7 +107,11 @@ export default {
       modalConfig: {
         show: false,
         question: null
-      }
+      },
+      rating: "No Rating Selected",
+      currentRating: "No Rating",
+      currentSelectedRating: "No Current Rating",
+      boundRating: 3,
     };
   },
   computed: {
@@ -113,7 +131,18 @@ export default {
     openModal(index) {
       (this.modalConfig.show = true),
         (this.modalConfig.question = this.cmData[index]);
+    },
+    //methods for star rating
+    setRating(rating) {
+      (this.rating = "You have Selected: " + rating + " stars");
+    },
+    showCurrentRating(rating) {
+      (this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars");
+    },
+    setCurrentSelectedRating(rating) {
+      (this.currentSelectedRating = "You have Selected: " + rating + " stars");
     }
+    //end of star methods
   },
   filters: {
     dateFormat(date) {
