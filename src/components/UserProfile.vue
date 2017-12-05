@@ -171,7 +171,7 @@ export default {
   data() {
     return {
       image: "",
-      cmSrc: this.cmData.image_path,
+      cmSrc: "photo.php",
       userList: []
     };
   },
