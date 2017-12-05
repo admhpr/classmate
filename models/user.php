@@ -149,7 +149,7 @@ class UserModel extends Model{
 		}
 	}	
 	public function upload(){
-	
+	  
 		if(isset($_FILES['avatar'])){
 			$response = array(
 				"result" => "",
@@ -173,7 +173,11 @@ class UserModel extends Model{
 			}
 			
 			if(empty($errors)==true){
-				$dest = $_SERVER['DOCUMENT_ROOT']."/user-images/".$_SESSION['user_data']['id'].$file_name;
+				
+				$dest = ROOT_URL . "/user-images/".$_SESSION['user_data']['id'].$file_name;
+				$imageUrl = ROOT_PATH. "user-images/" . $_SESSION['user_data']['id'].$file_name;
+				var_dump($dest);
+				var_dump($file_tmp);
 				move_uploaded_file($file_tmp,$dest);
 
 				$id = $_SESSION['user_data']['id'];
@@ -181,7 +185,7 @@ class UserModel extends Model{
 				$id = intval($id);
 				$this->query($sql);
 				$this->bind(':id', $id);
-				$this->bind(':image_path', $dest);
+				$this->bind(':image_path', $imageUrl);
 				$this->execute();
 
 				$response['result'] = "success";
