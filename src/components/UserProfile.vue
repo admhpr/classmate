@@ -12,12 +12,12 @@
                             <p class="title">Hey there {{ cmData.first_name }}!</p>
                     
                             <!-- Picture input component config -->
-                            <div v-if="cmData.image_path">
+                            <div v-if="userData.image_path">
                                 <img :src="cmSrc" alt="Profile Picture">
                             </div>
                            
                             <picture-input
-                                v-else 
+                                v-if="userData.id == currentUserId" 
                                 ref="pictureInput" 
                                 @change="onChange" 
                                 @remove="onRemoved"
@@ -33,7 +33,9 @@
                                     drag: 'Drag and drop your image here'
                                 }">
                                 </picture-input>
-
+                                <div v-else>
+                                    <img src="" alt="Profile Picture">
+                                </div>
                                 <button v-if="image" @click="attemptUpload" v-bind:class="{ disabled: !image }">
                                     Upload
                                 </button>

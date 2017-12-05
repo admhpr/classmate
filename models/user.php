@@ -42,7 +42,7 @@ class UserModel extends Model{
 					return;
 				}
 
-				// Insert into MySQL
+				// Insert into MySQL DB
 				$this->query('INSERT INTO users (first_name,last_name, email,salt,password,is_active) VALUES(:first_name, :last_name,:email,:salt, :password,1)');
 				$this->bind(':first_name', $post['first_name']);
 				$this->bind(':last_name', $post['last_name']);
@@ -50,6 +50,12 @@ class UserModel extends Model{
 				$this->bind(':salt', $salt);
 				$this->bind(':password', $password);
 				$this->execute();
+
+				// Insert into MySQL DB
+				$this->query('INSERT INTO user_roles (role_id,is_active) VALUES(:role_id, 1)');
+				$this->bind(':role_id', $post['role_id']);
+				$this->execute();
+
 				// Verify
 				if($this->lastInsertId()){
 
@@ -129,8 +135,11 @@ class UserModel extends Model{
 	public function profile($id){
 
 		if($_SESSION['is_logged_in']){
-			$sql = 'SELECT * FROM users
-					WHERE id = :id';
+			
+			$sql = 'SELECT * FROM users u
+					LEFT JOIN `user_roles` ur 
+					ON u.id = ur.user_id
+					WHERE u.id = :id';
 
 			$id = intval($id);		
 			$this->query($sql);
