@@ -91,7 +91,7 @@
       <br>
       <br>
       <br>
-      <div class="col-md-offset-1">
+      <div class="">
         <?php Messages::display(); ?>
         <?php require($view); ?>
       </div>

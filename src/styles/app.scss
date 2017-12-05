@@ -19,7 +19,11 @@ body {
 }
 
 .nav-con {
-  border-bottom: 1px solid #83d5c0;
+  border-bottom: 1px solid $light-green;
+}
+
+.navbar{
+    box-shadow: bottom-shadow(1), top-shadow(1);
 }
 
 .btn-question {

@@ -7,7 +7,7 @@
 
             <div class="column is-8">
               <div class="main">
-                <div class="is-left" :key="question.title" v-for="(question, index) in cmData">
+                <div class="is-left" :key="index" v-for="(question, index) in filteredList">
                   <div class="card">
                     <header class="card-header">
                       <p class="card-header-title">
@@ -35,7 +35,7 @@
                     <footer v-if="userData" class="card-footer">
                       <a @click="openModal(index)" class="card-footer-item cm-answer"> Answer </a>
                       <a :href="ques_href(question)" class="card-footer-item cm-view-answers">View Answers</a>
-                      <a href="#" class="card-footer-item">Delete</a>
+                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                     </div>
                   </div>
@@ -49,7 +49,7 @@
                   <!-- Tags -->
                    <div class="panel-block">
                     <p class="control has-icons-left">
-                      <input class="input is-small" type="text" placeholder="Search">
+                      <input v-model="keyword"  class="input is-small" type="text" placeholder="Search">
                       <span class="icon is-small is-left">
                         <i class="fa fa-search"></i>
                       </span>
@@ -82,11 +82,12 @@ import ModalAnswer from "./ModalAnswer.vue";
 Vue.component("modal-answer", ModalAnswer);
 
 export default {
-  props: ["cmData", "userData"],
+  props: ["cmData", "userData", "currentUserId"],
   name: "QuestionList",
   components: { ModalAnswer },
   data() {
     return {
+      keyword: "",
       message: "Question Component test",
       modalConfig: {
         show: false,
@@ -94,7 +95,13 @@ export default {
       }
     };
   },
-  computed: {},
+  computed: {
+    filteredList() {
+      return this.cmData.filter(question => {
+        return question.title.toLowerCase().includes(this.keyword);
+      });
+    }
+  },
   methods: {
     user_href(ques) {
       return "users/profile/" + ques.user_id;
@@ -111,7 +118,8 @@ export default {
     dateFormat(date) {
       return date.substring(0, date.length - 3);
     }
-  }
+  },
+  deleteQues: {}
 };
 </script>
 
@@ -135,6 +143,14 @@ export default {
   border-bottom: 4px solid $green;
   &:hover {
     border-bottom: 4px solid $light-purple;
+  }
+}
+
+.cm-delete {
+  background-color: transparent;
+  border-bottom: 4px solid $red;
+  &:hover {
+    border-bottom: 4px solid lighten($red, 10);
   }
 }
 </style>

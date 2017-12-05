@@ -1,10 +1,19 @@
 <?php
     class ApiModel extends Model{
         public function get_all($thing){
-            $sql = 'SELECT * FROM ' . $thing;
-            $this->query($sql);
-            $rows = $this->all();
-            return json_encode($rows);
+            // not the users table return everything
+            if($thing != "users"){
+                $sql = 'SELECT * FROM ' . $thing;
+                $this->query($sql);
+                $rows = $this->all();
+                return json_encode($rows);
+            }else{
+                // not returning passwords for obvious reasons
+                $sql = 'SELECT id, first_name, last_name, email FROM ' . $thing;
+                $this->query($sql);
+                $rows = $this->all();
+                return json_encode($rows);
+            }
         }
 
         public function vote(){

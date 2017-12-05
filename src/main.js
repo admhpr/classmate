@@ -8,6 +8,7 @@ import scss from "./styles/app.scss"
 import Vue from "vue/dist/vue.esm.js";
 import Bulma from "bulma";
 
+
 // Root component of the framework
 import Home from "./App.vue";
 import QuestionList from "./components/QuestionList.vue";
@@ -46,7 +47,8 @@ new Vue({
   },
   data: {
     cmData: "",
-    userData: false
+    userData: false,
+    currentUserId: "",
   },
   created: function () {
 
@@ -56,6 +58,9 @@ new Vue({
 
     if (typeof userData !== "undefined") {
       this.userData = userData;
+    }
+    if (typeof currentUserId !== "undefined") {
+      this.currentUserId = currentUserId;
     }
   }
 });

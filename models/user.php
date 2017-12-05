@@ -139,7 +139,6 @@ class UserModel extends Model{
 			return $row;
 		}
 	}	
-
 	public function upload(){
 	
 		if(isset($_FILES['avatar'])){
