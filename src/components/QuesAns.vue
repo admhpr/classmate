@@ -31,20 +31,24 @@
                       </div>
                         <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
                        </modal-answer>
-                       <star-rating v-if="cmData.admin == true" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
-                       <div>
-                          <v-flex xs12 sm3>
-                              <v-btn flat icon color="green">
-                                <v-icon>thumb_up</v-icon>
-                              </v-btn>
-                            </v-flex>
-                            <v-flex xs12 sm3>
-                              <v-btn flat icon color="red">
-                                <v-icon>thumb_down</v-icon>
-                              </v-btn>
-                          </v-flex>
-                       </div>
-                    </div>
+                       <star-rating :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
+                      <div>
+                          <!-- <v-container fluid class="pa-0"> -->
+                            <v-layout row wrap >        
+                              <v-flex xs12 sm3>
+                                <v-btn flat icon color="green">
+                                  <v-icon></v-icon>
+                                </v-btn>
+                              </v-flex>
+                              <v-flex xs12 sm3>
+                                <v-btn flat icon color="red" >
+                                  <v-icon></v-icon>
+                                </v-btn>
+                              </v-flex>
+                            </v-layout>
+                          <!-- </v-container> -->
+                      </div>
+                    </div> 
                     <footer v-if="userData" class="card-footer">
                       <a @click="openModal(index)" class="card-footer-item cm-answer"> Answer </a>
                       <a :href="ques_href(question)" class="card-footer-item cm-view-answers">View Answers</a>
@@ -93,8 +97,10 @@ import axios from "axios";
 import Vue from "vue/dist/vue.esm.js";
 import ModalAnswer from "./ModalAnswer.vue";
 import StarRating from "vue-star-rating";
+import Vuetify from "vuetify";
 
 Vue.component("modal-answer", ModalAnswer);
+Vue.use(Vuetify);
 
 export default {
   props: ["cmData", "userData", "currentUserId"],
