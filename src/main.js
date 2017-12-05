@@ -46,6 +46,7 @@ new Vue({
     UserProfile,
     Categories,
     NewModule,
+    QuesAns
   },
   data: {
     cmData: "",

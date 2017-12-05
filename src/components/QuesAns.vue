@@ -4,7 +4,6 @@
           <section class="container">
               
           <div class="columns">
-      
 
             <div class="column is-8">
               <div class="main">
@@ -25,7 +24,7 @@
                         
                         <div class="box">{{ question.content }} </div>
                         <span>asked by:</span>
-                        <a :href="user_href(question)">@{{ question.first_name }}{{ question.last_name }}</a>. In <a href="#">#{{question.category}}</a>.
+                        <a :href="user_href(question)">@{{ question.first_name }}{{ question.last_name }}</a>. YO <a href="#">#{{question.category}}</a>.
                         <br>
                         <time datetime="">{{question.date_created | dateFormat }}</time>.
                       </div>
