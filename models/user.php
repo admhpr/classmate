@@ -118,7 +118,7 @@ class UserModel extends Model{
 					"email"	=> $row['email']
 				);
 				Messages::setMsg('Successful login', 'success');
-				header('Location: '.ROOT_URL.'users/profile'.$_SESSION['user_data']['id']);
+				header('Location: '.ROOT_URL.'users/profile/'.$_SESSION['user_data']['id']);
 			} else {
 				Messages::setMsg('Incorrect Login', 'error');
 			}

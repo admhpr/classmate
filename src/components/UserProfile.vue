@@ -15,6 +15,7 @@
                             <div v-if="cmData.image_path">
                                 <img :src="cmSrc" alt="Profile Picture">
                             </div>
+                           
                             <picture-input
                                 v-else 
                                 ref="pictureInput" 
