@@ -1,2 +1,6 @@
 var path;
-export default path = "http://localhost/adv-web-final-project/";
+if (location.host == "localhost") {
+  path = "http://localhost/adv-web-final-project/";
+} else {
+}
+export default path;

@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['SERVER_NAME'] == "localhost"){
     define("DEV_BUILD", true);
-    define("SEND_LINK", true);
+    define("SEND_LINK", false);
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "");

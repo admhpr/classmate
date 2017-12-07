@@ -17,5 +17,5 @@
 </script>
 <!-- see ./src/components/QuestionList.vue -->
 <div id="vue">
-	<ques-ans :cm-data="cmData" :user-data="userData"></ques-ans>
+	<answer-list :cm-data="cmData" :user-data="userData"></answer-list>
 </div>

@@ -3,6 +3,9 @@
          <div>
     
           <section class="container">
+            <h1 class="title">Questions</h1>
+            <h2 class="subtitle">Post your question here ..</h2>
+            <hr id="hr">
           <div class="columns">
       
 
@@ -12,7 +15,7 @@
                   <div class="card">
                     <header class="card-header">
                       <p class="card-header-title">
-                        {{ question.title }}
+                        {{ question.title }} ?
                       </p>
                       <a href="#" class="card-header-icon" aria-label="more options">
                         <span class="icon">
@@ -42,34 +45,41 @@
                   </div>
                 </div>
               </div><!--end questions list -->
-              <div class="column is-4">
+              <div class="column is-4 card ques-card">
               <a v-if="!userData" class="button is-cm-info is-block is-alt is-medium" href="users/login">Login and Do More</a>
               <a v-if="userData" class="button is-cm-info is-block is-alt is-medium" href="questions/add">Ask a Question</a>
               <aside class="menu">
-                  <nav class="navbar is-white">
-                    <div class="container">
-                    <div class="navbar-menu">
-                        <div class="navbar-start">
-                        <a class="navbar-item is-active" href="#">Popular</a>
-                        <a class="navbar-item" href="#">Recent</a>
-                        <a class="navbar-item" href="#">Rising</a>
-                        </div>
-                        <div class="navbar-end">
-                        </div>
+                <div class="card ques-card">
+                    <header class="card-header">
+                  <p class="card-header-title">
+                  
+                  </p>
+                  <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <p class="menu-label">
+                    <!-- Tags -->
+                    <div>
+                      <p class="control has-icons-left">
+                        <input v-model="keyword"  class="input is-small" type="text" placeholder="Search">
+                          <span class="icon is-small is-left">
+                              <i class="fa fa-search"></i>
+                          </span>
+                        </p>
                     </div>
+                    </div>
+                    <footer class="card-footer">
+                      <a href="#" class="card-footer-item">Popular</a>
+                      <a href="#" class="card-footer-item">Recent</a>
+                      <a href="#" class="card-footer-item">Rising</a>
+                    </footer>
                   </div>
-                </nav>
-                <p class="menu-label">
-                  <!-- Tags -->
-                   <div class="panel-block">
-                    <p class="control has-icons-left">
-                      <input v-model="keyword"  class="input is-small" type="text" placeholder="Search">
-                      <span class="icon is-small is-left">
-                        <i class="fa fa-search"></i>
-                      </span>
-                    </p>
-                  </div>
-                </p>
+                </div>
                 <ul class="menu-list">
                   <!-- <li><a>Dashboard</a></li>
                   <li><a>Customers</a></li>
@@ -91,6 +101,7 @@
 
 <script>
 import axios from "axios";
+import path from "../helpers/config";
 import Vue from "vue/dist/vue.esm.js";
 import ModalAnswer from "./ModalAnswer.vue";
 
@@ -119,10 +130,10 @@ export default {
   },
   methods: {
     user_href(ques) {
-      return "users/profile/" + ques.user_id;
+      return path + "users/profile/" + ques.user_id;
     },
     ques_href(ques) {
-      return "questions/" + ques.id;
+      return path + "questions/" + ques.id;
     },
     openModal(index) {
       (this.modalConfig.show = true),
@@ -144,7 +155,15 @@ export default {
 .card {
   margin: 2%;
   box-shadow: bottom-shadow(2), top-shadow(3);
+  border-left: 3px solid $dark-blue;
 }
+
+.ques-card {
+  height: 200px;
+  border-left: none;
+  border-bottom: 3px solid $dark-blue;
+}
+
 .cm-answer {
   background-color: transparent;
   border-bottom: 4px solid $blue;

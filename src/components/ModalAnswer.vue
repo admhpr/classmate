@@ -40,6 +40,7 @@
 
 <script>
 import axios from "axios";
+import path from "../helpers/config";
 export default {
   props: ["config"],
   data() {
@@ -73,7 +74,7 @@ export default {
           if (res.data.result == "success") {
             vm.answers = "";
             vm.quesPass = true;
-            vm.btnHref = "questions/" + res.data.question_id;
+            vm.btnHref = path + "questions/" + res.data.question_id;
           }
         });
       }

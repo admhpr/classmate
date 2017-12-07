@@ -108,9 +108,15 @@ class UserModel extends Model{
 		$salt = md5( rand(0,1000) );
 
 		if($post['submit']){
-			
+			$sql = 'SELECT * FROM users u
+					LEFT JOIN `user_roles` ur 
+					ON ur.user_id = u.id
+					LEFT JOIN `roles` r 
+					ON r.id = ur.role_id
+					WHERE email = :email';
+
 			// Compare Login
-			$this->query('SELECT * FROM users WHERE email = :email');
+			$this->query($sql);
 			$this->bind(':email', $post['email']);
 			$row = $this->single();
 
@@ -121,9 +127,13 @@ class UserModel extends Model{
 					"id"	=> $row['id'],
 					"first_name"	=> $row['first_name'],
 					"last_name"	=> $row['last_name'],
-					"email"	=> $row['email']
+					"email"	=> $row['email'],
+					"role_id" => $row['role_id'],
+					"role" => $row['role']
 				);
-				Messages::setMsg('Successful login', 'success');
+
+				Messages::setMsg('Successful login!', 'success');
+				sleep(2);
 				header('Location: '.ROOT_URL.'users/profile/'.$_SESSION['user_data']['id']);
 			} else {
 				Messages::setMsg('Incorrect Login', 'error');

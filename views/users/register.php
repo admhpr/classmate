@@ -26,9 +26,9 @@
 					<a class="button is-text" href="<?php echo ROOT_URL; ?>">Cancel</a>
 					<div class="select">
 						<select name="role_id">
-							<option value="0">User</option>
-							<option value="1">Admin</option>
-							<option value="2">Dev</option>
+							<option value="1">User</option>
+							<option value="2">Admin</option>
+							<option value="3">Dev</option>
 						</select>
 						</div>
 					</div>

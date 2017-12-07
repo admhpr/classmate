@@ -1,7 +1,15 @@
 <template>
     <div class="main">
         <div>
-            
+            <div v-if="currentUserId == cmData.id">
+                <h1 class="title">Hey there {{ cmData.first_name }}!</h1>
+                <h2 class="subtitle">This is your profile ..</h2>
+            </div>
+            <div v-else>
+                <h1 class="title">Their name is {{ cmData.first_name }}!</h1>
+                <h2 class="subtitle">This is their profile ..</h2>
+            </div>
+            <hr id="hr">
         </div>
 
         <div class="tile is-ancestor">
@@ -9,7 +17,7 @@
                 <div class="tile">
                     <div class="tile is-parent">
                         <article class="tile is-child notification is-cm-info">
-                            <p class="title">Hey there {{ cmData.first_name }}!</p>
+                            <p class="title"></p>
                     
                             <!-- Picture input component config -->
                             <div v-if="userData.image_path">
@@ -17,7 +25,7 @@
                             </div>
                            
                             <picture-input
-                                v-if="userData.id == currentUserId" 
+                                v-if="currentUserId == cmData.id" 
                                 ref="pictureInput" 
                                 @change="onChange" 
                                 @remove="onRemoved"
