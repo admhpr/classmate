@@ -59,6 +59,6 @@
         }
 
         public function delete(){
-            
+            echo "echoooo";
         }
     }

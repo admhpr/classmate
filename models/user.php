@@ -108,7 +108,10 @@ class UserModel extends Model{
 		$salt = md5( rand(0,1000) );
 
 		if($post['submit']){
-			$sql = 'SELECT * FROM users u
+			$sql = 'SELECT u.id, u.first_name, u.last_name, u.email, 
+					u.image_path, u.bio, u.password, u.salt,
+					ur.role_id, r.role
+					FROM users u
 					LEFT JOIN `user_roles` ur 
 					ON ur.user_id = u.id
 					LEFT JOIN `roles` r 

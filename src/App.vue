@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  props: ["userData"],
   name: "home",
   data() {
     return {

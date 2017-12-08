@@ -33,13 +33,12 @@
                         <time datetime="">{{question.date_created | dateFormat }}</time>.
                       </div>
                         <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
-
                         </modal-answer>
                     </div>
                     <footer v-if="userData" class="card-footer">
                       <a @click="openModal(index)" class="card-footer-item cm-answer"> Answer </a>
                       <a :href="ques_href(question)" class="card-footer-item cm-view-answers">View Answers</a>
-                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Delete</a>
+                      <a @click="showMsg(question.id) "v-if="userData.id == question.user_id" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                     </div>
                   </div>
@@ -80,6 +79,16 @@
                     </footer>
                   </div>
                 </div>
+                <message :cm-style="dangerMessage" v-if="message.show" @close="message.show = false">
+                  <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                        You are about to delete this question
+                        along with all associated answers..
+                        is that what you want?
+                  <br>
+                  <br>
+                  <a  @click="message.show = false" class="button is-text">Cancel</a>
+                  <a @click="deleteQues(message.delId)" class="button is-danger">Delete</a>
+                </message>
                 <ul class="menu-list">
                   <!-- <li><a>Dashboard</a></li>
                   <li><a>Customers</a></li>
@@ -94,7 +103,7 @@
         </section>
         </div>
       </div>
-         </div>
+    </div>
 
  
 </template>
@@ -114,10 +123,16 @@ export default {
   data() {
     return {
       keyword: "",
-      message: "Question Component test",
+      dangerMessage: "message is-danger is-clearfix",
+      sucessMessage: "message is-success is-clearfix",
       modalConfig: {
         show: false,
         question: null
+      },
+      message: {
+        show: false,
+        confirm: false,
+        delId: ""
       }
     };
   },
@@ -138,6 +153,24 @@ export default {
     openModal(index) {
       (this.modalConfig.show = true),
         (this.modalConfig.question = this.cmData[index]);
+    },
+    showMsg(id) {
+      this.message.delId = id;
+      this.message.show = !this.message.show;
+    },
+    deleteQues(id) {
+      this.message.show = true;
+      var params = new URLSearchParams();
+      // nice terse regex stack overflow special
+      params.append("table_name", "questions");
+      params.append("id", id.replace(/(^\s+|\s+$)/g, ""));
+      // ajax
+      this.message.show = false;
+      axios.post("./api/delete/", params).then(function(res) {
+        if (res.data.result == "success") {
+          console.log("yo");
+        }
+      });
     }
   },
   filters: {

@@ -24,13 +24,14 @@ class QuestionModel extends Model{
 				Messages::setMsg('Please fill in all fields', 'error');
 				return;
 			}
+			var_dump($post);
 			// Insert into MySQL
 			$this->query('INSERT INTO questions (title, content, category_id, user_id) VALUES(:title,:content,:category_id,:user_id)');
 			$this->bind(':title', $post['title']);
 			$this->bind(':content', $post['content']);
 			$this->bind(':category_id', $post['category_id']);
 			// $this->bind(':link', $post['link']);
-			$this->bind(':user_id', $_SESSION['user_data']['id']);
+			$this->bind(':user_id', 1);
 			$this->execute();
 			// Verify
 			if($this->lastInsertId()){

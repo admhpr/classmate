@@ -98,11 +98,16 @@
     </div>
 
   </div><!-- /.container -->
-
+    	<!-- prepping the PHP data to keep Vue happy --> 
+      <script>
+        <?php if( isset($_SESSION['is_logged_in'])): ?>
+          var userData = <?php echo(json_encode($_SESSION['user_data'])); ?>;
+        <?php endif; ?>	
+      </script>
        	<!-- Vue instance -->
       <div id="vue">
 
-        <home></home>
+        <home :user-data="userData"></home>
       
       </div>
      <script src="<?php echo ROOT_URL; ?>dist/build.js"></script>

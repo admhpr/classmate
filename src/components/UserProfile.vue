@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="field is-grouped">
                                         <div class="control">
-                                            <button @click="updateSettings" class="button is-text">Save</button>
+                                            <button @click="updateSettings" class="button">Save</button>
                                         </div>
                                         <div class="control">
                                             <button @click="changePic" class="button is-text">Change Picture</button>
