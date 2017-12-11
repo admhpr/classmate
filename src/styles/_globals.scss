@@ -52,6 +52,11 @@ $third-font: "Josefin Slab", serif;
   color: $white;
 }
 
+.is-cm-danger {
+  background-color: $red !important;
+  color: $white;
+}
+
 #hr {
   border: double 0.5px lighten($black, 30);
 }

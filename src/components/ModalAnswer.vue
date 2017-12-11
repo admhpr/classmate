@@ -18,7 +18,7 @@
                 </div>
               </div>
               <transition name="fade">
-                <p v-show="quesPass" class="help">“No one is useless in this world who lightens the burdens of another.” Thanks for your answer!</p>
+                <p v-show="quesPass" class="help">Thanks for your answer!</p>
               </transition>
               </section>
               <footer class="modal-card-foot">

@@ -2,8 +2,8 @@
 class QuestionModel extends Model{
 
 	public function index(){
-		$sql = 'SELECT q.id, q.content, q.title, q.date_created,
-				c.category, 
+		$sql = 'SELECT q.id, q.content, q.title, q.date_created,q.is_active,
+				c.category, c.id as cat_id,
 				u.first_name, u.last_name, q.user_id 
 				FROM `questions` q
 				LEFT JOIN `categories` c ON q.category_id = c.id 
@@ -19,19 +19,17 @@ class QuestionModel extends Model{
 		// Sanitize POST
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 		if($post['submit']){
-
 			if($post['title'] == '' || $post['content'] == ''){
 				Messages::setMsg('Please fill in all fields', 'error');
 				return;
 			}
-			var_dump($post);
 			// Insert into MySQL
-			$this->query('INSERT INTO questions (title, content, category_id, user_id) VALUES(:title,:content,:category_id,:user_id)');
+			$this->query('INSERT INTO questions (title, content, category_id,user_id,is_active) VALUES(:title,:content,:category_id,:user_id,:is_active)');
 			$this->bind(':title', $post['title']);
 			$this->bind(':content', $post['content']);
 			$this->bind(':category_id', $post['category_id']);
-			// $this->bind(':link', $post['link']);
-			$this->bind(':user_id', 1);
+			$this->bind(':user_id', $_SESSION['user_data']['id']);
+			$this->bind(':is_active', 1);
 			$this->execute();
 			// Verify
 			if($this->lastInsertId()){
@@ -77,7 +75,7 @@ class QuestionModel extends Model{
 		// }
 		return $row;
 	}
-
+	// depreciated
 	public function cat($id){
 
 		$sql = 'SELECT c.id, c.category, q.id, q.title, q.content 

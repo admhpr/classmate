@@ -37,7 +37,7 @@
                       </div>
                     </div>
                     <footer v-if="userData" class="card-footer">
-                      <a @click="deleteQues(question.id) "v-if="userData.id == cmData[0].user_id" href="#" class="card-footer-item cm-delete">Edit</a>
+                      <a @click="deleteQues(question.id) "v-if="userData.id == cmData[0].user_id" href="#" class="card-footer-item">Edit</a>
                       <a @click="deleteQues(question.id) "v-if="userData.id == cmData[0].user_id" href="#" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                 </div> <!-- end question --> 
@@ -67,13 +67,16 @@
                       </div>
                         <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
                        </modal-answer>
-                       <star-rating v-if="userRole.roleId > 1" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
-                       <div class="votes">
-                        <upvote :votes="0"></upvote>
-                       </div>
+                       <!-- check if user is admin or dev -->
+                      <div v-if="cmData[0].answer_id">
+                        <star-rating v-if="userRole.roleId > 1" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
+                        <div v-if="userData.id != question.user_id" class="votes">
+                          <upvote @vote="vote" :votes="0"></upvote>
+                        </div>
+                      </div>
                     </div>
                     <footer v-if="userData" class="card-footer">
-                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Edit</a>
+                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item">Edit</a>
                       <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                     </div>
@@ -87,7 +90,7 @@
                  <div class="card ans-card">
                     <header class="card-header">
                   <p class="card-header-title">
-                  
+                  Total Answers: {{ filteredList.length }}
                   </p>
                   <a href="#" class="card-header-icon" aria-label="more options">
                     <span class="icon">
@@ -110,18 +113,12 @@
                     </div>
                     <footer class="card-footer">
                       <a href="#" class="card-footer-item">Popular</a>
-                      <a href="#" class="card-footer-item">Recent</a>
+                      <a href="#" class="card-footer-item">Latest</a>
                       <a href="#" class="card-footer-item">Rising</a>
                     </footer>
                   </div>
                 </div>
                 <ul class="menu-list">
-                  <!-- <li><a>Dashboard</a></li>
-                  <li><a>Customers</a></li>
-                  <li><a>Authentication</a></li>
-                  <li><a>Payments</a></li>
-                  <li><a>Transfers</a></li>
-                  <li><a>Balance</a></li> -->
                 </ul>
               </aside>
             </div>
@@ -129,7 +126,7 @@
         </section>
         </div>
       </div>
-        </div>
+     </div>
 
  
 </template>
@@ -185,7 +182,9 @@ export default {
   },
   methods: {
     user_href(ques) {
-      return path + "users/profile/" + ques.user_id;
+      if (this.cmData[0].answer_id) {
+        return path + "users/profile/" + ques.user_id;
+      }
     },
     ques_href(ques) {
       return path + "questions/" + ques.id;
@@ -206,8 +205,9 @@ export default {
     },
     setCurrentSelectedRating(rating) {
       this.currentSelectedRating = "You have Selected: " + rating + " stars";
-    }
+    },
     //end of star methods
+    vote() {}
   },
   filters: {
     dateFormat(date) {

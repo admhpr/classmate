@@ -51,7 +51,7 @@
                 <div class="card ques-card">
                     <header class="card-header">
                   <p class="card-header-title">
-                  
+                    Total Questions: {{ filteredList.length }}
                   </p>
                   <a href="#" class="card-header-icon" aria-label="more options">
                     <span class="icon">
@@ -61,11 +61,11 @@
                 </header>
                 <div class="card-content">
                   <div class="content">
-                    <p class="menu-label">
+                    <p class="menu-label">Search by title, category or date</p>
                     <!-- Tags -->
                     <div>
                       <p class="control has-icons-left">
-                        <input v-model="keyword"  class="input is-small" type="text" placeholder="Search">
+                        <input v-model="keyword"  class="input is-small" type="text" placeholder="Search..">
                           <span class="icon is-small is-left">
                               <i class="fa fa-search"></i>
                           </span>
@@ -73,9 +73,35 @@
                     </div>
                     </div>
                     <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Popular</a>
-                      <a href="#" class="card-footer-item">Recent</a>
-                      <a href="#" class="card-footer-item">Rising</a>
+                      <!-- <a @click="filterCat" href="#" class="card-footer-item">Category</a> -->
+                      <div @click="openDropdown()" :class="{'dropdown':true,'is-active': dropdown}">
+                        <div class="dropdown-trigger">
+                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span>Category</span>
+                            <span class="icon is-small">
+                              <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div :class="{'dropdown-menu':true}" id="dropdown-menu" role="menu">
+                          <div class="dropdown-content">
+                            <a @click="filterCat(1)" :class="{'dropdown-item':true,'is-active': categoryId == 1}">
+                              Advanced Web Development
+                            </a>
+                            <a @click="filterCat(2)" href="#" :class="{'dropdown-item':true,'is-active': categoryId == 2}">
+                              Advanced Topics Programming
+                            </a>
+                            <a @click="filterCat(3)" href="#" :class="{'dropdown-item':true,'is-active': categoryId == 3}">
+                              Android Development
+                            </a>
+                            <a @click="filterCat(4)" href="#" :class="{'dropdown-item':true,'is-active': categoryId == 4}">
+                              Generals
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <a @click="filterRecent" href="#" class="card-footer-item">Latest</a>
+                      <a @click="filterUser" href="#" class="card-footer-item">By User</a>
                     </footer>
                   </div>
                 </div>
@@ -90,12 +116,6 @@
                   <a @click="deleteQues(message.delId)" class="button is-danger">Delete</a>
                 </message>
                 <ul class="menu-list">
-                  <!-- <li><a>Dashboard</a></li>
-                  <li><a>Customers</a></li>
-                  <li><a>Authentication</a></li>
-                  <li><a>Payments</a></li>
-                  <li><a>Transfers</a></li>
-                  <li><a>Balance</a></li> -->
                 </ul>
               </aside>
             </div>
@@ -123,6 +143,8 @@ export default {
   data() {
     return {
       keyword: "",
+      categoryId: "",
+      dropdown: false,
       dangerMessage: "message is-danger is-clearfix",
       sucessMessage: "message is-success is-clearfix",
       modalConfig: {
@@ -139,10 +161,18 @@ export default {
   computed: {
     filteredList() {
       return this.cmData.filter(question => {
-        return question.title.toLowerCase().includes(this.keyword);
+        if (question.is_active != 0) {
+          if (this.categoryId > 0 && this.keyword.length == 0) {
+            return question.cat_id == this.categoryId;
+          }
+          if (typeof this.keyword == "string") {
+            return question.title.toLowerCase().includes(this.keyword);
+          }
+        }
       });
     }
   },
+  created() {},
   methods: {
     user_href(ques) {
       return path + "users/profile/" + ques.user_id;
@@ -158,6 +188,9 @@ export default {
       this.message.delId = id;
       this.message.show = !this.message.show;
     },
+    openDropdown() {
+      this.dropdown = !this.dropdown;
+    },
     deleteQues(id) {
       this.message.show = true;
       var params = new URLSearchParams();
@@ -168,17 +201,31 @@ export default {
       this.message.show = false;
       axios.post("./api/delete/", params).then(function(res) {
         if (res.data.result == "success") {
-          console.log("yo");
+          cmData.map(item => {
+            if (item.id == id) {
+              item.is_active = 0;
+            }
+          });
         }
       });
+    },
+    filterCat(id) {
+      this.categoryId = id;
+    },
+    filterRecent() {
+      this.keyword = "";
+      this.categoryId = "";
+    },
+    filterUser() {
+      //TODO
+      console.log("works");
     }
   },
   filters: {
     dateFormat(date) {
       return date.substring(0, date.length - 3);
     }
-  },
-  deleteQues: {}
+  }
 };
 </script>
 

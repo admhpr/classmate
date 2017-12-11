@@ -12,22 +12,23 @@ import Bulma from "bulma";
 import Home from "./App.vue";
 import QuestionList from "./components/QuestionList.vue";
 import UserProfile from "./components/UserProfile.vue";
-import Categories from "./components/Categories.vue";
 import NewModule from "./components/NewModule.vue";
 import Tab from "./components/Tab.vue";
 import Tabs from "./components/Tabs.vue";
 import AnswerList from "./components/AnswerList.vue";
 import Message from "./components/Message.vue";
+import Category from "./components/Category.vue";
 
 // registering child components
 Vue.component("question-list", QuestionList);
 Vue.component("user-profile", UserProfile);
-Vue.component("categories", Categories);
+Vue.component("categories", Category);
 Vue.component("new-module", NewModule);
 Vue.component("tabs", Tabs);
 Vue.component("tab", Tab);
 Vue.component("answer-list", AnswerList);
 Vue.component("message", Message);
+
 
 /**
  * @param {string} el: this is where the Vue application is rendered and mounted to div with the id of 'app'. See
@@ -43,7 +44,7 @@ new Vue({
     Home,
     QuestionList,
     UserProfile,
-    Categories,
+    Category,
     NewModule,
     AnswerList,
     Message

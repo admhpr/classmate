@@ -1,9 +1,13 @@
 <template>
     <div>
         <li class="vote">
-		    <span  @click="$emit('vote'); upvote();"><i class="fa fa-thumbs-up"></i></span>
-            <span class="">{{ cmVotes }}</span>
-		    <span @click="$emit('vote'); downvote();"><i class="fa fa-thumbs-down"></i></span>
+		    <span class="button" @click="$emit('vote'); upvote();">
+          <i class="fa fa-thumbs-up fa-2x"></i>
+        </span>
+            <span class="tag">  {{ cmVotes }}  </span>
+		    <span class="button" @click="$emit('vote'); downvote();">
+          <i class="fa fa-thumbs-down fa-2x"></i>
+        </span>
 	    </li>
     </div>
 </template>
@@ -32,10 +36,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../styles/globals.scss";
 .vote {
   list-style: none;
-  /*don't judge the minus margin */
+  /* don't mind the minus margin */
   margin-top: -1em;
+  .tag {
+    padding: 20px;
+    font-size: 1em;
+    font-weight: 800;
+    border-bottom: 3px solid $green;
+  }
 }
 </style>

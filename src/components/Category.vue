@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  props: ["json"],
-  name: "Categories",
+  props: ["cmData"],
+  name: "Category",
   data() {
     return {
       message: "Category Component test"

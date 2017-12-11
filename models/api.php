@@ -35,8 +35,7 @@
                     $this->bind(':is_active', 1);
                     $this->execute();
         
-                    // //Redirect
-                    // header('Location: '.ROOT_URL.'questions/'.$post['question_id']);
+
                     
                     $status = array(
                         "result" => "success",
@@ -59,6 +58,35 @@
         }
 
         public function delete(){
-            echo "echoooo";
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+           switch($post['table_name']){
+                
+                case "answers":
+        
+                    $status = array(
+                        "result" => "success",
+                        "question_id" => $post["question_id"]
+                    );
+        
+                    return json_encode($status);
+                    break;
+
+                case "questions":
+                    $sql = "UPDATE questions SET is_active = :is_active WHERE id = :id";  
+                    $this->query($sql);   
+                    $this->bind(':id', $post['id']);
+                    $this->bind(':is_active', 0);
+                    $this->execute();
+                    $status = array(
+                        "result" => "success",
+                        "id" => $post["id"]
+                    );
+                    return json_encode($status);;
+                    break;
+                    
+                case "users":
+                    return true;
+                    break;
         }
     }
+}

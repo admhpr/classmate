@@ -20,12 +20,12 @@
                             <p class="title"></p>
                     
                             <!-- Picture input component config -->
-                            <div v-if="userData.image_path">
-                                <img :src="cmSrc" alt="Profile Picture">
+                            <div v-if="cmData.image_path">
+                                <img :src="cmData.image_path" alt="Profile Picture">
                             </div>
                            
                             <picture-input
-                                v-if="currentUserId == cmData.id" 
+                                v-if="currentUserId == cmData.id && !cmData.image_path" 
                                 ref="pictureInput" 
                                 @change="onChange" 
                                 @remove="onRemoved"
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <div v-if="cmData.id == currentUserId" class="tile is-parent">
+            <div class="tile is-parent">
                 <article class="tile is-child notification is-cm-success">
                     <div class="content">
                         <p class="title">Settings</p>
@@ -90,7 +90,7 @@
                         <!-- Content -->
                             <tabs>
                                 
-                                <tab name="User Settings" :selected="true">
+                                <tab v-if="cmData.id == currentUserId" name="User Settings" :selected="true">
                                     <div class="field">
                                         <div class="control has-icons-left has-icons-right">
                                             <input v-model="cmData.first_name" class="input" type="text" placeholder="Name">
@@ -180,7 +180,6 @@ export default {
   data() {
     return {
       image: "",
-      cmSrc: "photo.php",
       userList: []
     };
   },
@@ -212,9 +211,11 @@ export default {
       if (this.image) {
         FormDataPost("users/upload", this.image)
           .then(response => {
-            if (response.data.success) {
-              this.image = "";
+            console.log(response);
+            if (response.data.result == "success") {
+              this.image = false;
               console.log("Image uploaded successfully ✨");
+              location.reload();
             }
           })
           .catch(err => {

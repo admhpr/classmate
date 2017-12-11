@@ -166,7 +166,8 @@ class UserModel extends Model{
 		if(isset($_FILES['avatar'])){
 			$response = array(
 				"result" => "",
-				"message" => ""
+				"message" => "",
+				"image_path" => ""
 			);
 			$errors= array();
 			$file_name = $_FILES['avatar']['name'];
@@ -187,22 +188,24 @@ class UserModel extends Model{
 			
 			if(empty($errors)==true){
 				
-				$dest = ROOT_URL . "/user-images/".$_SESSION['user_data']['id'].$file_name;
-				$imageUrl = ROOT_PATH. "user-images/" . $_SESSION['user_data']['id'].$file_name;
-				var_dump($dest);
-				var_dump($file_tmp);
-				move_uploaded_file($file_tmp,$dest);
+				$dest = $_SERVER['DOCUMENT_ROOT'].ROOT_PATH."user-images/".$_SESSION['user_data']['id'].$file_name;
+				$imageUrl = ROOT_URL."user-images/" . $_SESSION['user_data']['id'].$file_name;
+		
+				if(move_uploaded_file($file_tmp,$dest)){
+					
+					$id = $_SESSION['user_data']['id'];
+					$sql = "UPDATE `users` SET image_path = :image_path  WHERE id = :id";
+					$id = intval($id);
+					$this->query($sql);
+					$this->bind(':id', $id);
+					$this->bind(':image_path', $imageUrl);
+					$this->execute();
+	
+					$response['result'] = "success";
+					$response['message'] = $file_name." has been successfully uploaded"; 
+					$response['image_path'] = $imageUrl;
+				};
 
-				$id = $_SESSION['user_data']['id'];
-				$sql = "UPDATE `users` SET image_path = :image_path  WHERE id = :id";
-				$id = intval($id);
-				$this->query($sql);
-				$this->bind(':id', $id);
-				$this->bind(':image_path', $imageUrl);
-				$this->execute();
-
-				$response['result'] = "success";
-				$response['message'] = $file_name." has been successfully uploaded"; 
 			}else{
 				$response['result'] = "error";
 				$response['message'] = $errors[0]; 
