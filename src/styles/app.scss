@@ -15,10 +15,10 @@ body {
 
 .navbar>ul>li>a {
   color: #5e5e5e;
-  background-color: transparent
+  background-color: transparent;
 }
 
-.nav-con {
+.nav-con, .navbar-brand {
   border-bottom: 1px solid $light-green;
 }
 

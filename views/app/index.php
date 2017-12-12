@@ -41,7 +41,7 @@
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="src/assets/pic01.jpg" alt="" />
+										<img src="src/assets/kevin-364843.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Questions</a></h3>
@@ -50,7 +50,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/pic02.jpg" alt="" />
+										<img src="src/assets/greg-rakozy-129733.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Answers</a></h3>
@@ -59,7 +59,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/pic03.jpg" alt="" />
+										<img src="src/assets/luca-bravo-217276.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Categories</a></h3>
@@ -68,7 +68,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/pic04.jpg" alt="" />
+										<img src="src/assets/olu-eletu-242903.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="http://eloquentjavascript.net/code/" class="link" target= "_blank">Advanced Topics</a></h3>
@@ -77,7 +77,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="/src/assets/pic05.jpg" alt="" />
+										<img src="src/assets/stefan-stefancik-257625.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
@@ -86,7 +86,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/pic06.jpg" alt="" />
+										<img src="src/assets/marcos-luiz-photograph-292744.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="https://developer.android.com/training/index.html" class="link">Mobile Applications</a></h3>
