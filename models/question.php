@@ -42,7 +42,7 @@ class QuestionModel extends Model{
 
 	public function find($id){
 		
-		$sql = 'SELECT q.id, q.title, q.content, q.date_created,
+		$sql = 'SELECT q.id, q.title, q.content, q.date_created,q.user_id as ques_user_id,
 				a.id as answer_id, 
 				a.title as answer_title,
 				a.content as answer_content,

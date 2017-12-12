@@ -36,12 +36,12 @@
 				<!-- Main -->
 					<div id="main">
 
-					<!-- changed paths on tiles to go to different screens based on my home computers path----cmm -->
+					<!-- changed paths on tiles to go to different screens based on my home computers path -->
 						<!-- One -->
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/kevin-364843.jpg" alt="" />
+										<img src="src/assets/landing-page/desk.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Questions</a></h3>
@@ -50,7 +50,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/greg-rakozy-129733.jpg" alt="" />
+										<img src="src/assets/landing-page/hand.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Answers</a></h3>
@@ -59,7 +59,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/luca-bravo-217276.jpg" alt="" />
+										<img src="src/assets/landing-page/js.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Categories</a></h3>
@@ -68,7 +68,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/olu-eletu-242903.jpg" alt="" />
+										<img src="src/assets/landing-page/laptop.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link" target= "_blank">Advanced Topics</a></h3>
@@ -77,7 +77,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/stefan-stefancik-257625.jpg" alt="" />
+										<img src="src/assets/landing-page/point.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
@@ -86,7 +86,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/marcos-luiz-photograph-292744.jpg" alt="" />
+										<img src="src/assets/landing-page/study.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Mobile Applications</a></h3>
@@ -126,14 +126,6 @@
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="src/assets/js/jquery.min.js"></script>
-			<script src="src/assets/js/jquery.scrolly.min.js"></script>
-			<script src="src/assets/js/jquery.scrollex.min.js"></script>
-			<script src="src/assets/js/skel.min.js"></script>
-			<script src="src/assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="src/assets/js/main.js"></script>
 
 	</body>
 </html>

@@ -36,9 +36,9 @@
                         
                       </div>
                     </div>
-                    <footer v-if="userData" class="card-footer">
-                      <a @click="deleteQues(question.id) "v-if="userData.id == cmData[0].user_id" href="#" class="card-footer-item">Edit</a>
-                      <a @click="deleteQues(question.id) "v-if="userData.id == cmData[0].user_id" href="#" class="card-footer-item cm-delete">Delete</a>
+                    <footer v-if="userData.id == cmData[0].ques_user_id" class="card-footer">
+                      <a @click="deleteQues(cmData[0].id)" href="#" class="card-footer-item">Edit</a>
+                      <a @click="showMsg(cmData[0]); quesClick();" href="#" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                 </div> <!-- end question --> 
 
@@ -59,11 +59,14 @@
                       <div class="content">
                         
                         <div class="box">{{ question.answer_content }} </div>
-                        <span>answered by:</span>
+                        <div v-if="!filteredList[0].hasOwnProperty('answer_id')">
+                          <a  @click="openModal(0)" class="button is-text">Yes</a>
+                          <a  href="../questions" class="button is-text">No</a>
+                        </div>
+                          <span>answered by:</span>
                         <a :href="user_href(question)">@{{ question.first_name }}{{ question.last_name }}</a>
                         <br>
                         <time datetime="">{{question.answer_created | dateFormat }}</time>.
-                        
                       </div>
                         <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
                        </modal-answer>
@@ -77,7 +80,7 @@
                     </div>
                     <footer v-if="userData" class="card-footer">
                       <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item">Edit</a>
-                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Delete</a>
+                      <a @click="showMsg(question) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                     </div>
                   </div>
@@ -118,6 +121,15 @@
                     </footer>
                   </div>
                 </div>
+                <message :cm-style="dangerMessage" v-if="message.show" @close="message.show = false">
+                  <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                        You are about to delete something which cannot be recovered
+                        is that what you want?
+                  <br>
+                  <br>
+                  <a  @click="message.show = false" class="button is-text">Cancel</a>
+                  <a @click="deleteQues(message.delId)" class="button is-danger">Delete</a>
+                </message>
                 <ul class="menu-list">
                 </ul>
               </aside>
@@ -151,9 +163,17 @@ export default {
       keyword: "",
       message: "Question Component test",
       popular: "",
+      dangerMessage: "message is-danger is-clearfix",
+      sucessMessage: "message is-success is-clearfix",
+      quesClicked: false,
       modalConfig: {
         show: false,
         question: null
+      },
+      message: {
+        show: false,
+        confirm: false,
+        delId: ""
       },
       userRole: {
         role: this.userData.role,
@@ -167,17 +187,19 @@ export default {
   },
   computed: {
     filteredList() {
-      if (this.keyword.length > 0) {
-        this.popular = "";
-      }
-      if (typeof this.popular == "number") {
-        return this.cmData.sort((a, b) => {
-          return b.total_votes - a.total_votes;
-        });
-      }
-      if (cmData[0].answer_content) {
+      if (this.cmData[0].answer_content && this.cmData.length > 1) {
         return this.cmData.filter(question => {
-          return question.answer_content.toLowerCase().includes(this.keyword);
+          if (question.is_active) {
+            if (this.keyword.length > 0) {
+              this.popular = "";
+            }
+            if (typeof this.popular == "number") {
+              return this.cmData.sort((a, b) => {
+                return b.total_votes - a.total_votes;
+              });
+            }
+            return question.answer_content.toLowerCase().includes(this.keyword);
+          }
         });
       } else {
         cmData = {
@@ -206,6 +228,18 @@ export default {
     setRating(rating) {
       this.rating = "You have Selected: " + rating + " stars";
     },
+    quesClick() {
+      console.log("yo");
+      this.quesClicked = true;
+    },
+    showMsg(obj) {
+      if (this.quesClicked) {
+        this.message.delId = obj.id;
+      } else {
+        this.message.delId = obj.answer_id;
+      }
+      this.message.show = !this.message.show;
+    },
     showCurrentRating(rating) {
       this.currentRating =
         rating === 0
@@ -228,7 +262,23 @@ export default {
       });
       console.log("voted");
     },
-    deleteQues(id) {},
+    deleteQues(id) {
+      this.message.show = true;
+      var params = new URLSearchParams();
+      if (this.quesClicked) {
+        params.append("table_name", "questions");
+      } else {
+        params.append("table_name", "answers");
+      }
+      // nice terse regex stack overflow special
+      params.append("id", id.replace(/(^\s+|\s+$)/g, ""));
+      // ajax
+      this.message.show = false;
+      axios.post("./api/delete/", params).then(function(res) {
+        if (res.data.result == "success") {
+        }
+      });
+    },
     popSort() {
       this.popular = 1;
     }

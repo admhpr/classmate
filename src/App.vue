@@ -1,7 +1,7 @@
 <template>
   <div id="home">
-    <h1>{{ msg }}</h1>
-    <p>{{ sass }}</p>
+    <!-- <h1>{{ msg }}</h1>
+    <p>{{ sass }}</p> -->
   </div>
 </template>
 

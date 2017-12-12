@@ -107,10 +107,14 @@
            switch($post['table_name']){
                 
                 case "answers":
-        
+                    $sql = "UPDATE answers SET is_active = :is_active WHERE id = :id";  
+                    $this->query($sql);   
+                    $this->bind(':id', $post['id']);
+                    $this->bind(':is_active', 0);
+                    $this->execute();
                     $status = array(
                         "result" => "success",
-                        "question_id" => $post["question_id"]
+                        "id" => $post["id"]
                     );
         
                     return json_encode($status);
