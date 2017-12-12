@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="src/assets/css/main.css" />
+		<link rel="stylesheet" href="src/assets/landing-page/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -41,7 +41,7 @@
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="src/assets/kevin-364843.jpg" alt="" />
+										<img src="src/assets/landing-page/kevin-364843.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Questions</a></h3>
@@ -50,7 +50,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/greg-rakozy-129733.jpg" alt="" />
+										<img src="src/assets/landing-page/greg-rakozy-129733.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Answers</a></h3>
@@ -59,7 +59,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/luca-bravo-217276.jpg" alt="" />
+										<img src="src/assets/landing-page/luca-bravo-217276.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Categories</a></h3>
@@ -68,16 +68,16 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/olu-eletu-242903.jpg" alt="" />
+										<img src="src/assets/landing-page/olu-eletu-242903.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="http://eloquentjavascript.net/code/" class="link" target= "_blank">Advanced Topics</a></h3>
+										<h3><a href="#" class="link" target= "_blank">Advanced Topics</a></h3>
 										<p>Click here for the JavaScript Code Sandbox</p>
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/stefan-stefancik-257625.jpg" alt="" />
+										<img src="src/assets/landing-page/stefan-stefancik-257625.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
@@ -86,10 +86,10 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/marcos-luiz-photograph-292744.jpg" alt="" />
+										<img src="src/assets/landing-page/marcos-luiz-photograph-292744.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="https://developer.android.com/training/index.html" class="link">Mobile Applications</a></h3>
+										<h3><a href="#" class="link">Mobile Applications</a></h3>
 										<p>Click here to go to Google's Android Training Site</p>
 									</header>
 								</article>
