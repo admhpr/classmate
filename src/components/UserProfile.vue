@@ -1,17 +1,17 @@
 <template>
-    <div class="main">
-        <div>
-            <div v-if="currentUserId == cmData.id">
-                <h1 class="title">Hey there {{ cmData.first_name }}!</h1>
-                <h2 class="subtitle">This is your profile ..</h2>
-            </div>
-            <div v-else>
-                <h1 class="title">Their name is {{ cmData.first_name }}!</h1>
-                <h2 class="subtitle">This is their profile ..</h2>
-            </div>
+<div>
+    <div>
+        <div v-if="currentUserId == cmData.user_id">
+            <h1 class="title">Hey there {{ cmData.first_name }}!</h1>
+            <h2 class="subtitle">This is your profile ..</h2>
+         </div>
+        <div v-else>
+            <h1 class="title">Their name is {{ cmData.first_name }}!</h1>
+            <h2 class="subtitle">This is their profile ..</h2>
+        </div>
             <hr id="hr">
         </div>
-
+    <div class="main">
         <div class="tile is-ancestor">
             <div class="tile is-vertical is-8">
                 <div class="tile">
@@ -25,7 +25,7 @@
                             </div>
                            
                             <picture-input
-                                v-if="currentUserId == cmData.id && !cmData.image_path" 
+                                v-if="currentUserId == cmData.user_id && !cmData.image_path" 
                                 ref="pictureInput" 
                                 @change="onChange" 
                                 @remove="onRemoved"
@@ -54,11 +54,11 @@
                         
                         <div class="media-content">
                             <div class="content">
-                                <p class="subtitle">Name:</p>
-                                <strong>{{cmData.first_name + " " +  cmData.last_name }}</strong> <small>{{ '@'+ cmData.first_name + cmData.last_name }}</small> <small></small>
+                                <p class="title">Name:</p>
+                                <strong>{{cmData.first_name + " " +  cmData.last_name }}</strong> <small>{{ '@'+ name }}</small> <small></small>
                                 <br>
                                 <br>
-                                <p class="subtitle">Bio:</p>
+                                <p class="title">Bio:</p>
                                 <p>{{ cmData.bio }}</p>
                              </div>
                         </div>
@@ -90,10 +90,21 @@
                         <!-- Content -->
                             <tabs>
                                 
-                                <tab v-if="cmData.id == currentUserId" name="User Settings" :selected="true">
+                                <tab v-if="cmData.user_id == currentUserId" name="User Settings" :selected="true">
                                     <div class="field">
                                         <div class="control has-icons-left has-icons-right">
-                                            <input v-model="cmData.first_name" class="input" type="text" placeholder="Name">
+                                            <input v-model="cmData.first_name" class="input" type="text" placeholder="First Name">
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-user"></i>
+                                            </span>
+                                            <span class="icon is-small is-right">
+                                                <i class="fa fa-check"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control has-icons-left has-icons-right">
+                                            <input v-model="cmData.last_name" class="input" type="text" placeholder="last Name">
                                             <span class="icon is-small is-left">
                                                 <i class="fa fa-user"></i>
                                             </span>
@@ -155,6 +166,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -180,6 +192,7 @@ export default {
   data() {
     return {
       image: "",
+      extraData: [],
       userList: []
     };
   },
@@ -191,6 +204,21 @@ export default {
         });
       }
     });
+    axios.get("/api/extra").then(res => {
+      if (res.statusText == "OK") {
+        res.data.forEach(d => {
+          this.extraData.push(d);
+        });
+      }
+    });
+  },
+  computed: {
+    name() {
+      return (
+        this.cmData.first_name.replace(/\s/g, "") +
+        this.cmData.last_name.replace(/\s/g, "")
+      );
+    }
   },
   methods: {
     user_href(user) {
@@ -224,7 +252,24 @@ export default {
       }
     },
     updateSettings() {
-      console.log("clicked");
+      var params = new URLSearchParams();
+      // nice terse regex stack overflow special
+      params.append("table_name", "users");
+      params.append("user_id", this.cmData.user_id);
+      params.append("bio", this.cmData.bio);
+      params.append("email", this.cmData.email);
+      params.append("first_name", this.cmData.first_name);
+      params.append("last_name", this.cmData.last_name);
+      // ajax
+      axios.post("./api/add/", params).then(function(res) {
+        if (res.data.result == "success") {
+          cmData.map(item => {
+            if (item.id == id) {
+              item.is_active = 0;
+            }
+          });
+        }
+      });
     },
     changePic() {
       this.cmData.image_path = false;
@@ -237,7 +282,9 @@ export default {
 @import "../styles/globals.scss";
 
 $line: 5px;
-
+.main {
+  background-image: url($path + "src/assets/triangles.jpg");
+}
 .tile {
   color: $black !important;
   background-color: transparent !important;

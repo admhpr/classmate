@@ -45,9 +45,11 @@ class QuestionModel extends Model{
 		$sql = 'SELECT q.id, q.title, q.content, q.date_created,
 				a.id as answer_id, 
 				a.title as answer_title,
-				 a.content as answer_content,
+				a.content as answer_content,
 				a.date_created as answer_created, 
-				a.user_id,
+				a.user_id,a.total_votes,
+				av.ans_id, av.user_vote_id, av.rating, 
+				av.has_voted,
 				u.first_name, u.last_name,
 				c.category,
                 ur.role_id,
@@ -57,6 +59,8 @@ class QuestionModel extends Model{
 				ON q.category_id = c.id 
 				LEFT JOIN `answers` a 
 				ON q.id = a.question_id
+				LEFT JOIN `answer_votes` av 
+				ON a.id = av.ans_id
 				LEFT JOIN `users` u 
 				ON a.user_id = u.id
 				LEFT JOIN `user_roles` ur 

@@ -67,11 +67,11 @@
                       </div>
                         <modal-answer v-if="modalConfig.show" @close="modalConfig.show = false" :config="modalConfig">
                        </modal-answer>
-                       <!-- check if user is admin or dev -->
                       <div v-if="cmData[0].answer_id">
-                        <star-rating v-if="userRole.roleId > 1" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
+                       <!-- check if user is admin or dev -->
+                        <star-rating v-if="userRole.roleId > 1 && userData.id != question.user_id" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
                         <div v-if="userData.id != question.user_id" class="votes">
-                          <upvote @vote="vote" :votes="0"></upvote>
+                          <upvote @vote="vote(index)" :votes="question.total_votes"></upvote>
                         </div>
                       </div>
                     </div>
@@ -112,7 +112,7 @@
                     </div>
                     </div>
                     <footer class="card-footer">
-                      <a href="#" class="card-footer-item">Popular</a>
+                      <a @click="popSort" href="#" class="card-footer-item">Popular</a>
                       <a href="#" class="card-footer-item">Latest</a>
                       <a href="#" class="card-footer-item">Rising</a>
                     </footer>
@@ -150,6 +150,7 @@ export default {
     return {
       keyword: "",
       message: "Question Component test",
+      popular: "",
       modalConfig: {
         show: false,
         question: null
@@ -166,9 +167,17 @@ export default {
   },
   computed: {
     filteredList() {
+      if (this.keyword.length > 0) {
+        this.popular = "";
+      }
+      if (typeof this.popular == "number") {
+        return this.cmData.sort((a, b) => {
+          return b.total_votes - a.total_votes;
+        });
+      }
       if (cmData[0].answer_content) {
         return this.cmData.filter(question => {
-          return question.title.toLowerCase().includes(this.keyword);
+          return question.answer_content.toLowerCase().includes(this.keyword);
         });
       } else {
         cmData = {
@@ -207,7 +216,22 @@ export default {
       this.currentSelectedRating = "You have Selected: " + rating + " stars";
     },
     //end of star methods
-    vote() {}
+    vote(i) {
+      var params = new URLSearchParams();
+      params.append("user_vote_id", userData.id.replace(/(^\s+|\s+$)/g, ""));
+      params.append("ans_id", cmData[i].answer_id);
+      params.append("total_votes", this.$children[i].cmVotes + 1);
+      // ajax
+      axios.post("./api/vote/", params).then(function(res) {
+        if (res.data.result == "success") {
+        }
+      });
+      console.log("voted");
+    },
+    deleteQues(id) {},
+    popSort() {
+      this.popular = 1;
+    }
   },
   filters: {
     dateFormat(date) {
@@ -219,8 +243,7 @@ export default {
   openModal(index) {
     (this.modalConfig.show = true),
       (this.modalConfig.question = this.cmData[index]);
-  },
-  deleteQues: {}
+  }
 };
 </script>
 

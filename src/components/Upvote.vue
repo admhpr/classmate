@@ -20,7 +20,7 @@ export default {
     return {
       upvoted: false,
       downvoted: false,
-      cmVotes: this.votes
+      cmVotes: Number(this.votes)
     };
   },
   methods: {
