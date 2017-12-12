@@ -18,5 +18,5 @@ if($_SERVER['SERVER_NAME'] == "localhost"){
     define("DB_NAME", "final_project");
 
     define("ROOT_PATH", "");
-    define("ROOT_URL", "classmate.slimapps.tech");
+    define("ROOT_URL", "classmate.slimapps.tech/");
 };
