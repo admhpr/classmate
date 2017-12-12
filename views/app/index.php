@@ -126,6 +126,15 @@
 
 			</div>
 
+			<!-- Scripts -->
+			<script src="src/assets/landing-page/js/jquery.min.js"></script>
+			<script src="src/assets/landing-page/js/jquery.scrolly.min.js"></script>
+			<script src="src/assets/landing-page/js/jquery.scrollex.min.js"></script>
+			<script src="src/assets/landing-page/js/skel.min.js"></script>
+			<script src="src/assets/landing-page/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="src/assets/landing-page/js/main.js"></script>
+
 
 	</body>
 </html>
