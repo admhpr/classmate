@@ -8,13 +8,7 @@
   <div class="pattern"></div>
     <nav class="navbar is-transparent">
     <div class="navbar-brand">
-<<<<<<< HEAD
       <a class="navbar-item" href="#">Classmate</a>
-=======
-      <a class="navbar-item" href="#">
-        <p>Classmate</p>
-      </a>
->>>>>>> v1
       <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
         <span></span>
         <span></span>
