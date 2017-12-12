@@ -1,4 +1,5 @@
 @import "globals.scss";
+@import "./partials/reset.scss";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
 body {
   background: url($path + "/src/assets/geometry.png");
@@ -13,7 +14,7 @@ body {
   padding: 0.5em;
 }
 
-.navbar>ul>li>a {
+.navbar > ul > li > a {
   color: #5e5e5e;
   background-color: transparent;
 }
@@ -22,8 +23,8 @@ body {
   border-bottom: 1px solid $light-green;
 }
 
-.navbar{
-    box-shadow: bottom-shadow(1), top-shadow(1);
+.navbar {
+  box-shadow: bottom-shadow(1), top-shadow(1);
 }
 
 .btn-question {
@@ -51,7 +52,6 @@ body {
 .nb-error .input-group {
   margin: 30px 0;
 }
-
 
 @media screen and (min-width: 1024px) {
   .navbar-menu {

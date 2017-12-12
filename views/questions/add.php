@@ -4,13 +4,13 @@
 			<h3 class="panel-title">Question Something!</h3>
 		</div>
 		<div class="panel-body">
-			<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+			<form method="post" action="#">
 				<div class="field">
-					<label>Question Title</label>
+					<label>Question</label>
 					<input type="text" name="title" class="form-control" />
 				</div>
 				<div class="field">
-					<label>Body</label>
+					<label>Details</label>
 					<textarea name="content" class="form-control"></textarea>
 				</div>
 				<div class="field">
@@ -31,7 +31,7 @@
 				</div>
 				<div class="is-grouped">
 					<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
-					<a class="button is-text" href="<?php echo ROOT_URL; ?>/users/profile">Cancel</a>
+					<a class="button is-text" href="<?php echo ROOT_URL; ?>questions">Cancel</a>
 				</div>
 			</form>
 		</div>

@@ -1,11 +1,14 @@
-<?php var_dump($viewmodel) ?>
-<?php foreach($viewmodel as $categories) { ?>
- 	<div id="app" class="well">
-			<h3><?php echo $categories['category']; ?></h3>		
-			<hr />
-			<p><?php echo $categories['title']; ?></p>
-            <p><?php echo $categories['content']; ?></p>
-		</div>
+<div>
+	<!-- prepping the PHP data to keep Vue happy --> 
+	<script>
+		var cmData = <?php echo(json_encode($viewmodel)); ?>;
+		<?php if( isset($_SESSION['is_logged_in'])): ?>
+			var userData = <?php echo(json_encode($_SESSION['user_data'])); ?>;
+		<?php endif; ?>	
+	</script>
+	<!-- see ./src/components/QuestionList.vue -->
+	<div id="vue">
+		<category :cm-data="cmData" :user-data="userData"></category>
+	</div>
 
-       <!-- <?php var_dump($categories) ?> -->
-<?php } ?>
+</div>

@@ -18,7 +18,7 @@
                 </div>
               </div>
               <transition name="fade">
-                <p v-show="quesPass" class="help">“No one is useless in this world who lightens the burdens of another.” Thanks for your answer!</p>
+                <p v-show="quesPass" class="help">Thanks for your answer!</p>
               </transition>
               </section>
               <footer class="modal-card-foot">
@@ -40,6 +40,7 @@
 
 <script>
 import axios from "axios";
+import path from "../helpers/config";
 export default {
   props: ["config"],
   data() {
@@ -73,7 +74,7 @@ export default {
           if (res.data.result == "success") {
             vm.answers = "";
             vm.quesPass = true;
-            vm.btnHref = "questions/" + res.data.question_id;
+            vm.btnHref = path + "questions/" + res.data.question_id;
           }
         });
       }

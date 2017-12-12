@@ -14,6 +14,22 @@
             $this->returnJson($model->add());
         }
 
+         protected function delete(){
+            $model = new ApiModel();
+            $this->returnJson($model->delete());
+        }
+
+         protected function vote(){
+            $model = new ApiModel();
+            $this->returnJson($model->vote());
+        }
+         protected function extra(){
+            $model = new ApiModel();
+            $this->returnJson($model->extra($_SESSION['user_data']['id']));
+        }
+
+        
+
         // protected function get_many(){
         //     $req = new ApiModel();
         //     var_dump($req);
