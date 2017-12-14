@@ -162,6 +162,7 @@ class UserModel extends Model{
 			$this->query($sql);
 			$this->bind(':id', $id);
 			$row = $this->single();
+			$row['bio'] = htmlspecialchars_decode($row['bio'], ENT_QUOTES);
 			return $row;
 		}
 	}	

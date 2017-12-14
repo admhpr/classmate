@@ -38,7 +38,7 @@ Vue.component("message", Message);
  * with the id of vue in the corresponding view php for this to work
  */
 
-new Vue({
+var vm = new Vue({
   el: "#vue",
   components: {
     Home,
@@ -67,3 +67,5 @@ new Vue({
     }
   }
 });
+
+window.vm = vm;

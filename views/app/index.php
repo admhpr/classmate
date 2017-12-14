@@ -41,20 +41,20 @@
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/desk.jpg" alt="" />
+										<img src="src/assets/landing-page/hand.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Questions</a></h3>
-										<p>Click here to view questions</p>
+										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Ask The Right Questions</a></h3>
+										<!-- <p>Click here to view questions</p> -->
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/hand.jpg" alt="" />
+										<img src="src/assets/landing-page/desk.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="#" class="link">Answers</a></h3>
-										<p>Click here to view some answers</p>
+										<h3><a href="#" class="link">Help With Answers</a></h3>
+										<!-- <p>Click here to view some answers</p> -->
 									</header>
 								</article>
 								<article>
@@ -62,8 +62,8 @@
 										<img src="src/assets/landing-page/js.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="#" class="link">Categories</a></h3>
-										<p>Click here to view available categories</p>
+										<h3><a href="#" class="link">Filter by Category</a></h3>
+										<!-- <p>Click here to view available categories</p> -->
 									</header>
 								</article>
 								<article>
@@ -71,8 +71,8 @@
 										<img src="src/assets/landing-page/laptop.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="#" class="link" target= "_blank">Advanced Topics</a></h3>
-										<p>Click here for the JavaScript Code Sandbox</p>
+										<h3><a href="#" class="link" target= "_blank">Advanced Topics in Programming</a></h3>
+										<!-- <p>Click here for the JavaScript Code Sandbox</p> -->
 									</header>
 								</article>
 								<article>
@@ -81,7 +81,7 @@
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
-										<p>Ipsum dolor sit amet</p>
+										<!-- <p>Ipsum dolor sit amet</p> -->
 									</header>
 								</article>
 								<article>
@@ -89,8 +89,8 @@
 										<img src="src/assets/landing-page/study.jpg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="#" class="link">Mobile Applications</a></h3>
-										<p>Click here to go to Google's Android Training Site</p>
+										<h3><a href="#" class="link">Fall in love with Android Studio</a></h3>
+										<!-- <p>Click here to go to Google's Android Training Site</p> -->
 									</header>
 								</article>
 							</section>

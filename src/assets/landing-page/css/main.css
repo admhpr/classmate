@@ -95,6 +95,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  color: #333;
 }
 
 article,
@@ -1880,13 +1881,15 @@ p {
   margin: 0 0 2em 0;
 }
 
-h1,
-h2,
+h1{
+  color: #333;
+}
+h2
 h3,
 h4,
 h5,
 h6 {
-  color: #ffffff;
+  color: #f4f4f4;
   font-weight: 600;
   line-height: 1.65;
   margin: 0 0 1em 0;
@@ -1898,7 +1901,7 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-  color: inherit;
+  color: #f4f4f4;
   border-bottom: 0;
 }
 
@@ -3556,7 +3559,7 @@ body.is-loading #header.alt {
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  background-image: url("../../images/banner.jpg");
+  background-image: url("../banner.png");
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -3564,8 +3567,8 @@ body.is-loading #header.alt {
   padding: 6em 0 2em 0;
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat-x;
+  /* background-size: cover; */
   border-bottom: 0 !important;
   cursor: default;
   height: 60vh;
@@ -3589,7 +3592,7 @@ body.is-loading #header.alt {
   -webkit-pointer-events: none;
   -ms-pointer-events: none;
   pointer-events: none;
-  background-color: #49be4d;
+  /* background-color: rgb(147, 189, 166); */
   content: "";
   display: block;
   height: 100%;
@@ -3603,6 +3606,7 @@ body.is-loading #header.alt {
 
 #banner h1 {
   font-size: 3.25em;
+  color: #333;
 }
 
 #banner > .inner {

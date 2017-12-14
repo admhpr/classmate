@@ -12,7 +12,7 @@
             <div class="column is-8">
               <div class="main">
                 <div class="is-left" :key="index" v-for="(question, index) in filteredList">
-                  <div class="card">
+                  <div class="card animated fadeInUp">
                     <header class="card-header">
                       <p class="card-header-title">
                         {{ question.title }} ?
@@ -44,7 +44,7 @@
                   </div>
                 </div>
               </div><!--end questions list -->
-              <div class="column is-4 card ques-card">
+              <div class="column is-4 card ques-card animated bounceInRight">
               <a v-if="!userData" class="button is-cm-info is-block is-alt is-medium" href="users/login">Login and Do More</a>
               <a v-if="userData" class="button is-cm-info is-block is-alt is-medium" href="questions/add">Ask a Question</a>
               <aside class="menu">
@@ -217,8 +217,9 @@ export default {
       this.categoryId = "";
     },
     filterUser() {
-      //TODO
-      console.log("works");
+      this.cmData = cmData.sort((a, b) => {
+        a.user_id - b.user_id;
+      });
     }
   },
   filters: {

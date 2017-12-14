@@ -22,8 +22,8 @@
               </transition>
               </section>
               <footer class="modal-card-foot">
-                <button class="button is-cm-success" @click.prevent="submit"> Answer </button>
                 <button class="button is-cm-warning" @click="$emit('close')">Back</button>
+                <button class="button is-cm-success" @click.prevent="submit"> Answer </button>
                 <transition name="fade">
                     <a v-show="quesPass" :href='btnHref'>
                       <button class="button is-pulled-right is-cm-primary">

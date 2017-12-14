@@ -16,12 +16,15 @@
             <div class="tile is-vertical is-8">
                 <div class="tile">
                     <div class="tile is-parent">
+                      <transition class="">
                         <article class="tile is-child notification is-cm-info">
-                            <p class="title"></p>
+                            <p class="title">
+                              Role :  {{ role }}
+                            </p>
                     
                             <!-- Picture input component config -->
-                            <div v-if="cmData.image_path">
-                                <img :src="cmData.image_path" alt="Profile Picture">
+                            <div v-if="cmData.image_path" class="">
+                                <img class="animated zoomInRight" :src="cmData.image_path" alt="Profile Picture">
                             </div>
                            
                             <picture-input
@@ -42,10 +45,12 @@
                                 }">
                                 </picture-input>
                               
-                                <button v-if="image" @click="attemptUpload" v-bind:class="{ disabled: !image }">
+                                <button class="btn-secondary button secondary upload" v-if="image" @click="attemptUpload" v-bind:class="{ disabled: !image }">
                                     Upload
                                 </button>
                         </article>
+
+                      </transition>
                     </div>
 
                     <div class="tile is-parent is-vertical">
@@ -54,35 +59,36 @@
                         
                         <div class="media-content">
                             <div class="content">
-                                <p class="title">Name:</p>
-                                <strong>{{cmData.first_name + " " +  cmData.last_name }}</strong> <small>{{ '@'+ name }}</small> <small></small>
+                                <p class="subtitle">Name:</p>
+                                <strong class="info">{{cmData.first_name + " " +  cmData.last_name }}</strong> <small>{{ '@'+ name }}</small> <small></small>
                                 <br>
                                 <br>
-                                <p class="title">Bio:</p>
-                                <p>{{ cmData.bio }}</p>
+                                <p class="subtitle">Bio:</p>
+                                <p class="bio">{{ cmData.bio }}</p>
                              </div>
                         </div>
                         </article>
-                        <article class="tile is-child notification is-cm-warning">
+                        <article class="tile is-child notification is-cm-warning animated fadeInUp">
                         <p class="title">...Answers</p>
-                        <p class="subtitle">Lorem</p>
+                        <p class="subtitle"></p>
                         </article>
                     </div>
                 </div>
 
-                <div class="tile is-parent">
-                <article class="tile is-child notification is-danger">
-                    <p class="title">Questions</p>
-                    <p class="subtitle">Aligned with the right tile</p>
-                    <div class="content">
-                    <!-- Content -->
-                    </div>
-                </article>
-                </div>
+                  <a v-if="userData" href="questions/add">
+                   <div class="tile is-parent animated fadeInRight">
+                    <article class="tile is-child notification is-danger">
+                        <p class="title">Ask A Question</p>
+                        <p class="subtitle"></p>
+                        <div class="content">  
+                        </div>
+                      </article>
+                   </div>
+                  </a>
             </div>
 
             <div class="tile is-parent">
-                <article class="tile is-child notification is-cm-success">
+                <article class="tile is-child notification is-cm-success animated fadeInRight">
                     <div class="content">
                         <p class="title">Settings</p>
                         <p class="subtitle">Make it your Own!</p>
@@ -95,10 +101,10 @@
                                         <div class="control has-icons-left has-icons-right">
                                             <input v-model="cmData.first_name" class="input" type="text" placeholder="First Name">
                                             <span class="icon is-small is-left">
-                                                <i class="fa fa-user"></i>
+                                                <i :class="{'fa': true, 'fa-user': true}"></i>
                                             </span>
                                             <span class="icon is-small is-right">
-                                                <i class="fa fa-check"></i>
+                                                <i :class="{'fa': true, 'fa-check': true, 'saved': isSaved}"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -109,7 +115,7 @@
                                                 <i class="fa fa-user"></i>
                                             </span>
                                             <span class="icon is-small is-right">
-                                                <i class="fa fa-check"></i>
+                                              <i :class="[{ 'saved': isSaved},'fa','fa-check']"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -120,7 +126,7 @@
                                                 <i class="fa fa-envelope"></i>
                                             </span>
                                             <span class="icon is-small is-right">
-                                                <i class="fa fa-check"></i>
+                                                <i :class="[{ 'saved': isSaved},'fa','fa-check']"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -130,10 +136,10 @@
                                             <span class="icon is-small is-left">
                                                 <i class="fa fa-info"></i>
                                             </span>
-                                            <span class="icon is-small is-right">
-                                                <i class="fa fa-check"></i>
-                                            </span>
                                             </textarea>
+                                            <span class="icon is-small is-right">
+                                                <i class="[{ 'saved': isSaved},'fa','fa-check']"></i>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="field is-grouped">
@@ -146,18 +152,34 @@
                                         <!-- <div class="control">
                                             <button @click="cancel" class="button is-text">Cancel</button>
                                         </div> -->
+                                        <transition name="">
+                                          <article v-show="isSaved" class="cmMsg animated lightSpeedIn">
+                                            <div>
+                                              <p>Success</p>
+                                            </div>
+                                            <div class="content message-body">
+                                              <span class="icon is-small is-right">
+                                                  <i :class="[{ 'saved': isSaved},'fa','fa-check', 'fa-2x']"></i>
+                                              </span>
+                                            </div>
+                                          </article>
+                                        </transition>
                                     </div>
                                 </tab>
 
                                 <tab name="ClassMate List">
-                                    <div v-for="(user, i) in userList" :key="i">
-                                        <a :href="user_href(user)">@{{ user.first_name }}{{ user.last_name }}</a>
-                                    </div>
+                                  <aside class="menu">
+                                      <ul class="menu-list" v-for="(user, i) in userList" :key="i">
+                                          <li>
+                                            <a :href="user_href(user)">@{{ user.first_name }}{{ user.last_name }}</a>
+                                          </li>
+                                      </ul>
+                                  </aside>
                                 </tab>
-
+<!-- 
                                 <tab name="Activity">
                                 <h1>Here is the content for the about our vision tab.</h1>
-                                </tab>
+                                </tab> -->
 
                             </tabs>
                         </div>
@@ -193,7 +215,9 @@ export default {
     return {
       image: "",
       extraData: [],
-      userList: []
+      userList: [],
+      isSaved: false,
+      role: "User"
     };
   },
   created() {
@@ -206,17 +230,22 @@ export default {
     });
     axios.get("/api/extra").then(res => {
       if (res.statusText == "OK") {
-        res.data.forEach(d => {
-          this.extraData.push(d);
-        });
+        // res.data.forEach(d => {
+        //   this.extraData.push(d);
+        // });
       }
     });
+    this.cmData.role_id > 1
+      ? (this.role = "Teacher")
+      : (this.role = "ClassMate");
   },
   computed: {
     name() {
+      let trim = /\s/g;
       return (
-        this.cmData.first_name.replace(/\s/g, "") +
-        this.cmData.last_name.replace(/\s/g, "")
+        // trimming whitepace
+        this.cmData.first_name.replace(trim, "") +
+        this.cmData.last_name.replace(trim, "")
       );
     }
   },
@@ -252,6 +281,7 @@ export default {
       }
     },
     updateSettings() {
+      // let self = this;
       var params = new URLSearchParams();
       // nice terse regex stack overflow special
       params.append("table_name", "users");
@@ -260,16 +290,18 @@ export default {
       params.append("email", this.cmData.email);
       params.append("first_name", this.cmData.first_name);
       params.append("last_name", this.cmData.last_name);
+
       // ajax
-      axios.post("./api/add/", params).then(function(res) {
-        if (res.data.result == "success") {
-          cmData.map(item => {
-            if (item.id == id) {
-              item.is_active = 0;
-            }
-          });
-        }
-      });
+      axios.post("./api/add/", params).then(
+        function(res) {
+          if (res.data.result == "success") {
+            this.isSaved = true;
+            setTimeout(() => {
+              this.isSaved = false;
+            }, 2000);
+          }
+        }.bind(this)
+      );
     },
     changePic() {
       this.cmData.image_path = false;
@@ -283,45 +315,114 @@ export default {
 
 $line: 5px;
 .main {
-  background-image: url($path + "src/assets/triangles.jpg");
+  aside {
+    background-color: darken($green, 11);
+    ul {
+      background-color: $green;
+      li {
+        list-style-type: none;
+      }
+    }
+  }
+  background-image: url($path + "src/assets/mem.png");
+  .title {
+    padding: 11px;
+    border-radius: 3px;
+  }
+  .btn {
+    color: $black;
+  }
+}
+.cmMsg {
+  margin-left: 33%;
+  .message-body {
+    background: $white;
+  }
+}
+.saved {
+  color: $light-green !important;
 }
 .tile {
-  color: $black !important;
+  color: $white !important;
   background-color: transparent !important;
   margin: $line;
+  .info {
+    font-size: 2em;
+  }
+  .bio {
+    font-size: 1.5em;
+  }
   .is-cm-success {
+    .title {
+      background: $green;
+    }
+    img {
+      z-index: -1;
+    }
+    background: lighten($green, 10) !important;
     border-right: $green $line solid !important;
     .subtitle {
       border-bottom: $green $line * 2 solid !important;
     }
   }
   .is-cm-warning {
+    background: lighten($blue, 20) !important;
     border-left: $blue $line solid;
     .title {
-      border-bottom: $blue $line solid;
+      color: darken($blue, 23) !important;
+      border-bottom: $white $line solid;
     }
   }
   .is-cm-info {
+    color: $black;
     border-bottom: $light-green $line solid;
     p {
       border-right: $light-green $line * 6 solid;
+    }
+    .title {
+      color: darken($green, 23) !important;
+      border-bottom: $light-green 3px solid;
+      background: $white;
     }
     .button {
       color: $black !important;
       background-color: transparent !important;
     }
+    .upload {
+      border: 2px $light-green solid !important;
+    }
+    .picture-inner-text {
+      color: $black;
+    }
   }
   .is-cm-primary {
+    background: lighten($light-purple, 20) !important;
     border-bottom: $light-purple $line solid;
+    max-width: 700px;
+    .title {
+      background: $light-purple;
+      padding: 11px;
+      border-radius: 3px;
+    }
+    .content {
+      background: $white;
+      padding: 0.5em;
+      color: lighten($black, 20);
+      border-radius: 5px;
+      word-wrap: break-word;
+    }
   }
   &.is-child {
-    background-color: $white !important;
+    // background-color: $white !important;
     box-shadow: bottom-shadow(2), top-shadow(3);
   }
 }
 .is-danger {
+  .title {
+    background: $purple;
+  }
+  background: lighten($purple, 10) !important;
   border-left: $purple $line solid !important;
-  color: $black !important;
-  background-color: transparent !important;
+  color: $white !important;
 }
 </style>

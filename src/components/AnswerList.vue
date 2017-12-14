@@ -19,7 +19,7 @@
                         <i class="fa fa-question" aria-hidden="true"></i>
                       </span> -->
 
-                      <a href="#" class="card-header-icon" aria-label="more options">
+                      <a  class="card-header-icon" aria-label="more options">
                         <span class="icon">
                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -37,19 +37,19 @@
                       </div>
                     </div>
                     <footer v-if="userData.id == cmData[0].ques_user_id" class="card-footer">
-                      <a @click="deleteQues(cmData[0].id)" href="#" class="card-footer-item">Edit</a>
-                      <a @click="showMsg(cmData[0]); quesClick();" href="#" class="card-footer-item cm-delete">Delete</a>
+                      <a @click="deleteQues(cmData[0].id)" class="card-footer-item">Edit</a>
+                      <a @click="showMsg(cmData[0]); quesClick();" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                 </div> <!-- end question --> 
 
                 <div class="is-left" :key="index" v-for="(question, index) in filteredList">
-                  <div class="card">
+                  <div class="card animated fadeInUp">
                     <header class="card-header">
                       <p class="card-header-title">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                         Answer #{{ index +1 }} <!-- humans start counting at one -->
                       </p>
-                      <a href="#" class="card-header-icon" aria-label="more options">
+                      <a class="card-header-icon" aria-label="more options">
                         <span class="icon">
                           <i class="fa fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -59,7 +59,7 @@
                       <div class="content">
                         
                         <div class="box">{{ question.answer_content }} </div>
-                        <div v-if="!filteredList[0].hasOwnProperty('answer_id')">
+                        <div v-if="!filteredList[0].hasOwnProperty('ans_id')">
                           <a  @click="openModal(0)" class="button is-text">Yes</a>
                           <a  href="../questions" class="button is-text">No</a>
                         </div>
@@ -74,19 +74,19 @@
                        <!-- check if user is admin or dev -->
                         <star-rating v-if="userRole.roleId > 1 && userData.id != question.user_id" :star-size="20" inactive-color="#A9A9A9" active-color="#FFD700"></star-rating>
                         <div v-if="userData.id != question.user_id" class="votes">
-                          <upvote @vote="vote(index)" :votes="question.total_votes"></upvote>
+                          <upvote @vote="vote(index)" :votes="question.total_votes" :has-voted="question.user_vote_id"></upvote>
                         </div>
                       </div>
                     </div>
                     <footer v-if="userData" class="card-footer">
-                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" href="#" class="card-footer-item">Edit</a>
-                      <a @click="showMsg(question) "v-if="userData.id == question.user_id" href="#" class="card-footer-item cm-delete">Delete</a>
+                      <a @click="deleteQues(question.id) "v-if="userData.id == question.user_id" class="card-footer-item">Edit</a>
+                      <a @click="showMsg(question) "v-if="userData.id == question.user_id" class="card-footer-item cm-delete">Delete</a>
                     </footer>
                     </div>
                   </div>
                 </div>
               </div><!--end questions list -->
-              <div class="column is-4 card ans-card">
+              <div class="column is-4 card  animated bounceInRight">
               <a v-if="!userData" class="button is-cm-info is-block is-alt is-medium" href="users/login">Login and Answer</a>
               <a v-if="userData" @click="openModal(0)" class="button is-cm-success is-block is-alt is-medium">Answer Question</a>
               <aside class="menu">
@@ -115,21 +115,21 @@
                     </div>
                     </div>
                     <footer class="card-footer">
-                      <a @click="popSort" href="#" class="card-footer-item">Popular</a>
-                      <a href="#" class="card-footer-item">Latest</a>
-                      <a href="#" class="card-footer-item">Rising</a>
+                      <a @click="popSort" class="card-footer-item">Popular</a>
+                      <a class="card-footer-item">Latest</a>
+                      <a class="card-footer-item">Rising</a>
                     </footer>
                   </div>
                 </div>
-                <message :cm-style="dangerMessage" v-if="message.show" @close="message.show = false">
-                  <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
-                        You are about to delete something which cannot be recovered
-                        is that what you want?
-                  <br>
-                  <br>
-                  <a  @click="message.show = false" class="button is-text">Cancel</a>
-                  <a @click="deleteQues(message.delId)" class="button is-danger">Delete</a>
-                </message>
+                  <message :cm-style="dangerMessage" v-if="message.show" @close="message.show = false">
+                    <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                          You are about to delete something which cannot be recovered
+                          is that what you want?
+                    <br>
+                    <br>
+                    <a  @click="message.show = false" class="button is-text">Cancel</a>
+                    <a @click="deleteQues(message.delId)" class="button is-danger">Delete</a>
+                  </message>
                 <ul class="menu-list">
                 </ul>
               </aside>
@@ -182,14 +182,15 @@ export default {
       rating: "No Rating Selected",
       currentRating: "No Rating",
       currentSelectedRating: "No Current Rating",
-      boundRating: 3
+      boundRating: 3,
+      cmD: this.cmData
     };
   },
   computed: {
     filteredList() {
       if (this.cmData[0].answer_content && this.cmData.length > 1) {
-        return this.cmData.filter(question => {
-          if (question.is_active) {
+        return this.cmD.filter(question => {
+          if (question.is_active > 0) {
             if (this.keyword.length > 0) {
               this.popular = "";
             }
@@ -263,6 +264,7 @@ export default {
       console.log("voted");
     },
     deleteQues(id) {
+      let self = this;
       this.message.show = true;
       var params = new URLSearchParams();
       if (this.quesClicked) {
@@ -276,6 +278,13 @@ export default {
       this.message.show = false;
       axios.post("./api/delete/", params).then(function(res) {
         if (res.data.result == "success") {
+          self.cmD = self.cmD.filter(q => {
+            if (q.answer_id == res.data.id) {
+              q.is_active = 0;
+            }
+            return q.is_active > 0;
+          });
+          self.keyword = "";
         }
       });
     },

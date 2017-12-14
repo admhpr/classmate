@@ -92,7 +92,7 @@
 
                     $status = array(
                         "result" => "success",
-                        "question_id" => $post["question_id"]
+                        "message" => "Saved Successfully!"
                     );
         
                     return json_encode($status);

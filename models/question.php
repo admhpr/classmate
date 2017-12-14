@@ -41,15 +41,16 @@ class QuestionModel extends Model{
 	}
 
 	public function find($id){
-		
-		$sql = 'SELECT q.id, q.title, q.content, q.date_created,q.user_id as ques_user_id,
+		// monster
+		$sql = 'SELECT q.id, q.title, q.content,
+				q.date_created,q.user_id as ques_user_id,
 				a.id as answer_id, 
 				a.title as answer_title,
 				a.content as answer_content,
 				a.date_created as answer_created, 
 				a.user_id,a.total_votes,
 				av.ans_id, av.user_vote_id, av.rating, 
-				av.has_voted,
+				av.has_voted,a.is_active,
 				u.first_name, u.last_name,
 				c.category,
                 ur.role_id,
@@ -90,10 +91,6 @@ class QuestionModel extends Model{
 		$this->query($sql);
 		$this->bind(':id', $id);
 		$row = $this->all();
-
-		if(DEV_BUILD){
-			var_dump($row);
-		}
 		return $row;
 	}
 }

@@ -2,14 +2,16 @@
 <head>
 	<title>ClassMate</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/fonts/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/fonts/css/font-awesome.min.css">
 </head>
 <body>
   <div class="pattern"></div>
     <nav class="navbar is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">Classmate</a>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+    <div class="navbar-brand animated fadeInLeft">
+      <a class="navbar-item" href="/">
+       <img src="<?php echo ROOT_PATH; ?>dist/img/logo-sm.png" alt="ClassMate logo"> ClassMate 
+    </a>
+      <div class="navbar-burger burger" data-target="">
         <span></span>
         <span></span>
         <span></span>
@@ -34,12 +36,9 @@
                   <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/profile/<?= $_SESSION['user_data']['id']; ?>" >
                     Profile
                   </a>
-                  <a class="navbar-item" href="<?= ROOT_PATH ?>questions/add">
-                    Ask a Question
-                  </a>
-                  <a class="navbar-item" href="<?php echo ROOT_URL; ?>questions/category">
+                  <!-- <a class="navbar-item" href="<?php echo ROOT_URL; ?>questions/category">
                     Categories
-                  </a>
+                  </a> -->
                   <a class="navbar-item" href="<?php echo ROOT_URL; ?>users/logout">
                     Logout
                   </a>

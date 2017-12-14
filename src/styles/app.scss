@@ -1,5 +1,6 @@
 @import "globals.scss";
-@import "./partials/reset.scss";
+@import "partials/reset.scss";
+@import "partials/animations.scss";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
 body {
   background: url($path + "/src/assets/geometry.png");

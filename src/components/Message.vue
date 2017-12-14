@@ -1,7 +1,6 @@
 <template>
     <div>
-     <transition name="fade">
-        <article :class="cmStyle">
+        <article :class=" ['animated','pulse', cmStyle] ">
             <div class="message-header">
                 Classmate Message
                 <button  @click="$emit('close')" class="delete" aria-label="delete"></button>
@@ -10,7 +9,6 @@
             <slot></slot>
             </div>
         </article>
-     </transition>
     </div>
 </template>
 

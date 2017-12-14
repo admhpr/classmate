@@ -1,11 +1,14 @@
 <?php
+define("DEV_BUILD", true);
+// Send confirmation link (useless in DEV mode unless xampp is set to send fake emails)
+define("SEND_LINK", false);
 
-    define("DEV_BUILD", false);
-   
-    define("DB_HOST", "localhost");
-    define("DB_USER", "root");
-    define("DB_PASS", "7bdaf8d3ca81e0e0f68cdc96c035e3da0ff2e16324647e66");
-    define("DB_NAME", "final_project");
+// Define DB Params
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "final_project");
 
-    define("ROOT_PATH", "/");
-    define("ROOT_URL", "classmate.slimapps.tech/");
+// Define URL
+define("ROOT_PATH", "/adv-web-final-project/");
+define("ROOT_URL", "http://localhost/adv-web-final-project/");

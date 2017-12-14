@@ -1,11 +1,11 @@
 <template>
     <div>
         <li class="vote">
-		    <span class="button" @click="$emit('vote'); upvote();">
+		    <span v-if="showThumbs" class="button" @click="$emit('vote'); upvote();">
           <i class="fa fa-thumbs-up fa-2x"></i>
         </span>
             <span class="tag">  {{ cmVotes }}  </span>
-		    <span class="button" @click="$emit('vote'); downvote();">
+		    <span v-if="showThumbs" class="button" @click="$emit('vote'); downvote();">
           <i class="fa fa-thumbs-down fa-2x"></i>
         </span>
 	    </li>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ["votes"],
+  props: ["votes", "hasVoted"],
   name: "Upvote",
   data: function() {
     return {
@@ -22,6 +22,11 @@ export default {
       downvoted: false,
       cmVotes: Number(this.votes)
     };
+  },
+  computed: {
+    showThumbs() {
+      this.hasVoted != this.$parent.userData.id;
+    }
   },
   methods: {
     upvote: function() {
