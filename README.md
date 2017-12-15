@@ -16,9 +16,13 @@ Table of Contents
   * [Update DataBase](#markdown-header-update-database)
   
   
+#ClassMate 
 [![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
 
+
 ## Dev Quickstart 
+
+## Server Side ( PHP )
 
 `/config.php`
 ```
@@ -80,7 +84,37 @@ define("DEV_BUILD", true);
     // Example only
     <?php var_dump($viewmodel); ?>
 ```
-### End Quickstart
+
+## Front End ( Vue and Axios )
+
+1.  Make sure you have Node.js installed. Then run `npm install` to install all of the modules. Once you have them installed, you can get to work adding components. 
+
+		-To see the changes you're making to the web page, you must run `npm run dev`. 
+
+
+2.  To add a component to the project, make a file with the extension .vue and add it to the `src/components` folder. Then you'll want to import the component in the `main.js` file and register the child components in `main.js` as well. 
+
+```
+		//Example Only
+		import QuestionList from "./components/QuestionList.vue"; 
+		Vue.component("question-list", QuestionList);
+
+```
+
+		-Then you will also want to add the component to the `new Vue{}` in the components object
+
+3. Once you have those things done, you can start adding your component to the `views` to be displayed on the page
+
+```
+	//example from profile.php
+	<div id="vue">
+    <user-profile :current-user-id = "currentUserId" :cm-data="cmData" :user-data="userData"></user-profile>
+	</div>
+
+```
+		-You want to make sure that you set the `id` in the div to `vue` or whatever you have your main vue instance set to
+
+#### Tip: `Installing Vue.js devtools for Google Chrome can help you out with troubleshooting your components`
 
 ***********************
 
@@ -91,3 +125,15 @@ delete your local `final_project` DataBase then run in the SQL console of `local
 1. contents of `/db-scripts/final_project-latest.php`
 2. contents of `/db-scripts/db-patch-latest.php`
 3. contents of `/db-scripts/db-seed-latest.php`
+
+### End Quickstart
+
+***********************
+
+### About This Project
+
+	Do you still have questions when you leave class? Or maybe you're working on a project at home and get stuck? 
+	Come to ClassMate to get your questions answered! It's simple, register with your email and a password and start asking!
+	Your classmates can then answer your questions, rate other answers, search by class for questions and find out which is 
+	the best answer once the teacher rates it with stars.
+

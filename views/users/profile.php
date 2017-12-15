@@ -1,14 +1,12 @@
- <?php var_dump($viewmodel); ?>
-<div id="app">
-    <tabs>
-        <tab name="Latest Questions" class="is active">
-            <h1> lorem kjsfdhhdsa kjf kjds f kjd f</h1>
-        </tab>
-        <tab name="Your Questions">
-            <h1> lore hs gddhsa</h1>
-        </tab>
-        <tab name="Your Answers">
-            <h1> jds hgds</h1>
-        </tab>
-    </tabs>
+<script>
+    var cmData = <?php echo(json_encode($viewmodel))?>;
+    <?php if( isset($_SESSION['is_logged_in'])): ?>
+		var userData = <?php echo(json_encode($_SESSION['user_data'])); ?>;
+	<?php endif; ?>	
+    var currentUserId = <?php echo(json_encode($_SESSION['user_data']['id'])) ?>;
+</script>
+<!-- see ./src/components/UserProfile.vue -->
+<div id="vue">
+    <user-profile :current-user-id = "currentUserId" :cm-data="cmData" :user-data="userData"></user-profile>
 </div>
+

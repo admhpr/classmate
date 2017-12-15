@@ -1,125 +1,71 @@
-// question list
-// Vue.component("cm-question-list", {
-//   template: `<div><question v-for="question in questions">{{question.ques}}</question></div>`,
+/**
+ *  Main entry point to the application , this is were in the root Vue instance is intialised.
+ *
+ */
 
-//   data() {
-//     return {
-//       questions: [
-//         { ques: "1", test: true },
-//         { ques: "2", test: false },
-//         { ques: "3", test: true }
-//       ]
-//     };
-//   }
-// });
+import scss from "./styles/app.scss";
+// Vue is the main class of the framework
+import Vue from "vue/dist/vue.esm.js";
+import Bulma from "bulma";
 
-// // question
-// Vue.component("question", {
-//   template: "<li><slot></slot></li>"
-// });
+// Root component of the framework
+import Home from "./App.vue";
+import QuestionList from "./components/QuestionList.vue";
+import UserProfile from "./components/UserProfile.vue";
+import NewModule from "./components/NewModule.vue";
+import Tab from "./components/Tab.vue";
+import Tabs from "./components/Tabs.vue";
+import AnswerList from "./components/AnswerList.vue";
+import Message from "./components/Message.vue";
+import Category from "./components/Category.vue";
 
-// // message
-// Vue.component("cm-message", {
-//   props: ["title", "body"],
-//   data() {
-//     return {
-//       isVisible: true
-//     };
-//   },
-//   template: `
-//     	<article class="message" v-show="isVisible">
-// 				<div class="message-header">
-// 					{{ title }}
-// 					<button class="delete" aria-label="delete" @click='hideMsg'></button>
-// 				</div>
-//         <div class="message-body">
-//           {{ body }}
-// 				</div>
-//       </article>`,
-//   methods: {
-//     hideMsg() {
-//       this.isVisible = false;
-//     }
-//   }
-// });
+// registering child components
+Vue.component("question-list", QuestionList);
+Vue.component("user-profile", UserProfile);
+Vue.component("categories", Category);
+Vue.component("new-module", NewModule);
+Vue.component("tabs", Tabs);
+Vue.component("tab", Tab);
+Vue.component("answer-list", AnswerList);
+Vue.component("message", Message);
 
-// Vue.component("cm-modal", {
-//   template: `
-// 			<div class="modal is-active">
-// 				<div class="modal-background"></div>
-// 				<div class="modal-content">
 
-// 					<div class="box">
-// 						<p>
-// 							<slot></slot>
-// 						</p>
-// 					</div>
-// 				</div>
-//         <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
-//         </div>`
-// });
+/**
+ * @param {string} el: this is where the Vue application is rendered and mounted to div with the id of 'app'. See
+ * ../views/main.php.
+ *
+ * @param {component} components: Add your single file component to be used throughout the app don't forget to create a div
+ * with the id of vue in the corresponding view php for this to work
+ */
 
-Vue.component("tabs", {
-  template: `
-          <div>
-           <div class="tabs is-centered">
-              <ul>
-                <li v-for="tab in tabs" :class="{ 'is-active' : tab.isActive }"> 
-                  <a :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
-                </li> 
-              </ul>
-            </div>
-            
-            <div class="tabs-details">
-              <slot></slot>
-            </div>
-          </div>
-          `,
-  data() {
-    return { tabs: [] };
+var vm = new Vue({
+  el: "#vue",
+  components: {
+    Home,
+    QuestionList,
+    UserProfile,
+    Category,
+    NewModule,
+    AnswerList,
+    Message
   },
-
-  created() {
-    this.tabs = this.$children;
-  },
-  methods: {
-    selectTab(selectedTab) {
-      this.tabs.forEach(tab => {
-        tab.isActive = tab.name == selectedTab.name;
-      });
-    }
-  }
-});
-
-Vue.component("tab", {
-  template: `
-            <div v-show="isActive"><slot></slot></div>
-            `,
-  props: {
-    name: { required: true },
-    selected: { default: false }
-  },
-
-  data() {
-    return {
-      isActive: false
-    };
-  },
-
-  computed: {
-    href() {
-      return "#" + this.name.toLowerCase().replace(/ /g, "-");
-    }
-  },
-  mounted() {
-    this.isActive = this.selected;
-  }
-});
-
-new Vue({
-  el: "#app",
-
   data: {
-    showModal: false
+    cmData: "",
+    userData: false,
+    currentUserId: ""
+  },
+  created: function () {
+    if (typeof cmData !== "undefined") {
+      this.cmData = cmData;
+    }
+
+    if (typeof userData !== "undefined") {
+      this.userData = userData;
+    }
+    if (typeof currentUserId !== "undefined") {
+      this.currentUserId = currentUserId;
+    }
   }
 });
+
+window.vm = vm;

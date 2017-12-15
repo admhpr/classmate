@@ -18,4 +18,9 @@ class Questions extends Controller{
 		$this->returnView($viewmodel->find($_GET["id"]), true);
 	}
 
+	protected function category(){
+		$viewmodel = new QuestionModel();
+		$this->returnView($viewmodel->cat($_GET["id"]), true);
+	}
+
 }
