@@ -3,6 +3,7 @@
 session_start();
 
 // Includes
+require('env.php');
 require('config.php');
 if(!DEV_BUILD){
    error_reporting( 0 );
