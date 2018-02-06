@@ -18,8 +18,7 @@ Table of Contents
   
   
 # ClassMate 
-[![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
-
+![logo.png](logo.png)
 
 ## Dev Quickstart 
 

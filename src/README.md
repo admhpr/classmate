@@ -18,7 +18,7 @@ Table of Contents
   
   
 # ClassMate 
-![logo.png](logo.png)
+![logo.png](../logo.png)
 
 
 ## Dev Quickstart 
