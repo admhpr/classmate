@@ -17,8 +17,8 @@ Table of Contents
   * [Update DataBase](#markdown-header-update-database)
   
   
-#ClassMate 
-[![logo.png](https://s7.postimg.org/uy87qw9ez/logo.png)](https://postimg.org/image/stnupt7s7/)
+# ClassMate 
+![logo.png](logo.png)
 
 
 ## Dev Quickstart 
