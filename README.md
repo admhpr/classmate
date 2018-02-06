@@ -1,4 +1,5 @@
-# Adv-Web-Final-Project
+# ClassMate 
+![logo.png](logo.png)
 
 ## Reddit/HackerNews/StackOverflow clone
 
@@ -15,10 +16,7 @@ Table of Contents
 
   * [Dev Quickstart](#markdown-header-dev-quickstart)
   * [Update DataBase](#markdown-header-update-database)
-  
-  
-# ClassMate 
-![logo.png](logo.png)
+
 
 ## Dev Quickstart 
 
