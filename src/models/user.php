@@ -43,15 +43,18 @@ class UserModel extends Model{
 				}
 
 				// Insert into MySQL DB
-				$this->query('INSERT INTO users (first_name,last_name, email,salt,password,is_active) VALUES(:first_name, :last_name,:email,:salt, :password,1)');
+
+				$this->query("INSERT INTO users (first_name,last_name,email,salt,password,is_active) VALUES(:first_name,:last_name,:email,:salt,:pass,:is_active)");
 				$this->bind(':first_name', $post['first_name']);
 				$this->bind(':last_name', $post['last_name']);
 				$this->bind(':email', $post['email']);
 				$this->bind(':salt', $salt);
-				$this->bind(':password', $password);
+				$this->bind(':pass', $password);
+				$this->bind(':is_active', 1);
 				$this->execute();
 
-				// Insert into MySQL DB
+				// new query
+
 				$this->query('INSERT INTO user_roles (role_id,is_active) VALUES(:role_id, 1)');
 				$this->bind(':role_id', $post['role_id']);
 				$this->execute();
@@ -83,8 +86,7 @@ class UserModel extends Model{
 						ini_set(smtp_port,'25');
 						ini_set(sendmail_from,'admin@localhost.com');
 						$sentmail = mail($to, $subject, $message, $headers);
-					}else{	
-						
+					}else{		
 						//Redirect
 						header('Location: '.ROOT_URL.'users/login');
 					}

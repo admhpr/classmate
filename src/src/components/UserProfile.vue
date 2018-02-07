@@ -292,7 +292,7 @@ export default {
       params.append("last_name", this.cmData.last_name);
 
       // ajax
-      axios.post("./api/add/", params).then(
+      axios.post("/api/add/", params).then(
         function(res) {
           if (res.data.result == "success") {
             this.isSaved = true;

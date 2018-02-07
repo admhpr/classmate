@@ -8,6 +8,9 @@ abstract class Model{
 		   this means that our SQL statements are prepared and handled securely everytime
 	    */
 		$this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
+		if(DEV_BUILD){
+			$this->dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
+		}
 	}
 
 	public function query($query){
@@ -27,11 +30,11 @@ abstract class Model{
     			case is_null($value):
       				$type = PDO::PARAM_NULL;
       				break;
-    				default:
+    			default:
       				$type = PDO::PARAM_STR;
   			}
 		}
-		$this->stmt->bindValue($param, $value, $type);
+		$this->stmt->bindParam($param, $value, $type);
 	}
 
 	public function execute(){
