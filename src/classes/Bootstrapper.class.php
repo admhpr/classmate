@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Bootstrapping refers to the process of loading the environment a program (or a script, in the case of PHP)
