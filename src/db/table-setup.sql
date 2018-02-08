@@ -210,4 +210,4 @@ ALTER TABLE `user_roles`
 
 ALTER TABLE `users` CHANGE `salt` `salt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 
-
+ALTER TABLE `users` CHANGE `reputation_votes` `reputation_votes` INT(10) UNSIGNED NULL DEFAULT '0';

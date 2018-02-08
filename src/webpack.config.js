@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: "./js-src/main.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
     publicPath: "/dist/",
@@ -61,7 +61,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      styles: path.resolve(__dirname, "./src/styles/")
+      styles: path.resolve(__dirname, "./js-src/styles/")
     }
   },
   performance: {

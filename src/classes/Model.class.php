@@ -42,8 +42,19 @@ abstract class Model{
 	}
 
 	public function all(){
+
 		$this->execute();
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+		$data = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+		$html_enitity_decoded_data = array();
+		
+
+		foreach( $data as $row ){
+			$row['title'] = htmlspecialchars_decode($row['title'], ENT_QUOTES);
+			$row['content'] = htmlspecialchars_decode($row['content'], ENT_QUOTES);
+			array_push($html_enitity_decoded_data, $row);
+		}
+
+		return $html_enitity_decoded_data;
 	}
 
 	public function lastInsertId(){
