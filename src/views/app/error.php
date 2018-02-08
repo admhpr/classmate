@@ -1,5 +1,5 @@
   <div class="has-text-centered">
-      <img src="<?php echo ROOT_URL; ?>/src/assets/404.png" alt="404_bot">
+      <img src="<?php echo ROOT_URL; ?>/js-src/assets/404.png" alt="404_bot">
       <div class="title">404</div>
       <h3 class="subtitle">We couldn't find the page..</h3>
 

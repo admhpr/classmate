@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="src/assets/landing-page/css/main.css" />
+		<link rel="stylesheet" href="js-src/assets/landing-page/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -41,7 +41,7 @@
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/hand.jpg" alt="" />
+										<img src="js-src/assets/landing-page/hand.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Ask The Right Questions</a></h3>
@@ -50,7 +50,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/desk.jpg" alt="" />
+										<img src="js-src/assets/landing-page/desk.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Help With Answers</a></h3>
@@ -59,7 +59,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/js.jpg" alt="" />
+										<img src="js-src/assets/landing-page/js.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Filter by Category</a></h3>
@@ -68,7 +68,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/laptop.jpg" alt="" />
+										<img src="js-src/assets/landing-page/laptop.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link" target= "_blank">Advanced Topics in Programming</a></h3>
@@ -77,7 +77,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/point.jpg" alt="" />
+										<img src="js-src/assets/landing-page/point.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
@@ -86,7 +86,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="src/assets/landing-page/study.jpg" alt="" />
+										<img src="js-src/assets/landing-page/study.jpg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Fall in love with Android Studio</a></h3>
@@ -115,7 +115,7 @@
 								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
 								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
 								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://github.com/harps116/classmate" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
 								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							</ul>
 							<ul class="copyright">
@@ -127,13 +127,13 @@
 			</div>
 
 			<!-- Scripts -->
-			<script src="src/assets/landing-page/js/jquery.min.js"></script>
-			<script src="src/assets/landing-page/js/jquery.scrolly.min.js"></script>
-			<script src="src/assets/landing-page/js/jquery.scrollex.min.js"></script>
-			<script src="src/assets/landing-page/js/skel.min.js"></script>
-			<script src="src/assets/landing-page/js/util.js"></script>
+			<script src="js-src/assets/landing-page/js/jquery.min.js"></script>
+			<script src="js-src/assets/landing-page/js/jquery.scrolly.min.js"></script>
+			<script src="js-src/assets/landing-page/js/jquery.scrollex.min.js"></script>
+			<script src="js-src/assets/landing-page/js/skel.min.js"></script>
+			<script src="js-src/assets/landing-page/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="src/assets/landing-page/js/main.js"></script>
+			<script src="js-src/assets/landing-page/js/main.js"></script>
 
 
 	</body>

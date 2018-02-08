@@ -89,7 +89,7 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/globals.scss";
 .modal-background {
-  background: url($path + "/src/assets/bg_ans.jpg");
+  background: url($path + "/js-src/assets/bg_ans.jpg");
   z-index: -1;
 }
 

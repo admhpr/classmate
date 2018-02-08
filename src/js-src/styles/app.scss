@@ -3,7 +3,7 @@
 @import "partials/animations.scss";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
 body {
-  background: url($path + "/src/assets/geometry.png");
+  background: url($path + "/js-src/assets/geometry.png");
   font-family: "Raleway", serif !important;
   font-weight: 400;
   font-size: 1.25rem;
@@ -11,7 +11,7 @@ body {
 }
 
 .pattern {
-  background: url($path + "/src/assets/pattern-md.png");
+  background: url($path + "/js-src/assets/pattern-md.png");
   padding: 0.5em;
 }
 
