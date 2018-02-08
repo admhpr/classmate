@@ -164,7 +164,7 @@ export default {
       message: "Question Component test",
       popular: "",
       dangerMessage: "message is-danger is-clearfix",
-      sucessMessage: "message is-success is-clearfix",
+      successMessage: "message is-success is-clearfix",
       quesClicked: false,
       modalConfig: {
         show: false,

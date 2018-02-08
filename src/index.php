@@ -18,15 +18,15 @@ spl_autoload_register(function ($class) {
     include 'classes/' . $class . '.class.php';
 });
 
-require('controllers/app.php');
-require('controllers/api.php');
-require('controllers/questions.php');
-require('controllers/users.php');
+require('controllers/App.php');
+require('controllers/Api.php');
+require('controllers/Questions.php');
+require('controllers/Users.php');
 
-require('models/app.php');
-require('models/api.php');
-require('models/question.php');
-require('models/user.php');
+require('models/App.php');
+require('models/Api.php');
+require('models/Question.php');
+require('models/User.php');
 
 // Instantiate the Bootstrapper class and pass in the $_GET request
 $front_controller = new Bootstrapper($_GET);

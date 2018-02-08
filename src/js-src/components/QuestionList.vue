@@ -84,19 +84,13 @@
                           </button>
                         </div>
                         <div :class="{'dropdown-menu':true}" id="dropdown-menu" role="menu">
-                          <div class="dropdown-content">
-                            <a @click="filterCat(1)" :class="{'dropdown-item':true,'is-active': categoryId == 1}">
-                              Advanced Web Development
+
+                          <div class="dropdown-content" :key="index" v-for="(catergory, index) in catergories">
+                              
+                            <a @click="filterCat(index + 1)" :class="{'dropdown-item':true,'is-active': categoryId == 1}">
+                               {{ catergory }}
                             </a>
-                            <a @click="filterCat(2)" href="#" :class="{'dropdown-item':true,'is-active': categoryId == 2}">
-                              Advanced Topics Programming
-                            </a>
-                            <a @click="filterCat(3)" href="#" :class="{'dropdown-item':true,'is-active': categoryId == 3}">
-                              Android Development
-                            </a>
-                            <a @click="filterCat(4)" href="#" :class="{'dropdown-item':true,'is-active': categoryId == 4}">
-                              Generals
-                            </a>
+                            
                           </div>
                         </div>
                       </div>
@@ -146,7 +140,8 @@ export default {
       categoryId: "",
       dropdown: false,
       dangerMessage: "message is-danger is-clearfix",
-      sucessMessage: "message is-success is-clearfix",
+      successMessage: "message is-success is-clearfix",
+      catergories: ['yo', 'test'],
       modalConfig: {
         show: false,
         question: null
