@@ -1,5 +1,5 @@
 # ClassMate 
-![logo.png](logo.png)
+![classmate_logo.png](classmate_logo.png)
 
 ## Reddit/HackerNews/StackOverflow clone
 
