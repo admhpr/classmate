@@ -141,7 +141,7 @@ export default {
       dropdown: false,
       dangerMessage: "message is-danger is-clearfix",
       successMessage: "message is-success is-clearfix",
-      catergories: ['yo', 'test'],
+      catergories: ['Social', 'Tech', 'Lesson', 'Homework'],
       modalConfig: {
         show: false,
         question: null
@@ -173,6 +173,7 @@ export default {
       return path + "users/profile/" + ques.user_id;
     },
     ques_href(ques) {
+      console.log(path)
       return path + "questions/" + ques.id;
     },
     openModal(index) {
