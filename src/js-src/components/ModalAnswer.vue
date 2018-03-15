@@ -89,7 +89,7 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/globals.scss";
 .modal-background {
-  background: url($path + "/js-src/assets/bg_ans.jpg");
+  background: url("../assets/bg_ans.jpg");
   z-index: -1;
 }
 
@@ -97,6 +97,8 @@ export default {
   box-shadow: bottom-shadow(4), top-shadow(4);
   border: 1px solid $dark-blue;
   border-radius: 2px;
+  margin: 5% 10% 5%;
+  height: 95%;
   .modal-card-foot {
     align-items: center;
     & .button {
