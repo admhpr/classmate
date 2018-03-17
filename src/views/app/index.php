@@ -36,7 +36,7 @@
 										<img src="js-src/assets/landing-page/img/hand.jpeg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Ask The Right Questions</a></h3>
+										<h3><a href="/questions" class="link">Ask The Right Questions</a></h3>
 									</header>
 								</article>
 								<article>
