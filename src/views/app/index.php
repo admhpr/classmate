@@ -13,12 +13,6 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
-				<!-- Header -->
-					<!-- <header id="header" class="alt">
-					
-					</header> -->
-
 				<!-- Banner -->
 					<section id="banner" class="major">
 						<div class="inner">
@@ -35,76 +29,57 @@
 
 				<!-- Main -->
 					<div id="main">
-
-					<!-- changed paths on tiles to go to different screens based on my home computers path -->
 						<!-- One -->
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/hand.jpg" alt="" />
+										<img src="js-src/assets/landing-page/img/hand.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="http://localhost/adv-web-final-project/questions" class="link">Ask The Right Questions</a></h3>
-										<!-- <p>Click here to view questions</p> -->
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/desk.jpg" alt="" />
+										<img src="js-src/assets/landing-page/img/desk.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Help With Answers</a></h3>
-										<!-- <p>Click here to view some answers</p> -->
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/js.jpg" alt="" />
+										<img src="js-src/assets/landing-page/img/js.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Filter by Category</a></h3>
-										<!-- <p>Click here to view available categories</p> -->
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/laptop.jpg" alt="" />
+										<img src="js-src/assets/landing-page/img/laptop.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link" target= "_blank">Advanced Topics in Programming</a></h3>
-										<!-- <p>Click here for the JavaScript Code Sandbox</p> -->
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/point.jpg" alt="" />
+										<img src="js-src/assets/landing-page/img/point.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
-										<!-- <p>Ipsum dolor sit amet</p> -->
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/study.jpg" alt="" />
+										<img src="js-src/assets/landing-page/img/study.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Fall in love with Android Studio</a></h3>
-										<!-- <p>Click here to go to Google's Android Training Site</p> -->
 									</header>
 								</article>
 							</section>
-
-						<!-- Two
-							<section id="two">
-								<div class="inner">
-									<header class="major">
-										<h2>Massa libero</h2>
-									</header>
-									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-									
-								</div>
-							</section> -->
 					</div>
 
 
@@ -112,11 +87,11 @@
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<!-- <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li> -->
+								<!-- <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li> -->
+								<!-- <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li> -->
 								<li><a href="https://github.com/harps116/classmate" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.linkedin.com/in/adam-harpur/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							</ul>
 							<ul class="copyright">
 								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
@@ -128,11 +103,6 @@
 
 			<!-- Scripts -->
 			<script src="js-src/assets/landing-page/js/jquery.min.js"></script>
-			<script src="js-src/assets/landing-page/js/jquery.scrolly.min.js"></script>
-			<script src="js-src/assets/landing-page/js/jquery.scrollex.min.js"></script>
-			<script src="js-src/assets/landing-page/js/skel.min.js"></script>
-			<script src="js-src/assets/landing-page/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="js-src/assets/landing-page/js/main.js"></script>
 
 

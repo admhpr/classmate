@@ -86,6 +86,6 @@
         <home :user-data="userData"></home>
       
       </div>
-     <script src="<?php echo ROOT_URL; ?>dist/build.js"></script>
+     <script src="<?php echo ROOT_PATH; ?>dist/build.js"></script>
 </body>
 </html>
