@@ -5,10 +5,10 @@
       <div class="card">
         <div class="card-content">
           <p class="title">
-            Whoa Whoa easy, this is an area for resgistered users only...
+            Whoa Whoa easy, this is an area for registered users only...
           </p>
           <p class="subtitle">
-            Feel free to login if you already have an account or resgister to see this users profile
+            Feel free to login if you already have an account or register to see this users profile
           </p>
         </div>
         <footer class="card-footer">
