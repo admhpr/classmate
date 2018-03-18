@@ -1,5 +1,6 @@
 <script>
     var cmData = <?php echo(json_encode($viewmodel))?>;
+    
     <?php if( isset($_SESSION['is_logged_in'])): ?>
 		var userData = <?php echo(json_encode($_SESSION['user_data'])); ?>;
 	<?php endif; ?>	

@@ -27,7 +27,12 @@ body {
 .navbar {
   box-shadow: bottom-shadow(1), top-shadow(1);
 }
-
+#burger{
+  position: fixed;
+  right:0;
+  top:0;
+  margin-top: 20px;
+}
 .btn-question {
   margin-bottom: 20px;
 }

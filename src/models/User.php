@@ -124,8 +124,7 @@ class UserModel extends Model{
 			$this->query($sql);
 			$this->bind(':email', $post['email']);
 			$row = $this->single();
-
-			// Using password verify on Blowfish algo
+			
 			if(password_verify($post['password'], $row['password']) ){
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user_data'] = array(
@@ -166,6 +165,8 @@ class UserModel extends Model{
 			$row = $this->single();
 			$row['bio'] = htmlspecialchars_decode($row['bio'], ENT_QUOTES);
 			return $row;
+		}else{
+			return false;
 		}
 	}	
 	public function upload(){
@@ -207,7 +208,6 @@ class UserModel extends Model{
 					$this->bind(':id', $id);
 					$this->bind(':image_path', $imageUrl);
 					$this->execute();
-	
 					$response['result'] = "success";
 					$response['message'] = $file_name." has been successfully uploaded"; 
 					$response['image_path'] = $imageUrl;
