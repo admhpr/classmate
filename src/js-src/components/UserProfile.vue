@@ -153,7 +153,7 @@
                       </div>
                       <div class="field">
                         <div class="control has-icons-left has-icons-right">
-                          <textarea v-model="cmData.bio" class="textarea" type="text" placeholder="Bio">
+                          <textarea v-model="cmData.bio" class="textarea" type="text" placeholder="Tell us a little about yourself...">
                             <span class="icon is-small is-left">
                               <i class="fa fa-info"></i>
                             </span>
