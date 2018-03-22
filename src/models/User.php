@@ -197,8 +197,15 @@ class UserModel extends Model{
 			if(empty($errors)==true){
 				
 				$dest = $_SERVER['DOCUMENT_ROOT'].ROOT_PATH."user-images/".$_SESSION['user_data']['id'].$file_name;
-				$imageUrl = ROOT_URL."user-images/" . $_SESSION['user_data']['id'].$file_name;
-		
+				$image_url = ROOT_URL."user-images/" . $_SESSION['user_data']['id'].$file_name;
+				$image_dir_url = $_SERVER['DOCUMENT_ROOT'].ROOT_PATH."user-images/";
+				
+				if(!file_exists($image_dir_url)){
+					umask(0);
+					mkdir($image_dir_url);
+					chmod($image_dir_url, 0777);
+				}
+
 				if(move_uploaded_file($file_tmp,$dest)){
 					
 					$id = $_SESSION['user_data']['id'];
@@ -206,11 +213,11 @@ class UserModel extends Model{
 					$id = intval($id);
 					$this->query($sql);
 					$this->bind(':id', $id);
-					$this->bind(':image_path', $imageUrl);
+					$this->bind(':image_path', $image_url);
 					$this->execute();
 					$response['result'] = "success";
 					$response['message'] = $file_name." has been successfully uploaded"; 
-					$response['image_path'] = $imageUrl;
+					$response['image_path'] = $image_url;
 				};
 
 			}else{

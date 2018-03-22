@@ -1,3 +1,4 @@
 .env
 yarn-error.log
 config.php
+src/user-images
