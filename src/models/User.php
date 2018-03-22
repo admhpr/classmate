@@ -205,9 +205,6 @@ class UserModel extends Model{
 					mkdir($image_dir_url);
 					chmod($image_dir_url, 0777);
 				}
-				echo($image_dir_url);
-				echo($image_url);
-				die();
 				if(move_uploaded_file($file_tmp,$dest)){
 					
 					$id = $_SESSION['user_data']['id'];
