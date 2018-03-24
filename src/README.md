@@ -1,16 +1,7 @@
 
 # ClassMate 
-![logo.png](../logo.png)
+![classmate_logo.png](dist/logo.png)
 
-## Reddit/HackerNews/StackOverflow clone
-
-## Stack
-
-- Maria DB
-- Php 7.0
-- JavaScript, CSS, HTML
-- Vue
-***********************
 
 Table of Contents
 =================
@@ -20,9 +11,12 @@ Table of Contents
 
 ## Dev Quickstart 
 
-## Docker
+```
+$ mv env.example.php env.php && mv config.example.php config.php
+```
 
-Change .env-example to .env change the credentials to what you want.
+
+## Docker
 
 `docker-compose up -d --build`
 
@@ -32,19 +26,15 @@ setup can be customised from `docker-compose.yaml`
 
 and configured and changed from `./build` directory.
 
-app will be running on locatlhost:8080
+by default 
+
+The app will be running on locatlhost:8080
 
 phpmyadmin will be running on localhost:8888
 
 
 ## Server Side ( PHP )
 
-> Create a env.php add credentials, see env-example.php for details.
-
-`/config.php`
-```
-define("DEV_BUILD", true);
-```
 :headphones: :clapper: [Quickstart Video](https://youtu.be/D2o14PY7Ums)
 
 ## Recipe to add functionality

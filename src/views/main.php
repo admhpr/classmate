@@ -105,8 +105,6 @@
                 <span><?php echo date("Y"); ?></span>
                 <span>-</span>
                 <span>ClassMate</span>
-                <br>
-                <span> Ask better questions</span>
               </p>
             </div>
           </div>
