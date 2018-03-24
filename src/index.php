@@ -26,11 +26,13 @@ require('controllers/App.php');
 require('controllers/Api.php');
 require('controllers/Questions.php');
 require('controllers/Users.php');
+require('controllers/Info.php');
 
 require('models/App.php');
 require('models/Api.php');
 require('models/Question.php');
 require('models/User.php');
+require('models/Info.php');
 
 // Instantiate the Bootstrapper class and pass in the $_GET request
 $front_controller = new Bootstrapper($_GET);
