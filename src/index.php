@@ -5,6 +5,10 @@ session_start();
 // Includes
 require('env.php');
 require('config.php');
+
+// third party libs
+require_once 'vendor/autoload.php';
+
 if(!DEV_BUILD){
    error_reporting( 0 );
 }

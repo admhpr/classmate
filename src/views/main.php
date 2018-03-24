@@ -3,6 +3,7 @@
 	<title>ClassMate</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/bootstrap.css">
   <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>dist/css/fonts/css/font-awesome.min.css">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
   <div class="pattern"></div>

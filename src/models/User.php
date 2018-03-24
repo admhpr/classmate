@@ -23,6 +23,11 @@ class UserModel extends Model{
 
 		// Check POST type
 		if($post['submit']){
+
+			// reCaptcha
+			$secret = getenv('secret');
+			$recaptcha = new \ReCaptcha\ReCaptcha($secret);
+
 			if(strlen($post['password']) > $pw_len){
 				if($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '' || $post['password'] == ''){
 					Messages::setMsg('Please fill in all fields', 'error');
@@ -33,7 +38,13 @@ class UserModel extends Model{
 					Messages::setMsg('Please Enter a valid email', 'error');
 					return;
 				}
-				
+
+				$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+
+				if (!$resp->isSuccess()){
+					Messages::setMsg('Please verify you are not a robot', 'error');
+					return;
+				}
 				$this->query("SELECT * FROM `users`  WHERE `email` = :email");
 				$this->bind(':email', $post['email']);
 			
