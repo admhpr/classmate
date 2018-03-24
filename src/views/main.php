@@ -88,11 +88,11 @@
           <home :user-data="userData"></home>
         
         </div>
-        <footer class="footer">
+        <footer class="footer remove-all-styles">
           <div class="container">
             <div class="content has-text-centered">
               <p>
-                <strong>Classmate</strong> by <a href="https://adamharpur.com">Adam Harpur</a>. The source code is licensed
+                <strong class="remove-all-styles">Classmate</strong> by <a href="https://adamharpur.com">Adam Harpur</a>. The source code is licensed
                 <a href="http://opensource.org/licenses/mit-license.php">MIT</a> and available: . 
                 <ul class="icons">
                   <li><a href="https://github.com/harps116/classmate"><i class="fab fa-github"></i></a></li>

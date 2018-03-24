@@ -1,6 +1,8 @@
 @import "globals.scss";
 @import "partials/reset.scss";
 @import "partials/animations.scss";
+@import "partials/nav.scss";
+@import "partials/footer.scss";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
 body {
   background: url($path + "/js-src/assets/geometry.png");
@@ -15,24 +17,6 @@ body {
   padding: 0.5em;
 }
 
-.navbar > ul > li > a {
-  color: #5e5e5e;
-  background-color: transparent;
-}
-
-.nav-con, .navbar-brand {
-  border-bottom: 1px solid $light-green;
-}
-
-.navbar {
-  box-shadow: bottom-shadow(1), top-shadow(1);
-}
-#burger{
-  position: fixed;
-  right:0;
-  top:0;
-  margin-top: 20px;
-}
 .btn-question {
   margin-bottom: 20px;
 }

@@ -1,0 +1,18 @@
+.footer{
+    padding: 3rem 1.5rem 1rem !important;
+    li{
+        text-decoration: none;
+        display: inline-flex;
+    }
+    a{
+        color: $green;
+        i{
+          padding: 1em;
+        }
+
+    };
+
+    strong{
+        color: $black;
+    };
+}
