@@ -4,8 +4,8 @@ DIR=$(git rev-parse --show-toplevel)
  
 if [ -e "$DIR/composer.json" ]; then
     if [ -d "$DIR/vendor" ]; then
-        composer.phar install
+        composer install
     else
-        composer.phar update
+        composer update
     fi
 fi
