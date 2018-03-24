@@ -15,12 +15,6 @@
            </li>
         </ul>
         <div class="has-text-centered">
-          <span>©</span>
-          <span>2017</span>
-          <span>-</span>
-          <span>ClassMate</span>
-          <br>
-          <span> Ask better questions</span>
        </div>
       </div>
   </div>

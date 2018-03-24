@@ -98,9 +98,15 @@
                   <li><a href="https://github.com/harps116/classmate"><i class="fab fa-github"></i></a></li>
                   <li><a href="https://www.linkedin.com/in/adam-harpur/"><i class="fab fa-linkedin"></i></a></li>
                 </ul>
+                Our <a href="info/privacy">Privacy policy</a>.
                 The website content
                 is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-                Our <a href="info/privacy">Privacy policy</a>
+                <span>©</span>
+                <span><?php echo date("Y"); ?></span>
+                <span>-</span>
+                <span>ClassMate</span>
+                <br>
+                <span> Ask better questions</span>
               </p>
             </div>
           </div>
