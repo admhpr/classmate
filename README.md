@@ -1,7 +1,6 @@
 <p align="center">
-	[![GitHub license](https://img.shields.io/github/license/harps116/classmate.svg?style=style=flat-square)](https://github.com/harps116/classmate/blob/master/LICENSE)
-
-	[![GitHub issues](https://img.shields.io/github/issues/harps116/classmate.svg?style=style=flat-square)](https://github.com/harps116/classmate/issues)
+	<img src="https://img.shields.io/github/issues/harps116/classmate.svg?style=flat-square">
+	<img src="https://img.shields.io/github/license/harps116/classmate.svg?style=flat-square">
 </p>
 
 
