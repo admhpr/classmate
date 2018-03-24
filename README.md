@@ -1,3 +1,7 @@
+[![GitHub license](https://img.shields.io/github/license/harps116/classmate.svg?style=style=flat-square)](https://github.com/harps116/classmate/blob/master/LICENSE)
+
+[![GitHub issues](https://img.shields.io/github/issues/harps116/classmate.svg?style=style=flat-square)](https://github.com/harps116/classmate/issues)
+
 # ClassMate 
 ![classmate_logo.png](classmate_logo.png)
 
