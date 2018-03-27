@@ -26,7 +26,7 @@
 					</div>
 				</form>
 				<div class="column is-4">
-					<div class="box">
+					<div class="media">
 						<div></div>
 					</div>
 				</div>
