@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="js-src/assets/landing-page/css/main.css" />
+		<link rel="stylesheet" href="static/assets/landing-page/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -33,7 +33,7 @@
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/img/hand.jpeg" alt="" />
+										<img src="static/assets/landing-page/img/hand.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="/questions" class="link">Ask The Right Questions</a></h3>
@@ -41,7 +41,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/img/desk.jpeg" alt="" />
+										<img src="static/assets/landing-page/img/desk.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Help With Answers</a></h3>
@@ -49,7 +49,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/img/js.jpeg" alt="" />
+										<img src="static/assets/landing-page/img/js.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Filter by Category</a></h3>
@@ -57,7 +57,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/img/laptop.jpeg" alt="" />
+										<img src="static/assets/landing-page/img/laptop.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link" target= "_blank">Advanced Topics in Programming</a></h3>
@@ -65,7 +65,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/img/point.jpeg" alt="" />
+										<img src="static/assets/landing-page/img/point.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Advanced Web Development</a></h3>
@@ -73,7 +73,7 @@
 								</article>
 								<article>
 									<span class="image">
-										<img src="js-src/assets/landing-page/img/study.jpeg" alt="" />
+										<img src="static/assets/landing-page/img/study.jpeg" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="#" class="link">Fall in love with Android Studio</a></h3>
@@ -102,8 +102,8 @@
 			</div>
 
 			<!-- Scripts -->
-			<script src="js-src/assets/landing-page/js/jquery.min.js"></script>
-			<script src="js-src/assets/landing-page/js/main.js"></script>
+			<script src="static/assets/landing-page/js/jquery.min.js"></script>
+			<script src="static/assets/landing-page/js/main.js"></script>
 
 
 	</body>
