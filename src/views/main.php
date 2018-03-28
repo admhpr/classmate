@@ -4,7 +4,6 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="<?php echo ROOT_PATH; ?>static-libs/fontawesome-all.min.js"></script>
     <script src="<?php echo ROOT_PATH; ?>static/assets/landing-page/js/jquery.min.js"></script>
-    <script src="<?php echo ROOT_PATH; ?>dist/build.js"></script>
   </head>
   <body>
     <div id="loading">
@@ -103,6 +102,7 @@
           <home :user-data="userData"></home>
         
         </div>
+        <script src="<?php echo ROOT_PATH; ?>dist/build.js"></script>
         <footer class="footer remove-all-styles">
           <div class="container">
             <div class="content has-text-centered">
