@@ -2,9 +2,13 @@
   <head>
     <title>ClassMate</title>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="/static-libs/fontawesome-all.min.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>static-libs/fontawesome-all.min.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>static/assets/landing-page/js/jquery.min.js"></script>
   </head>
   <body>
+    <div id="loading">
+      <img id="loading-image"src="<?php echo ROOT_PATH; ?>static/assets/loading.gif" alt="">
+    </div>
     <div class="pattern"></div>
       <nav class="navbar is-transparent">
       <div class="navbar-brand animated fadeInLeft">
@@ -74,8 +78,8 @@
             <div class="message-body">
               Please note that this site is currently under heavy development and is not fully functional.
               You can login and resgister but there is not much else at the moment. You can follow the development
-              @ the the projects github <li><a href="https://github.com/harps116/classmate">  repo <i class="fab fa-github"></i>.</a></li>
-              There is currently one developer and I am still fleshing out some ideas. Open to suggestions and/or pull requests.
+              @ the the projects github <a href="https://github.com/harps116/classmate">  repo <i class="fab fa-github"></i>.</a>
+              This is a personal project and I am still fleshing out some ideas. Open to suggestions and/or pull requests.
             </div>
           </article>
         </div>
@@ -120,6 +124,12 @@
           </div>
         </footer>
         <script>
+         $(window).load(function() {
+            setTimeout(() => {
+              $('#loading').fadeOut('slow');
+            });       
+          });
+
           document.addEventListener('DOMContentLoaded', function () {
 
               // Get all "navbar-burger" elements

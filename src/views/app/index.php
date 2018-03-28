@@ -102,7 +102,6 @@
 			</div>
 
 			<!-- Scripts -->
-			<script src="static/assets/landing-page/js/jquery.min.js"></script>
 			<script src="static/assets/landing-page/js/main.js"></script>
 
 
