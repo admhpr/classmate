@@ -67,6 +67,18 @@
         <br>
         <br>
         <br>
+        <div class="column">
+          <article class="message is-info">
+            <div class="message-header">
+            </div>
+            <div class="message-body">
+              Please note that this site is currently under heavy development and is not fully functional.
+              You can login and resgister but there is not much else at the moment. You can follow the development
+              @ the the projects github <li><a href="https://github.com/harps116/classmate">  repo <i class="fab fa-github"></i>.</a></li>
+              There is currently one developer and I am still fleshing out some ideas. Open to suggestions and/or pull requests.
+            </div>
+          </article>
+        </div>
         <div class="column is-4 is-offset-1">
           <?php Messages::display(); ?>
         </div>
