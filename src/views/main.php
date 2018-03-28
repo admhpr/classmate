@@ -4,6 +4,7 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="<?php echo ROOT_PATH; ?>static-libs/fontawesome-all.min.js"></script>
     <script src="<?php echo ROOT_PATH; ?>static/assets/landing-page/js/jquery.min.js"></script>
+    <script src="<?php echo ROOT_PATH; ?>dist/build.js"></script>
   </head>
   <body>
     <div id="loading">
@@ -156,6 +157,5 @@
 
             });
         </script>
-      <script src="<?php echo ROOT_PATH; ?>dist/build.js"></script>
   </body>
 </html>
