@@ -354,7 +354,7 @@ $line: 5px;
       }
     }
   }
-  background-image: url("../assets/mem.png");
+  background-image: url("../../static/assets/mem.png");
   .title {
     padding: 11px;
     border-radius: 3px;

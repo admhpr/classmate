@@ -2,6 +2,7 @@
 @import "partials/reset.scss";
 @import "partials/animations.scss";
 @import "partials/nav.scss";
+@import "partials/form.scss";
 @import "partials/footer.scss";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
 body {
@@ -13,7 +14,7 @@ body {
 }
 
 .pattern {
-  background: url($path + "/js-src/assets/pattern-md.png");
+  background: url("../../static/assets/pattern-md.png");
   padding: 0.5em;
 }
 

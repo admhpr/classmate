@@ -67,10 +67,10 @@
         <br>
         <br>
         <br>
-        <div class="">
+        <div class="column is-4 is-offset-1">
           <?php Messages::display(); ?>
-          <?php require($view); ?>
         </div>
+          <?php require($view); ?>
       </div>
 
     </div><!-- /.container -->

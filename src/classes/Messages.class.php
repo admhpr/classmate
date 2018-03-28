@@ -10,12 +10,20 @@ class Messages{
 
 	public static function display(){
 		if(isset($_SESSION['errorMsg'])){
-			echo '<div class="alert alert-danger">'.$_SESSION['errorMsg'].'</div>';
+			echo '<div class="message is-danger">
+					<div class="message-body">'
+						.$_SESSION['errorMsg'].
+				  	'</div>
+				  </div>';
 			unset($_SESSION['errorMsg']);
 		}
 
 		if(isset($_SESSION['successMsg'])){
-			echo '<div class="alert alert-success">'.$_SESSION['successMsg'].'</div>';
+			echo '<div class="message is-success">
+					<div class="message-body">'
+						.$_SESSION['successMsg'].
+				  	'</div>
+				  </div>';
 			unset($_SESSION['successMsg']);
 		}
 	}
