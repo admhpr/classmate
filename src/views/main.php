@@ -4,6 +4,9 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="<?php echo ROOT_PATH; ?>static-libs/fontawesome-all.min.js"></script>
     <script src="<?php echo ROOT_PATH; ?>static/assets/landing-page/js/jquery.min.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   </head>
   <body>
     <div id="loading">
