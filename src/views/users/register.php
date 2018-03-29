@@ -2,7 +2,7 @@
 
 </div>
 <div class="column is-10 is-offset-1">
-	<div class="panel">
+	<div class="panel card">
 		<div class="panel-heading">
 			<h3 class="panel-title">Register User</h3>
 		</div>
