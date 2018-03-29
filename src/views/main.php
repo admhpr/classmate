@@ -9,6 +9,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   </head>
   <body>
+    <style>
+      #loading {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        display: block;
+        background-color: #fff;
+        z-index: 99;
+        text-align: center;
+      }
+
+      #loading-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+    </style>
     <div id="loading">
       <img id="loading-image"src="<?php echo ROOT_PATH; ?>static/assets/loading.gif" alt="">
     </div>
