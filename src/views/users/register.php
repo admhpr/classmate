@@ -1,6 +1,3 @@
-<div class="columns is-fluid">
-
-</div>
 <div class="column is-10 is-offset-1">
 	<div class="panel card">
 		<div class="panel-heading">

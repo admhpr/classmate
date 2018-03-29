@@ -105,7 +105,7 @@
           <home :user-data="userData"></home>
         
         </div>
-        <script src="<?php echo ROOT_PATH; ?>dist/build.js"></script>
+        <script src="<?php echo ROOT_PATH; ?>dist/build.js" defer></script>
         <footer class="footer remove-all-styles">
           <div class="container">
             <div class="content has-text-centered">
