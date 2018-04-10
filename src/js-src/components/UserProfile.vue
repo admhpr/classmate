@@ -44,7 +44,7 @@
         <div class="tile is-ancestor">
           <div class="tile is-vertical is-8">
             <div class="tile">
-              <div class="tile is-parent">
+              <div class="tile is-parent l-tile">
                 <transition class="">
                   <article class="tile is-child notification is-cm-info">
                     <p class="title">
