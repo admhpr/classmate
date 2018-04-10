@@ -1,0 +1,19 @@
+.navbar>ul>li>a {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+
+.nav-con,
+.navbar-brand {
+  border-bottom: 1px solid $light-green;
+}
+
+.navbar {
+  box-shadow: bottom-shadow(1), top-shadow(1);
+}
+
+#burger {
+  position: fixed;
+  right: 0;
+  top: 0;
+}

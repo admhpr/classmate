@@ -1,0 +1,22 @@
+.footer{
+    padding: 2rem 1.5rem 1rem !important;
+    position: absolute;
+    right: 0;
+    left: 0;
+
+    li{
+        text-decoration: none;
+        display: inline-flex;
+    }
+    a{
+        color: $green;
+        i{
+          padding: 1em;
+        }
+
+    };
+
+    strong{
+        color: $black;
+    };
+}
