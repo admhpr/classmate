@@ -158,7 +158,7 @@
             </li>
           </ul>
           Our
-          <a href="info/privacy">Privacy policy</a>. The website content is licensed
+          <a href="<?php echo ROOT_PATH; ?>info/privacy">Privacy policy</a>. The website content is licensed
           <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
           <span>©</span>
           <span>
