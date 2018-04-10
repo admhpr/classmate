@@ -7,14 +7,21 @@
 @import "partials/form.scss";
 @import "partials/footer.scss";
 @import url("https://fonts.googleapis.com/css?family=Josefin+Slab|Raleway|Roboto+Slab");
+html{
+    background: url("../../static/assets/geometry.png");
+
+}
 body {
-  background: url("../../static/assets/geometry.png");
-  background-size:cover;
   font-family: "Raleway", serif !important;
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.5;
-  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.container{
+    max-width: 1060px;
+
 }
 
 .pattern {
