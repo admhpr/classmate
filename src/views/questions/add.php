@@ -1,17 +1,17 @@
-<div class="col-md-6 col-md-offset-3">
-		<div class="panel panel-default">
+<div class="column is-6 is-offset-3">
+		<div class="panel card">
 		<div class="panel-heading">
 			<h3 class="panel-title">Question Something!</h3>
 		</div>
-		<div class="panel-body">
-			<form method="post" action="#">
+		<div class="panel-block">
+			<form method="post" action="#" class="l-full">
 				<div class="field">
 					<label>Question</label>
-					<input type="text" name="title" class="form-control" />
+					<input type="text" name="title" class="input" />
 				</div>
 				<div class="field">
 					<label>Details</label>
-					<textarea name="content" class="form-control"></textarea>
+					<textarea name="content" class="input"></textarea>
 				</div>
 				<div class="field">
 					<label>Category</label>
@@ -25,9 +25,6 @@
 						</select>
 						</div>
 					</div>
-				</div>
-
-				<div class="form-group">
 				</div>
 				<div class="is-grouped">
 					<input class="btn btn-primary" name="submit" type="submit" value="Submit" />
