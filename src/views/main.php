@@ -96,7 +96,7 @@
         </div>
       </div>
     </nav>
-    <div class="container is-fluid">
+    <div class="main-container is-fluid">
       <!--page start-->
       <div class="row">
         <br>
