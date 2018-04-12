@@ -173,6 +173,7 @@
 
   </script>
 </body>
+
  <footer class="footer remove-all-styles">
     <div class="container">
       <div class="content has-text-centered">
