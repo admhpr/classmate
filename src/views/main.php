@@ -138,38 +138,6 @@
     </div>
     <script src="<?php echo ROOT_PATH; ?>dist/build.js" defer></script>
   </div>
-  <footer class="footer remove-all-styles">
-    <div class="container">
-      <div class="content has-text-centered">
-        <p>
-          <strong class="remove-all-styles">Classmate</strong> by
-          <a href="https://adamharpur.com">Adam Harpur</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a> and available: .
-          <ul class="icons">
-            <li>
-              <a href="https://github.com/harps116/classmate">
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/adam-harpur/">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
-          Our
-          <a href="<?php echo ROOT_PATH; ?>info/privacy">Privacy policy</a>. The website content is licensed
-          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-          <span>©</span>
-          <span>
-            <?php echo date("Y"); ?>
-          </span>
-          <span>-</span>
-          <span>ClassMate</span>
-        </p>
-      </div>
-    </div>
-  </footer>
   <script>
     $(window).load(function () {
       setTimeout(() => {
@@ -205,5 +173,37 @@
 
   </script>
 </body>
+ <footer class="footer remove-all-styles">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong class="remove-all-styles">Classmate</strong> by
+          <a href="https://adamharpur.com">Adam Harpur</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a> and available: .
+          <ul class="icons">
+            <li>
+              <a href="https://github.com/harps116/classmate">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/adam-harpur/">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          Our
+          <a href="<?php echo ROOT_PATH; ?>info/privacy">Privacy policy</a>. The website content is licensed
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          <span>©</span>
+          <span>
+            <?php echo date("Y"); ?>
+          </span>
+          <span>-</span>
+          <span>ClassMate</span>
+        </p>
+      </div>
+    </div>
+  </footer>
 
 </html>
