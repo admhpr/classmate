@@ -161,7 +161,11 @@ class UserModel extends Model{
 
 		if($_SESSION['is_logged_in']){
 			
-			$sql = 'SELECT * FROM users u
+			$sql = 'SELECT a.*, q.*, ur.*,
+					u.id, `first_name`, `last_name`, 
+					`email`, `bio`, `image_path`, 
+					`reputation`, u.is_active 
+					FROM users u
 					LEFT JOIN `answers` a 
 					ON u.id = a.user_id
 					LEFT JOIN `questions`q

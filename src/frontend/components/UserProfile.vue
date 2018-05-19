@@ -240,7 +240,7 @@ export default {
   data() {
     return {
       image: "",
-      canViewProfile: this.cmData,
+      canViewProfile: this.userData.id,
       extraData: [],
       userList: [],
       isSaved: false,
