@@ -30,7 +30,7 @@
     </div>
     <div v-else>
       <div>
-        <div v-if="currentUserId == cmData.user_id">
+        <div v-if="currentUserId == userData.id">
           <h1 class="title">Hey there {{ cmData.first_name }}!</h1>
           <h2 class="subtitle">This is your profile ..</h2>
         </div>
