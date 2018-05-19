@@ -56,7 +56,7 @@
                       <img class="animated zoomInRight" :src="cmData.image_path" alt="Profile Picture">
                     </div>
 
-                    <picture-input v-if="currentUserId == cmData.user_id && !cmData.image_path" ref="pictureInput" @change="onChange" @remove="onRemoved"
+                    <picture-input v-if="currentUserId == userData.id&& !cmData.image_path" ref="pictureInput" @change="onChange" @remove="onRemoved"
                       width="600" height="600" margin="16" accept="image/jpeg,image/png" size="10" buttonClass="btn" :removable="true"
                       :customStrings="{
                                       upload: '<h1>Upload it!</h1>',
@@ -117,7 +117,7 @@
                   <!-- Content -->
                   <tabs>
 
-                    <tab v-if="cmData.user_id == currentUserId" name="User Settings" :selected="true">
+                    <tab v-if="userData.id== currentUserId" name="User Settings" :selected="true">
                       <div class="field">
                         <div class="control has-icons-left has-icons-right">
                           <input v-model="cmData.first_name" class="input" type="text" placeholder="First Name">
