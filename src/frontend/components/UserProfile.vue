@@ -56,7 +56,7 @@
                       <img class="animated zoomInRight" :src="cmData.image_path" alt="Profile Picture">
                     </div>
 
-                    <picture-input v-if="currentUserId == userData.id&& !cmData.image_path" ref="pictureInput" @change="onChange" @remove="onRemoved"
+                    <picture-input v-if="currentUserId == userData.id && !cmData.image_path" ref="pictureInput" @change="onChange" @remove="onRemoved"
                       width="600" height="600" margin="16" accept="image/jpeg,image/png" size="10" buttonClass="btn" :removable="true"
                       :customStrings="{
                                       upload: '<h1>Upload it!</h1>',
