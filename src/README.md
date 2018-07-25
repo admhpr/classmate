@@ -1,6 +1,6 @@
 
 # ClassMate 
-![classmate_logo.png](dist/logo.png)
+![classmate_logo.png](./dist/logo.png)
 
 
 Table of Contents

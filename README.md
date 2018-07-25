@@ -6,7 +6,7 @@
 
 
 # ClassMate 
-![classmate_logo.png](classmate_logo.png)
+![classmate_logo.png](classmate-logo.png)
 
 ## Reddit/HackerNews/StackOverflow clone
 
