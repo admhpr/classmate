@@ -18,17 +18,21 @@
     "vue-spinner": "^1.0.3",
     "vue-star-rating": "^1.5.1"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
-    "node-sass": "^4.7.1",
-    "nodemon": "^1.12.1",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "sass-loader": "^6.0.6",
     "vue-loader": "^13.0.5",
     "vue-sticker": "^1.1.11",
